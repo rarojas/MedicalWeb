@@ -1,0 +1,23 @@
+{
+  "name": "medicalweb",
+  "description": "Manejo de historial clinico web",
+  "main": "index.js",
+  "authors": [
+    "ricrrojas@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rarojas/MedicalWeb",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "angular": "^1.5.8",
+    "jquery": "^3.1.1"
+  }
+}

@@ -1,0 +1,37 @@
+// my-template.jade
+extends layout
+
+block head
+  title Registra tu Clínica
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-6.col-sm-6
+          h1.head-main Registro
+          .head-last Favor de llenar los campos para poder crear tu usuario y poder formar parte de MedicalWeb
+        .col-md-6.col-sm-6
+          .div-trans.text-center
+            h3 Registro
+            form
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Nombre')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Apellidos')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Email')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Cargo')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Usuario')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='password', required='required', placeholder='Contraseña')
+              .form-group
+                button.btn.btn-success(type='submit') Registrarse

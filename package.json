@@ -1,0 +1,29 @@
+{
+  "name": "medicalweb",
+  "version": "0.0.0",
+  "description": "Manejo de historial clinico web",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rarojas/MedicalWeb.git"
+  },
+  "author": "ricrrojas@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rarojas/MedicalWeb/issues"
+  },
+  "homepage": "https://github.com/rarojas/MedicalWeb#readme",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jade": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-http-server": "^2.0.0",
+    "jade": "^1.11.0"
+  }
+}
