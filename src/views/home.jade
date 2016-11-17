@@ -3,16 +3,6 @@ block head
     title Registra tu Clínica
 
 block navbar
-  .navbar-header
-    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
-      span.sr-only Toggle navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-  // Collect the nav links for toggling
-  .collapse.navbar-collapse.navbar-ex1-collapse
-    a.navbar-brand(href='#inicio')
-      img(src='/assets/img/logo.png', style='max-width: 180px;position: relative;top: -60px;')
     ul.nav.navbar-nav.navbar-right
       li
         a(href='#inicio') INICIO
@@ -24,7 +14,6 @@ block navbar
         a(href='#price-sec') PRECIOS
       li
         a(href='#contact-sec') SUSCRIBIRSE
-  // /.navbar-collapse
 
 block content
   #inicio
@@ -207,7 +196,7 @@ block content
               i.fa.fa-pencil-square-o.fa-3x
               |  SUSCRIPCIÓN
             h4
-              strong 
+              strong
                 | Medical Web
               i La opción de acuerdo a sus necesidades
             // ****************************SUSCRIPCION***********************
