@@ -1,0 +1,53 @@
+// registroClinica.jade
+extends layout
+
+block head
+  title Registra tu Clínica - Datos de la Clínica
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Registro Datos de la Clínica
+            form
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Institución Médica')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Calle')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Número')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='CP')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Teléfono')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='password', required='required', placeholder='RFC')
+              .col-md-12.col-sm-12
+                .form-group
+                  select.form-control
+                    each type, i in entitadTipos
+                      option(value=i) Entidad - #{type}
+              .col-md-12.col-sm-12
+                each module, i in modules
+                  .col-md-4.col-sm-6
+                      ul.plan
+                        li.plan-head.head-active #{module.title}
+                        li.main-price #{module.price}
+                        li
+                          strong #{module.description}
+                        li.bottom
+                          .col-md-12
+                            .checkbox
+                              label
+                                input(type="checkbox",value=i)
+                                strong #{module.title}
+              .form-group
+                button.btn.btn-success(type='submit') Registrar Entidad
