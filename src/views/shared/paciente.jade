@@ -12,27 +12,7 @@ block content
           .div-trans.text-center
             h3 Registro Paciente Nuevo
             form
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Nombre')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Apellidos')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='CURP')
-              .col-md-12.col-sm-12
-                .form-group
-                  select.form-control(required='required')
-                    option Sexo
-                    each sex, i in sexoEnum
-                      option(value=i) #{sex}
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='date', required='required', placeholder='Fecha nacimiento')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='email', required='required', placeholder='Email')
+              include datosUsuario
               .col-md-12.col-sm-12
                 .form-group
                   select.form-control

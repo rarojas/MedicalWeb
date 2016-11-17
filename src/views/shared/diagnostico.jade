@@ -1,0 +1,28 @@
+// my-template.jade
+extends ../layoutLogged
+
+block head
+  title Diagnotico Médico
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Diagnotico Médico
+            form
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Paciente')
+              .col-md-12.col-sm-12
+                .form-group
+                  .form-group
+                    label(for="comment") Diagnostico
+                    textarea(class="form-control",rows="5")
+              .col-md-12.col-sm-12
+                .form-group
+                  label(for="comment") Tratamiento
+                  textarea(class="form-control",rows="5")
+              .form-group
+                button.btn.btn-success(type='submit') Receta Médica

@@ -1,6 +1,6 @@
 {
   "autor":"Patricia G.",
-  "ico"  :"medicalweb.ico",
+  "ico"  :"/assets/medicalweb.ico",
   "url"  : "www.medicalweb.com",
   "year" : "2016",
   "facebook":"https://www.facebook.com/",
@@ -11,5 +11,8 @@
     {"title":"Laboratorio", "price": "$2500.00 MXN / mes" , "description":"12GB Espacio en disco "}
   ],
   "tipoSanguinioEnum":["O+", "O-", "A+","A-" ,"B+","B+", "AB+", "AB-"],
-  "sexoEnum" : ["Femenino","Masculino"]
+  "sexoEnum" : ["Femenino","Masculino"],
+  "tipoSolicitudEnum": ["Atención Médica" , "Análisis"],
+  "tiposAnalisisEnum":["Químicos","Bioquímicos","Hemáticos","Microbiológicos","Otros"],
+  "tipoAdministracionMedicamentoEnum":["Oral","Cuteana","Sublingual","Intramuscular"]
 }

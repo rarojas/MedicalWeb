@@ -1,0 +1,37 @@
+// my-template.jade
+extends ../layoutLogged
+
+block head
+  title Crear Solicitud
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Crear Solicitud
+            form
+              .col-md-12.col-sm-12
+                .form-group
+                  each type, i in tipoSolicitudEnum
+                    label(class="radio-inline")
+                      input(type="radio", name="tipoSolicitud" value=i)
+                      | #{type}
+              .col-md-12.col-sm-12
+                .form-group
+                  select.form-control
+                    option Tipo Análisis
+                    each type, i in tiposAnalisisEnum
+                      option(value=i) #{type}
+              .col-md-12.col-sm-12
+                .form-group
+                  .form-group
+                    label(for="comment") Descripción
+                    textarea(class="form-control",rows="5")
+              .col-md-12.col-sm-12
+                .form-group
+                  label(for="comment") Impresión Diagnostica
+                  textarea(class="form-control",rows="5")
+              .form-group
+                button.btn.btn-success(type='submit') Registrarse

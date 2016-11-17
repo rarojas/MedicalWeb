@@ -1,0 +1,26 @@
+// my-template.jade
+extends ../layoutLogged
+
+block head
+  title Registro de Nuevo Doctor
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Registro Nuevo Doctor
+            form
+              include datosUsuario.jade
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Especialidad')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Subespecialidad')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Clave única de establecimiento de salud')
+              .form-group
+                button.btn.btn-success(type='submit') Registrar

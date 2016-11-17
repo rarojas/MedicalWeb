@@ -1,0 +1,47 @@
+// my-template.jade
+extends ../layoutLogged
+
+block head
+  title Receta Médica
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3  Receta Médica
+            form
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text',readonly="readonly",required='required',placeholder='Paciente')
+              .form-group
+                    button.btn.btn-success(type='button') Agregar medicamento
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text',required='required',placeholder='Medicamento')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text',required='required',placeholder='Dosis')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text',required='required',placeholder='Toma')
+              .col-md-12.col-sm-12
+                .form-group
+                  select.form-control(required='required')
+                    option Tipo Administracion
+                    each type, i in tipoAdministracionMedicamentoEnum
+                      option(value=i) #{type}
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='date',required='required',placeholder='Desde')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='date',required='required',placeholder='Hasta')
+              .col-md-12.col-sm-12
+                .form-group
+                  .form-group
+                    label(for="comment") Información Adicional
+                    textarea(class="form-control",rows="5")
+              .form-group
+                button.btn.btn-success(type='submit') Crear Receta Médica
