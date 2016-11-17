@@ -6,7 +6,7 @@
 
     100% To use For Personal And Commercial Use.
     IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
+
     ========================================================  */
 
 
@@ -29,8 +29,8 @@ h1, h2, h3, h4, h5, h6, h10 {
 
 h1 {
     margin-top:320px;
-	 	
-   
+
+
 }
 h2 {
     color:#27C00A;
@@ -44,7 +44,7 @@ background: #27C00A;
 margin: 10px auto 40px;
 
     }
-    
+
 
 h3 {
     line-height:30px;
@@ -73,7 +73,7 @@ section {
 }
 
 /*=======================================
-    COLOR CODES          los iconos de las caracteristicas 
+    COLOR CODES          los iconos de las caracteristicas
 ==================================================*/
 .main-color {
     color: #27C00A;
@@ -97,9 +97,9 @@ nav {
     z-index:99;
 }
 .fixed {
-	position: fixed; 
-	top: 0; 
-	min-height: 50px; 
+	position: fixed;
+	top: 0;
+	min-height: 50px;
 	z-index: 99;
 }
 
@@ -126,7 +126,7 @@ color:  #27C00A;
 	 color:#666666;
 }
 .head-last {
-  
+
     padding:5px 20px 200px 20px;
     color:#fff;
 }
@@ -187,10 +187,10 @@ color:#fff;
     margin: 30px 0px;
     list-style: none;
     text-align: center;
-  
+    border-radius: 6px;
 }
 
-.plan-active {
+.plan-active, .plan:hover {
           -webkit-transform: scale(1.1);
        -moz-transform: scale(1.1);
         -ms-transform: scale(1.1);
@@ -258,4 +258,3 @@ background-color: #000080;
     padding:20px 50px 20px 50px;
     text-align:right;
 }
-
