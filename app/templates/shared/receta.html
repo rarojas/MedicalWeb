@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <div class="div-trans text-center">
-              <h3> Receta Médica {{recetaCtrl.receta}}</h3>
+              <h3>Receta Médica {{recetaCtrl}}</h3>
               <form name="form" novalidate class="css-form">
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
@@ -40,42 +40,56 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button type="button" class="btn btn-success">Agregar medicamento</button>
+                  <button type="button" ng-click="recetaCtrl.addMedicamento()" class="btn btn-success">Agregar medicamento</button>
                 </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Medicamento" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Dosis" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Toma" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <select required="required" class="form-control">
-                      <option>Tipo Administracion</option>
-                      <option value="0">Oral</option>
-                      <option value="1">Cuteana</option>
-                      <option value="2">Sublingual</option>
-                      <option value="3">Intramuscular</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="date" ng-model="recetaCtrl.receta.inicio" name="rInicio" required="required" placeholder="Desde" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="date" required="required" placeholder="Hasta" class="form-control">
+                <div class="row">
+                  <div ng-repeat="(key, medicamento) in recetaCtrl.receta.medicamentos" class="col-md-4">
+                    <div class="form-group">
+                      <div class="col-md-8">
+                        <h3> Medicamento {{key + 1 }}</h3>
+                      </div>
+                      <div class="col-md-4">
+                        <button type="button" ng-click="recetaCtrl.removeMedicamento(medicamento)" class="btn btn-danger">x</button>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" class="form-control">
+                        <div ng-messages="form['mMedicamento_' + $index].$error" ng-show="form['mMedicamento_' + $index].$touched" class="help-block">
+                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="text" ng-model="medicamento.dosis" name="mDosis" required="required" placeholder="Dosis" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="text" ng-model="medicamento.toma" name="mToma" required="required" placeholder="Toma" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <select required="required" ng-model="medicamento.administracion" name="mAdministracion" class="form-control">
+                          <option>Tipo Administracion</option>
+                          <option value="0">Oral</option>
+                          <option value="1">Cuteana</option>
+                          <option value="2">Sublingual</option>
+                          <option value="3">Intramuscular</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="date" ng-model="medicamento.inicio" name="mInicio" required="required" placeholder="Desde" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group"></div>
+                      <input type="date" ng-model="medicamento.fin" name="mFin" required="required" placeholder="Hasta" class="form-control">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
@@ -105,9 +119,11 @@
     <div id="footer" class="for-full-back">2016 www.medicalweb.com | Patricia G.</div>
     <script src="/assets/plugins/jquery-1.10.2.js"></script>
     <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-messages.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/plugins/jquery.parallax-1.1.3.js"></script>
     <script src="/assets/js/custom.js"></script>
-    <script src="/js/medicalWeb.min.js"></script>
+    <script src="/js/app.js">   </script>
+    <script src="/js/receta.controller.js"></script>
   </body>
 </html>

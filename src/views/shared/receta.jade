@@ -4,40 +4,50 @@ extends ../layoutLogged
 block head
   title Receta Médica
 
+
 block content
   #inicio(ng-controller="recetaController as recetaCtrl")
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
-            h3  Receta Médica {{recetaCtrl.receta}}
+            h3 Receta Médica {{recetaCtrl}}
             form( name="form",class="css-form",novalidate)
               .col-md-12.col-sm-12
                 .form-group
                   input.form-control(type='text',readonly="readonly",required='required',placeholder='Paciente')
               .form-group
-                    button.btn.btn-success(type='button') Agregar medicamento
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text',required='required',placeholder='Medicamento')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text',required='required',placeholder='Dosis')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text',required='required',placeholder='Toma')
-              .col-md-12.col-sm-12
-                .form-group
-                  select.form-control(required='required')
-                    option Tipo Administracion
-                    each type, i in tipoAdministracionMedicamentoEnum
-                      option(value=i) #{type}
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='date',ng-model="recetaCtrl.receta.inicio",name="rInicio",required='required',placeholder='Desde')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='date',required='required',placeholder='Hasta')
+                    button.btn.btn-success(type='button',ng-click="recetaCtrl.addMedicamento()") Agregar medicamento
+              .row
+                .col-md-4(ng-repeat="(key, medicamento) in recetaCtrl.receta.medicamentos")
+                  .form-group
+                    .col-md-8
+                      h3  Medicamento {{key + 1 }}
+                    .col-md-4
+                      button.btn.btn-danger(type='button',ng-click="recetaCtrl.removeMedicamento(medicamento)") x
+                  .col-md-12.col-sm-12
+                    .form-group
+                      input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento')
+                      .help-block(ng-messages="form['mMedicamento_' + $index].$error",ng-show="form['mMedicamento_' + $index].$touched")
+                        .div(ng-messages-include="/templates/shared/messages.html")
+                  .col-md-12.col-sm-12
+                    .form-group
+                      input.form-control(type='text',ng-model="medicamento.dosis",name="mDosis",required='required',placeholder='Dosis')
+                  .col-md-12.col-sm-12
+                    .form-group
+                      input.form-control(type='text',ng-model="medicamento.toma",name="mToma",required='required',placeholder='Toma')
+                  .col-md-12.col-sm-12
+                    .form-group
+                      select.form-control(required='required',ng-model="medicamento.administracion",name="mAdministracion")
+                        option Tipo Administracion
+                        each type, i in tipoAdministracionMedicamentoEnum
+                          option(value=i) #{type}
+                  .col-md-12.col-sm-12
+                    .form-group
+                      input.form-control(type='date',ng-model="medicamento.inicio",name="mInicio",required='required',placeholder='Desde')
+                  .col-md-12.col-sm-12
+                    .form-group
+                    input.form-control(type='date',ng-model="medicamento.fin",name="mFin",required='required',placeholder='Hasta')
               .col-md-12.col-sm-12
                 .form-group
                   .form-group
