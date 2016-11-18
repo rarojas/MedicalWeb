@@ -40,12 +40,21 @@ module.exports = function(grunt) {
           tasks: ['jade','copy']
         }
     },
+    uglify: {
+      main: {
+        files: {
+          'build/js/medicalWeb.min.js': ['src/js/**/*.js']
+        }
+      }
+    },
     copy: {
       main: {
         files: [
-           {expand: true, src: ['**'],
-           cwd: 'build/', dest: 'app/'},
+           {expand: true, src: ['**'], cwd: 'build/', dest: 'app/'},
            {expand: true, src: ['assets/**'], dest: 'app/'},
+           {expand: true, src: ['**/*.{ttf,woff,otf,svg,eot,woff2}'], cwd: 'bower_components/', dest: 'app/fonts', filter:'isFile',flatten: true},
+           {expand : true, src:['**/*.min.js'], cwd: 'bower_components/',dest:'app/js', filter: 'isFile',flatten: true},
+           {expand : true, src:['**/*.min.css'], cwd: 'bower_components/',dest:'app/css', filter: 'isFile',flatten: true}
         ],
       },
     },
@@ -54,11 +63,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-http-server');
 
 
   // Default task.
   grunt.registerTask('default', 'Convert Jade templates into html templates', ['jade']);
-  grunt.registerTask('build', 'Convert Jade templates into html templates and watch', ['jade','copy','http-server','watch']);
+  grunt.registerTask('build', 'Convert Jade templates into html templates and watch', ['jade','uglify','copy','http-server','watch']);
 
 };

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="medicalWeb">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="PT_2">
     <meta name="author" content="Patricia G.">
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/assets/medicalweb.ico">
@@ -27,13 +27,13 @@
         </div>
       </nav>
     </header>
-    <div id="inicio">
+    <div id="inicio" ng-controller="recetaController as recetaCtrl">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <div class="div-trans text-center">
-              <h3> Receta Médica</h3>
-              <form>
+              <h3> Receta Médica {{recetaCtrl.receta}}</h3>
+              <form name="form" novalidate class="css-form">
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
                     <input type="text" readonly="readonly" required="required" placeholder="Paciente" class="form-control">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <input type="date" required="required" placeholder="Desde" class="form-control">
+                    <input type="date" ng-model="recetaCtrl.receta.inicio" name="rInicio" required="required" placeholder="Desde" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
@@ -104,8 +104,10 @@
     </div>
     <div id="footer" class="for-full-back">2016 www.medicalweb.com | Patricia G.</div>
     <script src="/assets/plugins/jquery-1.10.2.js"></script>
-    <script src="/assets/plugins/bootstrap.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/plugins/jquery.parallax-1.1.3.js"></script>
     <script src="/assets/js/custom.js"></script>
+    <script src="/js/medicalWeb.min.js"></script>
   </body>
 </html>

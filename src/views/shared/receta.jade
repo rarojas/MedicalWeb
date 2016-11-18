@@ -5,13 +5,13 @@ block head
   title Receta Médica
 
 block content
-  #inicio
+  #inicio(ng-controller="recetaController as recetaCtrl")
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
-            h3  Receta Médica
-            form
+            h3  Receta Médica {{recetaCtrl.receta}}
+            form( name="form",class="css-form",novalidate)
               .col-md-12.col-sm-12
                 .form-group
                   input.form-control(type='text',readonly="readonly",required='required',placeholder='Paciente')
@@ -34,7 +34,7 @@ block content
                       option(value=i) #{type}
               .col-md-12.col-sm-12
                 .form-group
-                  input.form-control(type='date',required='required',placeholder='Desde')
+                  input.form-control(type='date',ng-model="recetaCtrl.receta.inicio",name="rInicio",required='required',placeholder='Desde')
               .col-md-12.col-sm-12
                 .form-group
                   input.form-control(type='date',required='required',placeholder='Hasta')
