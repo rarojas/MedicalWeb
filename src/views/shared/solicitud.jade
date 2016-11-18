@@ -4,23 +4,30 @@ extends ../layoutLogged
 block head
   title Crear Solicitud
 
+block scripts
+  script(src='/js/solicitud.controller.js')
+
 block content
-  #inicio
+  #inicio(ng-controller="solicitudController  as solicitudCtrl")
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
             h3 Crear Solicitud
-            form
+            form(name="form")
               .col-md-12.col-sm-12
                 .form-group
-                  each type, i in tipoSolicitudEnum
+                  ng-repeat(ng-repeat="tipoSolicitud in solicitudCtrl.tipoSolicitudEnum")
                     label(class="radio-inline")
-                      input(type="radio", name="tipoSolicitud" value=i)
-                      | #{type}
+                      input(type="radio", name="tipoSolicitud" ng-model="solicitudCtrl.solicitud.tipo" value="{{tipoSolicitud.value}}")
+                      | {{tipoSolicitud.text}}
+                  //each type, i in tipoSolicitudEnum
+                  //  label(class="radio-inline")
+                  //    input(type="radio", name="tipoSolicitud" value=i)
+                  //    | #{type}
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control
+                  select.form-control(ng-show="solicitudCtrl.solicitud.tipo == 1")
                     option Tipo Análisis
                     each type, i in tiposAnalisisEnum
                       option(value=i) #{type}
@@ -28,10 +35,10 @@ block content
                 .form-group
                   .form-group
                     label(for="comment") Descripción
-                    textarea(class="form-control",rows="5")
+                    textarea(class="form-control",rows="5",ng-model="solicitudCtrl.solicitud.descripcion")
               .col-md-12.col-sm-12
                 .form-group
                   label(for="comment") Impresión Diagnostica
-                  textarea(class="form-control",rows="5")
+                  textarea(class="form-control",rows="5",ng-model="solicitudCtrl.solicitud.impresion")
               .form-group
                 button.btn.btn-success(type='submit') Registrarse

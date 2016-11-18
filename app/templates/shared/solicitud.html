@@ -27,26 +27,29 @@
         </div>
       </nav>
     </header>
-    <div id="inicio">
+    <div id="inicio" ng-controller="solicitudController  as solicitudCtrl">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <div class="div-trans text-center">
               <h3>Crear Solicitud</h3>
-              <form>
+              <form name="form">
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <label class="radio-inline">
-                      <input type="radio" name="tipoSolicitud" value="0">Atención Médica
-                    </label>
-                    <label class="radio-inline">
-                      <input type="radio" name="tipoSolicitud" value="1">Análisis
-                    </label>
+                    <ng-repeat ng-repeat="tipoSolicitud in solicitudCtrl.tipoSolicitudEnum">
+                      <label class="radio-inline">
+                        <input type="radio" name="tipoSolicitud" ng-model="solicitudCtrl.solicitud.tipo" value="{{tipoSolicitud.value}}">{{tipoSolicitud.text}}
+                      </label>
+                    </ng-repeat>
+                    <!--each type, i in tipoSolicitudEnum-->
+                    <!--  label(class="radio-inline")-->
+                    <!--    input(type="radio", name="tipoSolicitud" value=i)-->
+                    <!--    | #{type}-->
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <select class="form-control">
+                    <select ng-show="solicitudCtrl.solicitud.tipo == 1" class="form-control">
                       <option>Tipo Análisis</option>
                       <option value="0">Químicos</option>
                       <option value="1">Bioquímicos</option>
@@ -60,14 +63,14 @@
                   <div class="form-group">
                     <div class="form-group">
                       <label for="comment">Descripción</label>
-                      <textarea rows="5" class="form-control"></textarea>
+                      <textarea rows="5" ng-model="solicitudCtrl.solicitud.descripcion" class="form-control"></textarea>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
                     <label for="comment">Impresión Diagnostica</label>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" ng-model="solicitudCtrl.solicitud.impresion" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -95,5 +98,6 @@
     <script src="/assets/js/custom.js"></script>
     <script src="/js/app.js">   </script>
     <script src="/js/receta.controller.js"></script>
+    <script src="/js/solicitud.controller.js"></script>
   </body>
 </html>
