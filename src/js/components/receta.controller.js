@@ -14,7 +14,7 @@ function RecetaController($scope) {
     vm.removeMedicamento = function(medicamento) {
       vm.receta.medicamentos.pop(medicamento);
     };
-    
+
     $scope.vm = vm;
 }
 

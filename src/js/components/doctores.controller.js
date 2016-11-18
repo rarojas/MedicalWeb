@@ -6,5 +6,5 @@ function DoctoresController($scope) {
     $scope.vm = vm;
 }
 
-RecetaController.$inject = ["$scope"];
+DoctoresController.$inject = ["$scope"];
 angular.module("app.controllers").controller("doctoresController", DoctoresController);
