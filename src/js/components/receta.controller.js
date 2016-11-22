@@ -1,4 +1,4 @@
-function RecetaController($scope) {
+function RecetaController($scope,constants) {
     var vm = this;
     vm.receta = {
       medicamentos : [],
@@ -15,8 +15,10 @@ function RecetaController($scope) {
       vm.receta.medicamentos.pop(medicamento);
     };
 
+    vm.minDate = new Date();
+    vm.tipoAdministracionMedicamentoEnum = constants.tipoAdministracionMedicamentoEnum;
     $scope.vm = vm;
 }
 
-RecetaController.$inject = ["$scope"];
-angular.module("app.controllers",[]).controller("recetaController", RecetaController);
+RecetaController.$inject = ["$scope","constants"];
+angular.module("app.controllers").controller("recetaController", RecetaController);
