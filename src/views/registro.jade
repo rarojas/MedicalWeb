@@ -1,8 +1,16 @@
 // my-template.jade
-extends layout
+//extends layout
 
-block head
-  title Registra tu Clínica
+//block head
+  //title Registra tu Clínica
+mixin message_(name)
+  .help-block(ng-messages="form.#{name}.$error",ng-show="form.#{name}.$touched")
+    .div(ng-messages-include="/templates/shared/messages.html")
+          
+mixin formvalid_(name)
+  .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid }")
+    block
+
 
 block content
   #inicio(ng-controller="registroController as vm")

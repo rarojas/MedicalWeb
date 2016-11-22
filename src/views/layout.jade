@@ -44,11 +44,23 @@ html(ng-app="medicalWeb")
               img(src='/assets/img/logo.png', style='max-width: 180px;position: relative;top: -60px;')
             ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
               li
-                a(href='#/MiPerfil')
+                a(href ng-click="navCtrl.logout()")
                   i.fa.fa-user.fa-fw
                   | Mi Perfil
+            ul.nav.navbar-nav.navbar-right(ng-if="!navCtrl.logged")
+              li
+                a(href='#inicio') INICIO
+              li
+                a(href='#caracteristicas') CARACTERISTICAS
+              li
+                a(href='#sistemas') SISTEMAS
+              li
+                a(href='#price-sec') PRECIOS
+              li
+                a(href='#contact-sec') SUSCRIBIRSE
             block navbar
-    block content
+    div(ng-view)
+      block content
     .container
       .row
         .col-md-12

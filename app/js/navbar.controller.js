@@ -5,8 +5,13 @@ function NavBarController($scope,$location,$rootScope) {
       return viewLocation === $location.path();
     }
     $rootScope.$on("logged", function(){
-        vm.logged = true;
+        vm.logged = $rootScope.logged;
     });
+
+    vm.logout = function(){
+      $rootScope.logged = false;
+      $rootScope.$broadcast("logged");
+    }
 }
 
 NavBarController.$inject = ["$scope","$location","$rootScope"];

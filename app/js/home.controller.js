@@ -3,6 +3,7 @@ function HomeController($scope,$location,$rootScope,constants) {
     vm.login  = function(){
       $rootScope.logged = true;
       $rootScope.$broadcast("logged");
+      $location.path("/registro")
     }
     vm.modulos = angular.copy(constants.modulos);
 

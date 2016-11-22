@@ -22,7 +22,14 @@
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+              <li><a href ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+            </ul>
+            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#inicio">INICIO</a></li>
+              <li><a href="#caracteristicas">CARACTERISTICAS</a></li>
+              <li><a href="#sistemas">SISTEMAS</a></li>
+              <li><a href="#price-sec">PRECIOS</a></li>
+              <li><a href="#contact-sec">SUSCRIBIRSE</a></li>
             </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
               <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
@@ -34,36 +41,38 @@
         </div>
       </nav>
     </header>
-    <div id="inicio">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="div-trans text-center">
-              <h3>Diagnotico Médico</h3>
-              <form>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Paciente" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
+    <div ng-view>
+      <div id="inicio">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="div-trans text-center">
+                <h3>Diagnotico Médico</h3>
+                <form>
+                  <div class="col-md-12 col-sm-12">
                     <div class="form-group">
-                      <label for="comment">Diagnostico</label>
+                      <input type="text" required="required" placeholder="Paciente" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="comment">Diagnostico</label>
+                        <textarea rows="5" class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                      <label for="comment">Tratamiento</label>
                       <textarea rows="5" class="form-control"></textarea>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <label for="comment">Tratamiento</label>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <button type="submit" class="btn btn-success">Receta Médica</button>
                   </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success">Receta Médica</button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
