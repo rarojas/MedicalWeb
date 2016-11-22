@@ -14,31 +14,27 @@ block content
         .col-md-12.col-sm-12
           .div-trans.text-center
             h3 Crear Solicitud
-            form(name="form")
+            form.form(name="form",novalidate)
               .col-md-12.col-sm-12
-                .form-group
+                +formvalid_("tipoSolicitud")
                   ng-repeat(ng-repeat="tipoSolicitud in solicitudCtrl.tipoSolicitudEnum")
                     label(class="radio-inline")
                       input(type="radio", name="tipoSolicitud" ng-model="solicitudCtrl.solicitud.tipo" value="{{tipoSolicitud.value}}")
                       | {{tipoSolicitud.text}}
-                  //each type, i in tipoSolicitudEnum
-                  //  label(class="radio-inline")
-                  //    input(type="radio", name="tipoSolicitud" value=i)
-                  //    | #{type}
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control(ng-show="solicitudCtrl.solicitud.tipo == 1")
-                    option Tipo Análisis
+                  select.form-control(name="tipo",ng-model="solicitudCtrl.solititud.tipo",required="required",ng-show="solicitudCtrl.solicitud.tipo == 1")
+                    option(value="") Tipo Análisis
                     each type, i in tiposAnalisisEnum
                       option(value=i) #{type}
               .col-md-12.col-sm-12
                 .form-group
                   .form-group
                     label(for="comment") Descripción
-                    textarea(class="form-control",rows="5",ng-model="solicitudCtrl.solicitud.descripcion")
+                    textarea(class="form-control",rows="5",name="descripcion",required="required",ng-model="solicitudCtrl.solicitud.descripcion")
               .col-md-12.col-sm-12
                 .form-group
                   label(for="comment") Impresión Diagnostica
-                  textarea(class="form-control",rows="5",ng-model="solicitudCtrl.solicitud.impresion")
+                  textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="solicitudCtrl.solicitud.impresion")
               .form-group
-                button.btn.btn-success(type='submit') Registrarse
+                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrarse

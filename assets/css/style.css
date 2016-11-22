@@ -191,12 +191,10 @@ color:#fff;
 }
 
 .plan-active, .plan:hover {
-          -webkit-transform: scale(1.1);
-       -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-         -o-transform: scale(1.1);
-            transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+  border: 2px solid rgba(81, 203, 238, 1);
 }
+
 .head-active {
     background-color: #658AEB!important;
 }

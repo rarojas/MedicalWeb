@@ -40,7 +40,7 @@ block content
               input(type='checkbox')
               | Remember me
               .form-group
-                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") login
+                button.btn.btn-success(type='submit') Login
       // *************************************hasta aqui***************************************
   // End Header section
   section#Parallax-one
@@ -146,7 +146,7 @@ block content
   // *********************************************************PRECIOS*************************************************************
   // ./parallax one
   // Pricing Section
-  section#price-sec
+  section#price-sec(ng-controller="homeController as homeCtrl")
     .container
       .row.text-center
         .col-md-8.col-md-offset-2
@@ -156,34 +156,13 @@ block content
               | Tenemos el objetivo de ayudar a los médicos a ejecutar mejores prácticas, somos empresa liider em proveer software y servicios
               | de TI aplicados a la Salud, basados en Tecnologías de la Nube.
       .row.text-center
-        .col-md-12
-          .col-md-4.col-sm-6
-            ul.plan
-              li.plan-head.head-active 1 Módulo
-              li.main-price $NO SE
-              li
-                strong 12GB
-                | Espacio en disco
-              li.bottom
-                a.btn.btn-warning(href='#contact-sec') OK
-          .col-md-4.col-sm-6
-            ul.plan
-              li.plan-head.head-active 2 Módulos
-              li.main-price $NO SE
-              li
-                strong 22GB
-                | Espacio en disco
-              li.bottom
-                a.btn.btn-primary(href='#contact-sec') OK
-          .col-md-4.col-sm-6
-            ul.plan
-              li.plan-head.head-active 3 Módulos
-              li.main-price $NO SE
-              li
-                strong 32GB
-                | Spacce
-              li.bottom
-                a.btn.btn-danger(href='#contact-sec') OK
+        ng-repeat(ng-repeat="modulo in homeCtrl.modulos")
+          .col-md-4.col-sm-6(ng-click="vm.toogle(modulo)")
+              ul.plan(ng-class="{'plan-active': modulo.selected }")
+                li.plan-head.head-active {{modulo.title}}
+                li.main-price {{modulo.price | currency: "MXN$ ": 2}} / Mes
+                li
+                  strong {{modulo.description}}
   // End Pricing Section
   // *********************************************************ULTIMO/SUSCRIPCION************************************************************
   // parallax two

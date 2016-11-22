@@ -4,50 +4,57 @@ extends layout
 block head
   title Registra tu Clínica - Datos de la Clínica
 
+
 block content
-  #inicio
+  #inicio(ng-controller="registroClinicaController  as vm")
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
-            h3 Registro Datos de la Clínica
-            form
+            h3 Registro Datos de la Clínica {{vm.getTotal()}}
+            form.form(name="form",novalidate,ng-submit="vm.sendRegistro()")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Institución Médica')
+                +formvalid_("institucion")
+                  input.form-control(type='text',ng-model="vm.institucion",name="institucion",required='required', placeholder='Institución Médica')
+                  +message_("institucion")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Calle')
+                +formvalid_("calle")
+                  input.form-control(type='text',ng-model="vm.calle",name="calle", required='required', placeholder='Calle')
+                  +message_("calle")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Número')
+                +formvalid_("numero")
+                  input.form-control(type='text',ng-model="vm.numero",name="numero", required='required', placeholder='Número')
+                  +message_("numero")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='CP')
+                +formvalid_("cp")
+                  input.form-control(type='text',ng-model="vm.cp",name="cp", required='required', placeholder='CP')
+                  +message_("cp")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Teléfono')
+                +formvalid_("telefono")
+                  input.form-control(type='phone',ng-model="vm.telefono",name="telefono", required='required', placeholder='Teléfono')
+                  +message_("telefono")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='password', required='required', placeholder='RFC')
+                +formvalid_("rfc")
+                  input.form-control(type='password',ng-model="vm.rfc",name="rfc", required='required', placeholder='RFC')
+                  +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group
                   select.form-control
                     each type, i in entitadTipos
                       option(value=i) Entidad - #{type}
               .col-md-12.col-sm-12
-                each module, i in modules
-                  .col-md-4.col-sm-6
-                      ul.plan
-                        li.plan-head.head-active #{module.title}
-                        li.main-price #{module.price}
+                ng-repeat(ng-repeat="modulo in vm.modulos")
+                  .col-md-4.col-sm-6(ng-click="vm.toogle(modulo)")
+                      ul.plan(ng-class="{'plan-active': modulo.selected }")
+                        li.plan-head.head-active {{modulo.title}}
+                        li.main-price {{modulo.price | currency: "MXN$ ": 2}} / Mes
                         li
-                          strong #{module.description}
+                          strong {{modulo.description}}
                         li.bottom
                           .col-md-12
                             .checkbox
                               label
-                                input(type="checkbox",value=i)
-                                strong #{module.title}
+                                input(type="checkbox",name="selectedModules[]", value="{{modulo}}", ng-model="modulo.selected")
+                                strong {{modulo.title}}
               .form-group
-                button.btn.btn-success(type='submit') Registrar Entidad
+                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrar Entidad

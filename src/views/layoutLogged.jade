@@ -2,8 +2,13 @@
 extends layout
 
 block navbar
-  ul.nav.navbar-nav.navbar-right
-    li
-      a(href='#/MiPerfil')
-        i.fa.fa-user.fa-fw
-        | Mi Perfil
+    ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
+      li
+        a(href='#/MiPerfil')
+          i.fa.fa-user.fa-fw
+          | Mi Perfil
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(href='#/MiPerfil')
+          i.fa.fa-user.fa-fw
+          | Mi Perfil

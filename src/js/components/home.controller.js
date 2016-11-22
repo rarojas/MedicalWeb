@@ -1,10 +1,12 @@
-function HomeController($scope,$location) {
+function HomeController($scope,$location,$rootScope,constants) {
     var vm = this;
     vm.login  = function(){
-      $location.path("templates/shared/solicitud.html");
+      $rootScope.logged = true;
+      $rootScope.$broadcast("logged");
     }
-    $scope.vm = vm;
+    vm.modulos = angular.copy(constants.modulos);
+
 }
 
-HomeController.$inject = ["$scope","$location"];
+HomeController.$inject = ["$scope","$location","$rootScope","constants"];
 angular.module("app.controllers").controller("homeController", HomeController);

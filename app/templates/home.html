@@ -8,18 +8,22 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/autocomplete.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/assets/medicalweb.ico">
     <title>Registra tu Clínica</title>
   </head>
   <body>
-    <header>
+    <header ng-controller="navBarController as navCtrl">
       <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
+            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#inicio">INICIO</a></li>
               <li><a href="#caracteristicas">CARACTERISTICAS</a></li>
@@ -59,7 +63,7 @@
                 </div>
                 <input type="checkbox">Remember me
                 <div class="form-group">
-                  <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">login</button>
+                  <button type="submit" class="btn btn-success">Login</button>
                 </div>
               </form>
             </div>
@@ -176,7 +180,7 @@
     <!-- *********************************************************PRECIOS*************************************************************-->
     <!-- ./parallax one-->
     <!-- Pricing Section-->
-    <section id="price-sec">
+    <section id="price-sec" ng-controller="homeController as homeCtrl">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-8 col-md-offset-2">
@@ -187,32 +191,15 @@
           </div>
         </div>
         <div class="row text-center">
-          <div class="col-md-12">
-            <div class="col-md-4 col-sm-6">
-              <ul class="plan">
-                <li class="plan-head head-active">1 Módulo</li>
-                <li class="main-price">$NO SE</li>
-                <li><strong>12GB</strong>Espacio en disco</li>
-                <li class="bottom"><a href="#contact-sec" class="btn btn-warning">OK</a></li>
+          <ng-repeat ng-repeat="modulo in homeCtrl.modulos">
+            <div ng-click="vm.toogle(modulo)" class="col-md-4 col-sm-6">
+              <ul ng-class="{'plan-active': modulo.selected }" class="plan">
+                <li class="plan-head head-active">{{modulo.title}}</li>
+                <li class="main-price">{{modulo.price | currency: "MXN$ ": 2}} / Mes</li>
+                <li><strong>{{modulo.description}}</strong></li>
               </ul>
             </div>
-            <div class="col-md-4 col-sm-6">
-              <ul class="plan">
-                <li class="plan-head head-active">2 Módulos</li>
-                <li class="main-price">$NO SE</li>
-                <li><strong>22GB</strong>Espacio en disco</li>
-                <li class="bottom"><a href="#contact-sec" class="btn btn-primary">OK</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <ul class="plan">
-                <li class="plan-head head-active">3 Módulos</li>
-                <li class="main-price">$NO SE</li>
-                <li><strong>32GB</strong>Spacce</li>
-                <li class="bottom"><a href="#contact-sec" class="btn btn-danger">OK</a></li>
-              </ul>
-            </div>
-          </div>
+          </ng-repeat>
         </div>
       </div>
     </section>
@@ -289,6 +276,12 @@
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
     <script src="/js/app.routes.js"></script>
+    <script src="/js/navBar.controller.js"></script>
+    <script src="/js/common.directives.js"></script>
+    <script src="/js/cps.service.js"></script>
+    <script src="/js/autocomplete.js"></script>
     <script src="/js/home.controller.js"></script>
+    <script src="/js/registro.controller.js"></script>
+    <script src="/js/registroClinica.controller.js"></script>
   </body>
 </html>

@@ -4,11 +4,8 @@ extends layout
 block head
   title Registra tu Clínica
 
-block scripts
-  script(src='/js/receta.controller.min.js')
-
 block content
-  #inicio
+  #inicio(ng-controller="registroController as vm")
     .container
       .row
         .col-md-6.col-sm-6
@@ -17,24 +14,34 @@ block content
         .col-md-6.col-sm-6
           .div-trans.text-center
             h3 Registro
-            form
+            form(name="form",novalidate, class="form")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Nombre')
+                +formvalid_("name")
+                  input.form-control(type='text', required='required', placeholder='Nombre', ng-model="vm.name",name="name")
+                  +message_("name")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Apellidos')
+                +formvalid_("apellidos")
+                  input.form-control(type='text', required='required', placeholder='Apellidos', ng-model="vm.apellidos",name="apellidos")
+                  +message_("apellidos")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Email')
+                +formvalid_("email")
+                  input.form-control(type='email', required='required', placeholder='Email', ng-model="vm.email",name="email")
+                  +message_("email")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Cargo')
+                +formvalid_("cargo")
+                  input.form-control(type='text', required='required', placeholder='Cargo', ng-model="vm.cargo",name="cargo")
+                  +message_("cargo")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Usuario')
+                +formvalid_("username")
+                  input.form-control(type='text', required='required', placeholder='Usuario', ng-model="vm.username",name="username")
+                  +message_("username")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='password', required='required', placeholder='Contraseña')
+                +formvalid_("password")
+                  input.form-control(type='password', required='required', placeholder='Contraseña', ng-model="vm.password",name="password")
+                  +message_("password")
+              .col-md-12.col-sm-12
+                +formvalid_("confirm")
+                  input.form-control(type='password', required='required', placeholder='Cofirma Contraseña', ng-model="vm.confirm",name="confirm",compare-to="vm.password")
+                  +message_("confirm")
               .form-group
-                button.btn.btn-success(type='submit') Registrarse
+                button.btn.btn-success(type='submit' ng-disabled="form.$invalid") Registrarse

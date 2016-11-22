@@ -1,16 +1,12 @@
-function SolicitudController($scope) {
+function SolicitudController($scope,constants) {
     var vm = this;
     vm.solicitud = {
       descripcion : "paciente",
       impresion : "algo",
       tipo : 0
     }
-    vm.tipoSolicitudEnum = [
-      { value : 0, text :"Atención médica" },
-      { value : 1, text :"Análisis" }
-    ]
-    $scope.vm = vm;
+    vm.tipoSolicitudEnum = constants.tipoSolicitudEnum
 }
 
-SolicitudController.$inject = ["$scope"];
+SolicitudController.$inject = ["$scope","constants"];
 angular.module("app.controllers").controller("solicitudController", SolicitudController);
