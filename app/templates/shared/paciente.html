@@ -24,13 +24,6 @@
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
               <li><a href ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
             </ul>
-            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#inicio">INICIO</a></li>
-              <li><a href="#caracteristicas">CARACTERISTICAS</a></li>
-              <li><a href="#sistemas">SISTEMAS</a></li>
-              <li><a href="#price-sec">PRECIOS</a></li>
-              <li><a href="#contact-sec">SUSCRIBIRSE</a></li>
-            </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
               <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
             </ul>
@@ -41,78 +34,77 @@
         </div>
       </nav>
     </header>
-    <div ng-view>
-      <div id="inicio">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-sm-12">
-              <div class="div-trans text-center">
-                <h3>Registro Paciente Nuevo</h3>
-                <form>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="text" required="required" placeholder="Nombre" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="text" required="required" placeholder="Apellidos" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="text" required="required" placeholder="CURP" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <select required="required" class="form-control">
-                        <option>Sexo</option>
-                        <option value="0">Femenino</option>
-                        <option value="1">Masculino</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="date" required="required" placeholder="Fecha nacimiento" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="email" required="required" placeholder="Email" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Tipo Sanguinio</option>
-                        <option value="0">O+</option>
-                        <option value="1">O-</option>
-                        <option value="2">A+</option>
-                        <option value="3">A-</option>
-                        <option value="4">B+</option>
-                        <option value="5">B+</option>
-                        <option value="6">AB+</option>
-                        <option value="7">AB-</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="text" required="required" placeholder="Alergias" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12">
-                    <div class="form-group">
-                      <input type="text" required="required" placeholder="Discapacidades" class="form-control">
-                    </div>
-                  </div>
+    <!--div(ng-view)-->
+    <div id="inicio">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="div-trans text-center">
+              <h3>Registro Paciente Nuevo</h3>
+              <form>
+                <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <button type="submit" class="btn btn-success">Registrarse</button>
+                    <input type="text" required="required" placeholder="Nombre" class="form-control">
                   </div>
-                </form>
-              </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" required="required" placeholder="Apellidos" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" required="required" placeholder="CURP" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <select required="required" class="form-control">
+                      <option>Sexo</option>
+                      <option value="0">Femenino</option>
+                      <option value="1">Masculino</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="date" required="required" placeholder="Fecha nacimiento" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="email" required="required" placeholder="Email" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Tipo Sanguinio</option>
+                      <option value="0">O+</option>
+                      <option value="1">O-</option>
+                      <option value="2">A+</option>
+                      <option value="3">A-</option>
+                      <option value="4">B+</option>
+                      <option value="5">B+</option>
+                      <option value="6">AB+</option>
+                      <option value="7">AB-</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" required="required" placeholder="Alergias" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" required="required" placeholder="Discapacidades" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success">Registrarse</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -136,7 +128,7 @@
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
     <script src="/js/app.routes.js"></script>
-    <script src="/js/navBar.controller.js"></script>
+    <script src="/js/navbar.controller.js"></script>
     <script src="/js/common.directives.js"></script>
     <script src="/js/cps.service.js"></script>
     <script src="/js/autocomplete.js"></script>

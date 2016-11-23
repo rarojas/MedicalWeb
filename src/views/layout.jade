@@ -47,20 +47,9 @@ html(ng-app="medicalWeb")
                 a(href ng-click="navCtrl.logout()")
                   i.fa.fa-user.fa-fw
                   | Mi Perfil
-            ul.nav.navbar-nav.navbar-right(ng-if="!navCtrl.logged")
-              li
-                a(href='#inicio') INICIO
-              li
-                a(href='#caracteristicas') CARACTERISTICAS
-              li
-                a(href='#sistemas') SISTEMAS
-              li
-                a(href='#price-sec') PRECIOS
-              li
-                a(href='#contact-sec') SUSCRIBIRSE
             block navbar
-    div(ng-view)
-      block content
+    //div(ng-view)
+    block content
     .container
       .row
         .col-md-12
@@ -79,7 +68,7 @@ html(ng-app="medicalWeb")
     script(src='/js/app.js')    
     script(src='/js/app.constants.js')
     script(src="/js/app.routes.js")
-    script(src="/js/navBar.controller.js")
+    script(src="/js/navbar.controller.js")
     script(src="/js/common.directives.js")
     script(src="/js/cps.service.js")
     script(src="/js/autocomplete.js")
