@@ -1,21 +1,34 @@
+mixin message_(name)
+    .help-block(ng-messages="form.#{name}.$error",ng-show="form.#{name}.$touched")
+      .div(ng-messages-include="/templates/shared/messages.html")
+        
+mixin formvalid_(name)
+  .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid }")
+    block
+
+
 .col-md-12.col-sm-12
-  .form-group
-    input.form-control(type='text', required='required', placeholder='Nombre')
+  +formvalid_("nombre")
+    input.form-control(type='text', required='required', placeholder='Nombre',ng-model="vm.user.nombre",name="nombre")
+    +message_("nombre")
 .col-md-12.col-sm-12
-  .form-group
-    input.form-control(type='text', required='required', placeholder='Apellidos')
+  +formvalid_("apellidos")
+    input.form-control(type='text', required='required', placeholder='Apellidos',ng-model="vm.user.apellidos",name="apellidos")
+    +message_("apellidos")
 .col-md-12.col-sm-12
-  .form-group
-    input.form-control(type='text', required='required', placeholder='CURP')
+  +formvalid_("curp")
+    input.form-control(type='text', required='required', placeholder='CURP',ng-model="vm.user.curp",name="curp")
+    +message_("curp")
 .col-md-12.col-sm-12
-  .form-group
-    select.form-control(required='required')
-      option Sexo
-      each sex, i in sexoEnum
-        option(value=i) #{sex}
+  +formvalid_("sexo")
+    select.form-control(ng-model="vm.user.sexo",name="sexo",required="required",ng-options="tipo.text for tipo in vm.sexoEnum track by tipo.id")
+      option(value="") Sexo
+    +message_("sexo")
 .col-md-12.col-sm-12
-  .form-group
-    input.form-control(type='date', required='required', placeholder='Fecha nacimiento')
+  +formvalid_("nacimiento")
+    input.form-control(type='date',required='required',placeholder='Fecha nacimiento',ng-model="vm.user.nacimiento",name="nacimiento")
+    +message_("nacimiento")
 .col-md-12.col-sm-12
-  .form-group
-    input.form-control(type='email', required='required', placeholder='Email')
+  +formvalid_("email")
+    input.form-control(type='email',required='required',placeholder='Email',ng-model="vm.user.email",name="email")
+    +message_("email")

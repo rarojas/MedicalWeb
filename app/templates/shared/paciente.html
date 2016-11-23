@@ -35,74 +35,91 @@
       </nav>
     </header>
     <!--div(ng-view)-->
-    <div id="inicio">
+    <div id="inicio" ng-controller="PacienteController as vm">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <div class="div-trans text-center">
               <h3>Registro Paciente Nuevo</h3>
-              <form>
+              <form name="form" novalidate ng-submit="vm.submit()" class="form">
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Nombre" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.nombre.$touched &amp;&amp; form.nombre.$invalid }" class="form-group">
+                                    <input type="text" required="required" placeholder="Nombre" ng-model="vm.user.nombre" name="nombre" class="form-control">
+                                                    <div ng-messages="form.nombre.$error" ng-show="form.nombre.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Apellidos" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.apellidos.$touched &amp;&amp; form.apellidos.$invalid }" class="form-group">
+                                    <input type="text" required="required" placeholder="Apellidos" ng-model="vm.user.apellidos" name="apellidos" class="form-control">
+                                                    <div ng-messages="form.apellidos.$error" ng-show="form.apellidos.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="CURP" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.curp.$touched &amp;&amp; form.curp.$invalid }" class="form-group">
+                                    <input type="text" required="required" placeholder="CURP" ng-model="vm.user.curp" name="curp" class="form-control">
+                                                    <div ng-messages="form.curp.$error" ng-show="form.curp.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <select required="required" class="form-control">
-                      <option>Sexo</option>
-                      <option value="0">Femenino</option>
-                      <option value="1">Masculino</option>
-                    </select>
-                  </div>
+                                  <div ng-class="{ 'has-error':form.sexo.$touched &amp;&amp; form.sexo.$invalid }" class="form-group">
+                                    <select ng-model="vm.user.sexo" name="sexo" required="required" ng-options="tipo.text for tipo in vm.sexoEnum track by tipo.id" class="form-control">
+                                      <option value="">Sexo</option>
+                                    </select>
+                                                    <div ng-messages="form.sexo.$error" ng-show="form.sexo.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="date" required="required" placeholder="Fecha nacimiento" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.nacimiento.$touched &amp;&amp; form.nacimiento.$invalid }" class="form-group">
+                                    <input type="date" required="required" placeholder="Fecha nacimiento" ng-model="vm.user.nacimiento" name="nacimiento" class="form-control">
+                                                    <div ng-messages="form.nacimiento.$error" ng-show="form.nacimiento.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="email" required="required" placeholder="Email" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.email.$touched &amp;&amp; form.email.$invalid }" class="form-group">
+                                    <input type="email" required="required" placeholder="Email" ng-model="vm.user.email" name="email" class="form-control">
+                                                    <div ng-messages="form.email.$error" ng-show="form.email.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option>Tipo Sanguinio</option>
-                      <option value="0">O+</option>
-                      <option value="1">O-</option>
-                      <option value="2">A+</option>
-                      <option value="3">A-</option>
-                      <option value="4">B+</option>
-                      <option value="5">B+</option>
-                      <option value="6">AB+</option>
-                      <option value="7">AB-</option>
-                    </select>
-                  </div>
+                                  <div ng-class="{ 'has-error':form.tipoSanguinio.$touched &amp;&amp; form.tipoSanguinio.$invalid }" class="form-group">
+                                    <select ng-model="vm.paciente.tipoSanguinio" name="tipoSanguinio" required="required" ng-options="tipo.text for tipo in vm.tipoSanguinioEnum track by tipo.id" class="form-control">
+                                      <option value="">Tipo Sanguinio</option>
+                                    </select>
+                                                    <div ng-messages="form.tipoSanguinio.$error" ng-show="form.tipoSanguinio.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Alergias" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.alergias.$touched &amp;&amp; form.alergias.$invalid }" class="form-group">
+                                    <input type="text" required="required" placeholder="Alergias" ng-model="vm.paciente.alergias" name="alergias" class="form-control">
+                                                    <div ng-messages="form.alergias.$error" ng-show="form.alergias.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" required="required" placeholder="Discapacidades" class="form-control">
-                  </div>
+                                  <div ng-class="{ 'has-error':form.discapacidades.$touched &amp;&amp; form.discapacidades.$invalid }" class="form-group">
+                                    <input type="text" required="required" placeholder="Discapacidades" ng-model="vm.paciente.discapacidades" name="discapacidades" class="form-control">
+                                                    <div ng-messages="form.discapacidades.$error" ng-show="form.discapacidades.$touched" class="help-block">
+                                                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                                                    </div>
+                                  </div>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success">Registrarse</button>
+                  <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrarse</button>
                 </div>
               </form>
             </div>
@@ -134,6 +151,7 @@
     <script src="/js/autocomplete.js"></script>
     <script src="/js/home.controller.js"></script>
     <script src="/js/registro.controller.js"></script>
+    <script src="/js/paciente.controller.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
   </body>
 </html>

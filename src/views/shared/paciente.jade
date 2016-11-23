@@ -5,25 +5,26 @@ block head
   title Registro paciente
 
 block content
-  #inicio
+  #inicio(ng-controller="PacienteController as vm")
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
             h3 Registro Paciente Nuevo
-            form
+            form(name="form",novalidate,class="form",ng-submit="vm.submit()")
               include datosUsuario
               .col-md-12.col-sm-12
-                .form-group
-                  select.form-control
-                    option Tipo Sanguinio
-                    each type, i in tipoSanguinioEnum
-                      option(value=i) #{type}
+                +formvalid_("tipoSanguinio")
+                  select.form-control(ng-model="vm.paciente.tipoSanguinio",name="tipoSanguinio",required="required",ng-options="tipo.text for tipo in vm.tipoSanguinioEnum track by tipo.id")
+                    option(value="") Tipo Sanguinio
+                  +message_("tipoSanguinio")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Alergias')
+                +formvalid_("alergias")
+                  input.form-control(type='text',required='required',placeholder='Alergias',ng-model="vm.paciente.alergias",name="alergias")
+                  +message_("alergias")
               .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Discapacidades')
+                +formvalid_("discapacidades")
+                  input.form-control(type='text',required='required',placeholder='Discapacidades',ng-model="vm.paciente.discapacidades",name="discapacidades")
+                  +message_("discapacidades")
               .form-group
-                button.btn.btn-success(type='submit') Registrarse
+                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrarse

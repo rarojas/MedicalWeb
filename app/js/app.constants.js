@@ -19,5 +19,19 @@ angular
          {"id": 2,"title":"Farmacia", "price": 2500.00  , "description":"12GB Espacio en disco "},
          {"id": 3,"title":"Laboratorio", "price": 2500.00 , "description":"12GB Espacio en disco "}
        ],
-       getCPS : 'https://api-codigos-postales.herokuapp.com/v2/buscar'
+       getCPS : 'https://api-codigos-postales.herokuapp.com/v2/buscar',
+       tipoSanguinioEnum : [
+         {"id":1, "text":"O+"},
+         {"id":2, "text":"O-"},
+         {"id":3, "text":"A+"},
+         {"id":4, "text":"A-"},
+         {"id":5, "text":"B+"},
+         {"id":6, "text":"B-"},
+         {"id":7, "text":"AB+"},
+         {"id":8, "text":"AB-"}
+       ],
+       sexoEnum : [
+         {"id":1, "text":"Femenino"},
+         {"id":2, "text":"Masculino"},
+       ]
     })
