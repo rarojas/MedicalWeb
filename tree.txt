@@ -1,0 +1,12 @@
++---src
+|     +---js
+|     +---components // contiene los archivos js controladores angular js
+|     +---directives // contiene los archivos js de componente personalizados validaciones, controles html ,etc
+|     +---libs
+|     \---services// contiene los archivos service.js  que realizan las llamadas rest(json) al back y maneja las respuestas
+|     app.js // archivo main para correr y armar aplicacion js en navegador
+|     app.constants.js // archivo que contiene constantes para la aplicacion: url de servicios, enumeradores, precios, etc
+|     app.routes.js   // archivo que contiene todas las rutas para la aplicacion estas rutas se ven en el navegador '#/home,#/doctores' etc
+\---views // contiene los archvivos jade para compilar html
+      +---consulta
+      \---shared
