@@ -30,14 +30,14 @@ block content
         // *************************************LOG IN**************************************
         .col-md-3.col-sm-3
           .div-trans.text-center
-            h3 LOG IN
+            h3 LOG IN 
             form(name="form" novalidate, ng-submit="homeCtrl.login()")
               .col-md-12.col-sm-3
                 .form-group
-                  input.form-control(type='text', required='required', placeholder='User',ng-model="user.user",name="user")
+                  input.form-control(type='text', required='required', placeholder='User',ng-model="user.username",name="user")
               .col-md-12.col-sm-3
                 .form-group
-                  input.form-control(type='text', required='required', placeholder='Password',ng-model="user.password",name="password")
+                  input.form-control(type='password', required='required', placeholder='Password',ng-model="user.password",name="password")
               input(type='checkbox')
               | Remember me
               .form-group

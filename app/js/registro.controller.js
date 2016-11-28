@@ -1,7 +1,16 @@
-function RegistroController() {
+function RegistroController(RegistroServices,$scope) {
     var vm = this;
-    vm.registro = {  }
+    vm.submit = () => {
+        RegistroServices.registroAdministrador(vm.registro)
+        .then((response) => {
+
+        }).catch((error) =>{
+
+        });
+
+    }
 }
 
-RegistroController.$inject = [];
-angular.module("app.controllers").controller("registroController", RegistroController);
+RegistroController.$inject = ["RegistroServices","$scope"];
+angular.module("app.controllers")
+.controller("registroController", RegistroController);
