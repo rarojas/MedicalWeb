@@ -12,24 +12,24 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
               }
               else{
                 if(data.estatus == "INEXISTENTE"){
-                  $scope.showAlert();
+                  $scope.showAlert("Los datos proporcionados nu son validos");
                 }
               }
         }).catch((error) => {
-            alert("fallo")
+            $scope.showAlert("Ocurrio un error consulte a su medico ");
             console.log(error);
         });
     }
     vm.modulos = angular.copy(constants.modulos);
 
-    $scope.showAlert = () => {
+    $scope.showAlert = (text) => {
         $mdDialog.show(
          $mdDialog.alert()
            .parent(angular.element(document.querySelector('#popupContainer')))
            .clickOutsideToClose(true)
            .title('Error')
-           .textContent('Los datos proporcionados no son validos')
-           .ariaLabel('Alert Dialog Demo')
+           .textContent(text)
+           .ariaLabel('Aler')
            .ok('Entendido')
        );
      }

@@ -1,6 +1,9 @@
 function RegistroClinicaController($scope,constants,$filter,codigoPostalServices) {
     var vm = this;
-    vm.registro = {  }
+    vm.registro = {
+      fechaInicio : new Date(),
+      fechaFin : new Date(),
+    }
     vm.tipoEntidadEnum = constants.tipoEntidadEnum;
     vm.modulos = angular.copy(constants.modulos);
     vm.toogle = function select(modulo){
@@ -24,6 +27,9 @@ function RegistroClinicaController($scope,constants,$filter,codigoPostalServices
       return vm.selectedModules().reduce(sumPrices,0);
     }
 
+    vm.minDate = new Date()
+    vm.maxDate = new Date()
+    vm.maxDate.setMonth(vm.minDate.getMonth() + 1)
 }
 
 RegistroClinicaController.$inject = ["$scope","constants","$filter","codigoPostalServices"];

@@ -1,0 +1,39 @@
+// my-template.jade
+extends ../layoutLogged
+
+block head
+  title inventario de Farmcia
+
+block content
+  #inicio(ng-controller="InventarioController as vm")
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Medicamentos
+            div
+              button.btn.btn-success(type='button',ng-click="vm.agregarMedicamento()") Agregar Medicamento
+            .col-md-12.col-sm-12
+                table(class="table table-striped table-bordered table-hover ")
+                  thead
+                    tr
+                      th 
+                      th  Nombre
+                      th  Activo
+                      th  Descripcion
+                      th  Cantidad
+                      th  Acciones
+                  tbody
+                    tr(ng-repeat="medicamento in vm.medicamentos" style="color:black;")
+                      td
+                      td
+                        input.form-control(type='text', required='required', placeholder='Medicamento',ng-model="medicamento.nombre",name="nombre")
+                      td 
+                        input.form-control(type='text', required='required', placeholder='Activo',ng-model="medicamento.activo",name="activo")
+                      td 
+                        input.form-control(type='text', required='required', placeholder='Descripcion',ng-model="medicamento.descripcion",name="descripcion")
+                      td
+                        input.form-control(type='number', required='required', placeholder='Cantidad',ng-model="medicamento.cantidad",name="cantidad",min="0" max="500")
+                      td 
+                        button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)") Eliminar 
+                        button.btn.btn-success(type='button',ng-click="vm.guardarMedicamento(medicamento)") Guardar Cambios

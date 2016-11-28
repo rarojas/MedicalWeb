@@ -6,6 +6,7 @@ Para ejecutar
 
 instalar nodejs
 
+npm install -g grunt-cli
 npm install
 bower install
 grunt build
