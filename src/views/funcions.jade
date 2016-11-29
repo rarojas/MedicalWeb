@@ -1,0 +1,17 @@
+mixin message(name)
+  .help-block(ng-messages="form['#{name}' + $index].$error",ng-show="form['#{name}' + $index].$touched")
+    .div(ng-messages-include="/templates/shared/messages.html")
+    
+mixin formvalid(name)
+  .form-group(ng-class="{ 'has-error': form['#{name}' + $index].$touched && form['#{name}' + $index].$invalid }")
+    block
+    
+mixin message_(name)
+    .help-block(ng-messages="form.#{name}.$error",ng-show="form.#{name}.$touched")
+      .div(ng-messages-include="/templates/shared/messages.html")
+        
+mixin formvalid_(name)
+  .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid }")
+    block
+
+block content
