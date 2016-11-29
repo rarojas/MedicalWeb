@@ -44,9 +44,25 @@ html(ng-app="medicalWeb")
           .collapse.navbar-collapse.navbar-ex1-collapse
             a.navbar-brand(href='#inicio')
               img(src='/assets/img/logo.png', style='max-width: 180px;position: relative;top: -60px;')
-            block navbar
-    //div(ng-view)
-    block content
+            ul.nav.navbar-nav.navbar-right(ng-if="!navCtrl.logged")
+                li
+                  a(href='#inicio')  Inicio
+                li
+                  a(href='#caracteristicas') Caracteristicas
+                li
+                  a(href='#sistemas') Sistemas
+                li
+                  a(href='#price-sec') Precios
+                li
+                  a(href='#Parallax-two') Subscripcion
+            ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
+              li
+                a(href='' ng-click="navCtrl.logout()")
+                  i.fa.fa-user.fa-fw
+                  | Mi Perfil
+            //block navbar
+    div(ng-view)
+    //block content
     .container
       .row
         .col-md-12
@@ -69,7 +85,6 @@ html(ng-app="medicalWeb")
     script(src='/assets/js/custom.js')
     script(src='/js/app.js')    
     script(src='/js/app.constants.js')
-    script(src="/js/app.routes.js")
     script(src="/js/navbar.controller.js")
     script(src="/js/common.directives.js")
     script(src="/js/cps.service.js")
@@ -81,6 +96,7 @@ html(ng-app="medicalWeb")
     script(src='/js/registro.services.js')
     script(src='/js/inventario.controller.js')
     script(src='/js/inventario.services.js')
-
     script(src="/js/registroClinica.controller.js")
+    script(src="/js/app.routes.js")
+
     block scripts

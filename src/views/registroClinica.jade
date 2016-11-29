@@ -39,9 +39,8 @@ block content
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control(ng-model="tipo")
-                    each type, i in entitadTipos
-                      option(value=i) Entidad - #{type}
+                  select.form-control(ng-model="vm.registro.tipo",name="tipo", required="required",ng-options="tipo.value as tipo.text for tipo in vm.tipoEntidadEnum track by tipo.value")
+                      option(value="") Elige un tipo
               .col-md-12.col-sm-12
                 ng-repeat(ng-repeat="modulo in vm.modulos")
                   .col-md-4.col-sm-6(ng-click="vm.toogle(modulo)")

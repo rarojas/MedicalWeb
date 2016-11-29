@@ -32,5 +32,10 @@ angular
        sexoEnum : [
          {"id":1, "text":"Femenino"},
          {"id":2, "text":"Masculino"},
-       ]
+       ],
+       tipoEntidadEnum : [
+        { value : 0, text :"Sanatorio" },
+        { value : 1, text :"Clinica" },
+        { value : 2, text :"Hospital" }
+      ],
     })

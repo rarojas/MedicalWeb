@@ -1,14 +1,15 @@
-function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdDialog) {
+function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdDialog,$window) {
     var vm = this;
     vm.login  = function() {
-        HomeServices.login($scope.user)
+        HomeServices.login(vm.usuario)
           .then((response) => {
               let data = response.data;
               if(data.estatus == "ACTIVO"){
                 $rootScope.logged = true;
-                $rootScope.user = $scope.user;
-                $rootScope.user.token = data.token;
+                $rootScope.user = data.token;
                 $rootScope.$broadcast("logged");
+                $rootScope.saveToken(data.token);
+                $location.path("/home");
               }
               else{
                 if(data.estatus == "INEXISTENTE"){
@@ -39,5 +40,5 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
      }
 }
 
-HomeController.$inject = ["$scope","$location","$rootScope","constants","HomeServices","$mdDialog"];
-angular.module("app.controllers").controller("homeController", HomeController);
+HomeController.$inject = ["$scope","$location","$rootScope","constants","HomeServices","$mdDialog","$window"];
+angular.module("app.controllers").controller("HomeController", HomeController);

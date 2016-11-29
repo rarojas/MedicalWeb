@@ -23,107 +23,23 @@
             <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
+            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#inicio"> Inicio</a></li>
+              <li><a href="#caracteristicas">Caracteristicas</a></li>
+              <li><a href="#sistemas">Sistemas</a></li>
+              <li><a href="#price-sec">Precios</a></li>
+              <li><a href="#Parallax-two">Subscripcion</a></li>
+            </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
-            </ul>
+            <!--block navbar-->
           </div>
         </div>
       </nav>
     </header>
-    <!--div(ng-view)-->
-    <div id="inicio" ng-controller="recetaController as recetaCtrl">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="div-trans text-center">
-              <h3>Receta Médica</h3>
-              <form name="form" novalidate ng-submit="recetaCtrl.submitForm()" class="css-form">
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <input type="text" readonly="readonly" placeholder="Paciente" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="button" ng-click="recetaCtrl.addMedicamento()" class="btn btn-success">Agregar medicamento</button>
-                </div>
-                <div class="row">
-                  <div ng-repeat="(key, medicamento) in recetaCtrl.receta.medicamentos" class="col-md-4">
-                    <div class="col-md-12 col-sm-12">
-                      <label> Medicamento {{key + 1 }}</label>
-                      <button type="button" ng-click="recetaCtrl.removeMedicamento(medicamento)" class="btn btn-danger pull-right">x</button>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mMedicamento_' + $index].$touched &amp;&amp; form['mMedicamento_' + $index].$invalid }" class="form-group">
-                        <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" class="form-control">
-                        <div ng-messages="form['mMedicamento_' + $index].$error" ng-show="form['mMedicamento_' + $index].$touched" class="help-block">
-                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mDosis_' + $index].$touched &amp;&amp; form['mDosis_' + $index].$invalid }" class="form-group">
-                        <input type="text" ng-model="medicamento.dosis" name="mDosis_{{key}}" required="required" placeholder="Dosis" class="form-control">
-                        <div ng-messages="form['mDosis_' + $index].$error" ng-show="form['mDosis_' + $index].$touched" class="help-block">
-                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mToma_' + $index].$touched &amp;&amp; form['mToma_' + $index].$invalid }" class="form-group">
-                        <input type="text" ng-model="medicamento.toma" name="mToma_{{key}}" required="required" placeholder="Toma" class="form-control">
-                        <div ng-messages="form['mToma_' + $index].$error" ng-show="form['mToma_' + $index].$touched" class="help-block">
-                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mAdministracion_' + $index].$touched &amp;&amp; form['mAdministracion_' + $index].$invalid }" class="form-group">
-                        <select required="required" ng-model="medicamento.administracion" name="mAdministracion" ng-options="tipo.text for tipo in recetaCtrl.tipoAdministracionMedicamentoEnum track by tipo.value" class="form-control">
-                          <option value="">Tipo Administracion</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mInicio_' + $index].$touched &amp;&amp; form['mInicio_' + $index].$invalid }" class="form-group">
-                        <label for="mInicio_{{key}}">Fecha Inicio </label>
-                        <input type="date" ng-model="medicamento.inicio" name="mInicio_{{key}}" required="required" placeholder="Desde" ng-min="{{recetaCtrl.minDate | date:'yyyy-MM-dd' }}" class="form-control">
-                        <div ng-messages="form['mInicio_' + $index].$error" ng-show="form['mInicio_' + $index].$touched" class="help-block">
-                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                      <div ng-class="{ 'has-error': form['mFin_' + $index].$touched &amp;&amp; form['mFin_' + $index].$invalid }" class="form-group">
-                        <label for="mFin_{{key}}">Fecha Fin</label>
-                        <input type="date" ng-model="medicamento.fin" name="mFin_{{key}}" required="required" placeholder="Hasta" ng-min="medicamento.fin" class="form-control">
-                        <div ng-messages="form['mFin_' + $index].$error" ng-show="form['mFin_' + $index].$touched" class="help-block">
-                          <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form.mComment.$touched &amp;&amp; form.mComment.$invalid }" class="form-group">
-                    <label for="comment">Información Adicional</label>
-                    <textarea required="required" name="mComment" ng-model="receta.comentario" rows="5" class="form-control"></textarea>
-                    <div ng-messages="form.mComment.$error" ng-show="form.mComment.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Crear Receta Médica</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-view></div>
+    <!--block content-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -145,7 +61,6 @@
     <script src="/assets/js/custom.js"></script>
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
-    <script src="/js/app.routes.js"></script>
     <script src="/js/navbar.controller.js"></script>
     <script src="/js/common.directives.js"></script>
     <script src="/js/cps.service.js"></script>
@@ -158,6 +73,7 @@
     <script src="/js/inventario.controller.js"></script>
     <script src="/js/inventario.services.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
+    <script src="/js/app.routes.js"></script>
     <script src="/js/receta.controller.js"></script>
   </body>
 </html>

@@ -1,5 +1,7 @@
 function RegistroClinicaController($scope,constants,$filter,RegistroServices) {
     var vm = this;
+    vm.tipoEntidadEnum = constants.tipoEntidadEnum;
+
     vm.registro = {
       fechaInicio : new Date(),
       fechaFin : new Date(),
@@ -26,7 +28,8 @@ function RegistroClinicaController($scope,constants,$filter,RegistroServices) {
     vm.maxDate.setMonth(vm.minDate.getMonth() + 1)
 
     vm.sendRegistro =  function() {
-      vm.registro.modulos = vm.selectedModules();
+      //vm.registro.modulos = vm.selectedModules();
+      vm.registro.administrador = { idUser : 14 };
       RegistroServices.registroClinica(vm.registro)
         .then((response) => {
 

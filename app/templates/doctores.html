@@ -23,48 +23,23 @@
             <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
+            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#inicio"> Inicio</a></li>
+              <li><a href="#caracteristicas">Caracteristicas</a></li>
+              <li><a href="#sistemas">Sistemas</a></li>
+              <li><a href="#price-sec">Precios</a></li>
+              <li><a href="#Parallax-two">Subscripcion</a></li>
+            </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
-            </ul>
+            <!--block navbar-->
           </div>
         </div>
       </nav>
     </header>
-    <!--div(ng-view)-->
-    <div id="inicio" ng-controller="doctoresController as doctoresCtrl">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="div-trans text-center">
-              <h3>Doctores</h3>
-              <div class="col-md-12 col-sm-12">
-                <table class="table table-striped table-bordered table-hover ">
-                  <thead>
-                    <tr>
-                      <th> Doctores</th>
-                      <th> Doctores</th>
-                      <th> Doctores</th>
-                      <th> Doctores</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="doctor in doctoresCtrl.doctores" style="color:black;">
-                      <td>{{doctor.name}}</td>
-                      <td>{{doctor.name}}</td>
-                      <td>{{doctor.name}}</td>
-                      <td>{{doctor.name}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-view></div>
+    <!--block content-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -86,7 +61,6 @@
     <script src="/assets/js/custom.js"></script>
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
-    <script src="/js/app.routes.js"></script>
     <script src="/js/navbar.controller.js"></script>
     <script src="/js/common.directives.js"></script>
     <script src="/js/cps.service.js"></script>
@@ -99,6 +73,7 @@
     <script src="/js/inventario.controller.js"></script>
     <script src="/js/inventario.services.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
+    <script src="/js/app.routes.js"></script>
     <script src="/js/doctores.controller.js"></script>
   </body>
 </html>

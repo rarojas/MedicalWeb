@@ -1,206 +1,206 @@
-extends layout
+//extends layout
 
-block head
-    title Registra tu Clínica
+//block head
+//    title Registra tu Clínica
 
-block navbar
-    ul.nav.navbar-nav.navbar-right
-      li
-        a(href='#inicio') INICIO
-      li
-        a(href='#caracteristicas') CARACTERISTICAS
-      li
-        a(href='#sistemas') SISTEMAS
-      li
-        a(href='#price-sec') PRECIOS
-      li
-        a(href='#contact-sec') SUSCRIBIRSE
+//- block navbar
+//-     ul.nav.navbar-nav.navbar-right
+//-       li
+//-         a(href='#inicio') INICIO
+//-       li
+//-         a(href='#caracteristicas') CARACTERISTICAS
+//-       li
+//-         a(href='#sistemas') SISTEMAS
+//-       li
+//-         a(href='#price-sec') PRECIOS
+//-       li
+//-         a(href='#contact-sec') SUSCRIBIRSE
 
-block content
-  #inicio(ng-controller="homeController as homeCtrl")
-    .container
-      .row
-        .col-md-9.col-sm-9
-          h1.head-main Administración de la Salud
-          span.head-sub-main En un Click
-          //
-            <div class="head-last">
-            Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor
-            </div>
-        // *************************************LOG IN**************************************
-        .col-md-3.col-sm-3
-          .div-trans.text-center
-            h3 LOG IN 
-            form(name="form" novalidate, ng-submit="homeCtrl.login()")
-              .col-md-12.col-sm-3
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='User',ng-model="user.username",name="user")
-              .col-md-12.col-sm-3
-                .form-group
-                  input.form-control(type='password', required='required', placeholder='Password',ng-model="user.password",name="password")
-              input(type='checkbox')
-              | Remember me
+//block content
+#inicio
+  .container
+    .row
+      .col-md-9.col-sm-9
+        h1.head-main Administración de la Salud
+        span.head-sub-main En un Click
+        //
+          <div class="head-last">
+          Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor
+          </div>
+      // *************************************LOG IN**************************************
+      .col-md-3.col-sm-3
+        .div-trans.text-center
+          h3 LOG IN 
+          form(name="form" novalidate, ng-submit="vm.login()")
+            .col-md-12.col-sm-3
               .form-group
-                button.btn.btn-success(type='submit') Login
-      // *************************************hasta aqui***************************************
-  // End Header section
-  section#Parallax-one
-    .container
-      // AQUI IVA EL DIV
-      // *****************************************INICIO***************************************************
+                input.form-control(type='text', required='required', placeholder='User',ng-model="vm.usuario.username",name="user")
+            .col-md-12.col-sm-3
+              .form-group
+                input.form-control(type='password', required='required', placeholder='Password',ng-model="vm.usuario.password",name="password")
+            input(type='checkbox')
+            | Remember me
+            .form-group
+              button.btn.btn-success(type='submit') Login
+    // *************************************hasta aqui***************************************
+// End Header section
+section#Parallax-one
+  .container
+    // AQUI IVA EL DIV
+    // *****************************************INICIO***************************************************
+    .row.text-center
+      .col-md-8.col-md-offset-2
+        h2  Software personalizado de acuerdo a sus  necesidades
+        h4
+          i
+            | Plataforma desarrollada en colaboracion con profesionales en áreas de tecnologías de la información,
+          // <img src="assets/img/logo.png" width="80" height="80">
+          strong Medical Web
+          i
+            | ayuda en las tareas de gestión de información clínica de manera eficiente, segura y siempre accesible.
+// *************************************CARACTERISTICAS***************************************
+section#caracteristicas
+  .container
+    .row.text-center
+      .col-md-8.col-md-offset-2
+        h2 Características
+    .row.text-center.space-pad
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-folder-open.fa-4x.main-color
+          h3 Expedientes
+          p
+            | Accede a el historial clínico de tus pacientes a cualquier hora y en cualquier parte del mundo.
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-flask.fa-4x.main-color
+          h3 Resultados en Línea
+          p
+            | Disponibilidad de resultados de analisis y diagnóstico de sus pacientes en línea.
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-lock.fa-4x.main-color
+          h3 Confiabilidad
+          p
+            | Respaldados por la seguridad de Microfost Azure, con las mas avanzadas medidas de seguridad.
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-users.fa-4x.main-color
+          h3 Fácil de usar
+          p
+            | Sistema amigable, fácil de utilizar. Moderniza tu clínica con un desarrollo pensado en los usuarios.
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-cloud.fa-4x.main-color
+          h3 Cloud Computing
+          p
+            | Tecnolgía de internet que permite compartir y acceder a informacion vía remota a cualquier hora.
+      .col-md-4.col-sm-4
+        div
+          i.fa.fa-mobile.fa-4x.main-color
+          h3 Accesibilidad
+          p
+            | La información de su clínica y pacientes disponible desde cualquier dispositivo móvil con acceso a internet.
+    // **************************************SISTEMAS***************************************
+    section#sistemas
+      .row.text-center
+        .col-md-6.col-sm-6
+          h2 Sistema Modular
+          i
+            | Brindamos la posibilidad de configurar el software tantas veces lo requiera.
+          strong
+            | Medical Web
+          i
+            | cuenta con los módulos de Farmacia, Laboratorio y Consulta Externa, de este modo puede
+            | configurar el sistema de acuerdo a los servicios que brinde en su unidad médica.
+        .col-md-6.col-sm-6
+          .panel.panel-default
+            .panel-body
+              ul.nav.nav-pills(style='background-color: #ECECEC;')
+                li
+                  a(href='#settings-pills', data-toggle='tab') Sistema
+                li.active
+                  a(href='#home-pills', data-toggle='tab') Consulta Externa
+                li
+                  a(href='#profile-pills', data-toggle='tab') Farmacia
+                li
+                  a(href='#messages-pills', data-toggle='tab') Laboratorio
+              .tab-content
+                #home-pills.tab-pane.fade.active.in
+                  h4 Administración
+                  p
+                    | Este módulo permitira una administracion de pacintes, personal e informacion referente a la clínica.
+                #profile-pills.tab-pane.fade
+                  h4 Expendio de medicamentos
+                  p
+                    | Este módulo permitirá la administracion de medicamentos asi como un correcto inventario de la unidad de farmacia.
+                #messages-pills.tab-pane.fade
+                  h4 Exámenes médicos
+                  p
+                    | La implementacion de éste módulo permitirá tener un control de las solicitudes de de exámenes médicos así como de sus respectivos resultados.
+                #settings-pills.tab-pane.fade
+                  h4 Configuración
+                  p
+                    | El sistema podrá configurarse, de este modo el precio será de acuerdo a lo que se utilice.
+// End Services Section
+// parallax one
+// *********************************************************PRECIOS*************************************************************
+// ./parallax one
+// Pricing Section
+section#price-sec
+  .container
+    .row.text-center
+      .col-md-8.col-md-offset-2
+        h2 Precios
+        h4
+          strong
+            | Tenemos el objetivo de ayudar a los médicos a ejecutar mejores prácticas, somos empresa liider em proveer software y servicios
+            | de TI aplicados a la Salud, basados en Tecnologías de la Nube.
+    .row.text-center
+      ng-repeat(ng-repeat="modulo in modulos")
+        .col-md-4.col-sm-6
+            ul.plan(ng-class="{'plan-active': modulo.selected }")
+              li.plan-head.head-active {{modulo.title}}
+              li.main-price {{modulo.price | currency: "MXN$ ": 2}} / Mes
+              li
+                strong {{modulo.description}}
+// End Pricing Section
+// *********************************************************ULTIMO/SUSCRIPCION************************************************************
+// parallax two
+section#Parallax-two
+  .container
+    section#contact-sec
       .row.text-center
         .col-md-8.col-md-offset-2
-          h2  Software personalizado de acuerdo a sus  necesidades
+          h2
+            i.fa.fa-pencil-square-o.fa-3x
+            |  SUSCRIPCIÓN
           h4
-            i
-              | Plataforma desarrollada en colaboracion con profesionales en áreas de tecnologías de la información,
-            // <img src="assets/img/logo.png" width="80" height="80">
-            strong Medical Web
-            i
-              | ayuda en las tareas de gestión de información clínica de manera eficiente, segura y siempre accesible.
-  // *************************************CARACTERISTICAS***************************************
-  section#caracteristicas
-    .container
-      .row.text-center
-        .col-md-8.col-md-offset-2
-          h2 Características
-      .row.text-center.space-pad
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-folder-open.fa-4x.main-color
-            h3 Expedientes
-            p
-              | Accede a el historial clínico de tus pacientes a cualquier hora y en cualquier parte del mundo.
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-flask.fa-4x.main-color
-            h3 Resultados en Línea
-            p
-              | Disponibilidad de resultados de analisis y diagnóstico de sus pacientes en línea.
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-lock.fa-4x.main-color
-            h3 Confiabilidad
-            p
-              | Respaldados por la seguridad de Microfost Azure, con las mas avanzadas medidas de seguridad.
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-users.fa-4x.main-color
-            h3 Fácil de usar
-            p
-              | Sistema amigable, fácil de utilizar. Moderniza tu clínica con un desarrollo pensado en los usuarios.
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-cloud.fa-4x.main-color
-            h3 Cloud Computing
-            p
-              | Tecnolgía de internet que permite compartir y acceder a informacion vía remota a cualquier hora.
-        .col-md-4.col-sm-4
-          div
-            i.fa.fa-mobile.fa-4x.main-color
-            h3 Accesibilidad
-            p
-              | La información de su clínica y pacientes disponible desde cualquier dispositivo móvil con acceso a internet.
-      // **************************************SISTEMAS***************************************
-      section#sistemas
-        .row.text-center
-          .col-md-6.col-sm-6
-            h2 Sistema Modular
-            i
-              | Brindamos la posibilidad de configurar el software tantas veces lo requiera.
             strong
               | Medical Web
-            i
-              | cuenta con los módulos de Farmacia, Laboratorio y Consulta Externa, de este modo puede
-              | configurar el sistema de acuerdo a los servicios que brinde en su unidad médica.
-          .col-md-6.col-sm-6
-            .panel.panel-default
-              .panel-body
-                ul.nav.nav-pills(style='background-color: #ECECEC;')
-                  li
-                    a(href='#settings-pills', data-toggle='tab') Sistema
-                  li.active
-                    a(href='#home-pills', data-toggle='tab') Consulta Externa
-                  li
-                    a(href='#profile-pills', data-toggle='tab') Farmacia
-                  li
-                    a(href='#messages-pills', data-toggle='tab') Laboratorio
-                .tab-content
-                  #home-pills.tab-pane.fade.active.in
-                    h4 Administración
-                    p
-                      | Este módulo permitira una administracion de pacintes, personal e informacion referente a la clínica.
-                  #profile-pills.tab-pane.fade
-                    h4 Expendio de medicamentos
-                    p
-                      | Este módulo permitirá la administracion de medicamentos asi como un correcto inventario de la unidad de farmacia.
-                  #messages-pills.tab-pane.fade
-                    h4 Exámenes médicos
-                    p
-                      | La implementacion de éste módulo permitirá tener un control de las solicitudes de de exámenes médicos así como de sus respectivos resultados.
-                  #settings-pills.tab-pane.fade
-                    h4 Configuración
-                    p
-                      | El sistema podrá configurarse, de este modo el precio será de acuerdo a lo que se utilice.
-  // End Services Section
-  // parallax one
-  // *********************************************************PRECIOS*************************************************************
-  // ./parallax one
-  // Pricing Section
-  section#price-sec(ng-controller="homeController as homeCtrl")
-    .container
-      .row.text-center
-        .col-md-8.col-md-offset-2
-          h2 Precios
-          h4
-            strong
-              | Tenemos el objetivo de ayudar a los médicos a ejecutar mejores prácticas, somos empresa liider em proveer software y servicios
-              | de TI aplicados a la Salud, basados en Tecnologías de la Nube.
-      .row.text-center
-        ng-repeat(ng-repeat="modulo in homeCtrl.modulos")
-          .col-md-4.col-sm-6(ng-click="vm.toogle(modulo)")
-              ul.plan(ng-class="{'plan-active': modulo.selected }")
-                li.plan-head.head-active {{modulo.title}}
-                li.main-price {{modulo.price | currency: "MXN$ ": 2}} / Mes
-                li
-                  strong {{modulo.description}}
-  // End Pricing Section
-  // *********************************************************ULTIMO/SUSCRIPCION************************************************************
-  // parallax two
-  section#Parallax-two
-    .container
-      section#contact-sec
-        .row.text-center
-          .col-md-8.col-md-offset-2
-            h2
-              i.fa.fa-pencil-square-o.fa-3x
-              |  SUSCRIPCIÓN
-            h4
-              strong
-                | Medical Web
-              i La opción de acuerdo a sus necesidades
-            // ****************************SUSCRIPCION***********************
-            .text-center
-              form
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Nombre:')
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Apellidos:')
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Email:')
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Cargo:')
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Usuario:')
-                .col-md-12.col-sm-12
-                  .form-group
-                    input.form-control(type='text', required='required', placeholder='Contraseña:')
+            i La opción de acuerdo a sus necesidades
+          // ****************************SUSCRIPCION***********************
+          .text-center
+            form
+              .col-md-12.col-sm-12
                 .form-group
-                  button.btn.btn-success(type='submit') Continuar
-          // ./hasta aqui***************************************--
-  // ./parallax two
+                  input.form-control(type='text', required='required', placeholder='Nombre:')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Apellidos:')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Email:')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Cargo:')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Usuario:')
+              .col-md-12.col-sm-12
+                .form-group
+                  input.form-control(type='text', required='required', placeholder='Contraseña:')
+              .form-group
+                button.btn.btn-success(type='submit') Continuar
+        // ./hasta aqui***************************************--
+// ./parallax two

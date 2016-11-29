@@ -1,7 +1,8 @@
 function InventarioController($scope,$mdDialog,InventarioServices){
     var vm = this;
+    var entidad = 8
 
-    InventarioServices.getMedicamentos({idEntidad :1 })
+    InventarioServices.getMedicamentos({idEntidad : entidad })
       .then((response) => {
         vm.medicamentos = response.data
       })
@@ -11,16 +12,16 @@ function InventarioController($scope,$mdDialog,InventarioServices){
             .textContent(error.data || 'ocurrio un error')
             .ok('Entendido'));
       });
-    vm.medicamentos = [
-      {nombre : "Paracetamol", cantidad : 100}
-    ]
+    vm.medicamentos = [ ]
 
     vm.agregarMedicamento = () => {
-      vm.medicamentos.push({nombre : "Paracetamol", cantidad : 100});
+      vm.medicamentos.push({nombre : "Paracetamol", cantidad : 100 , idEntidad : entidad});
     }
 
     vm.guardarMedicamento = (medicamento) =>{
-        InventarioServices.guardarMedicamento(medicamento).then(() => {
+        var accion = !medicamento.idMedicamento ?
+        InventarioServices.guardarMedicamento : InventarioServices.actualizarMedicamento;
+        accion(medicamento).then((response) => {
           $mdDialog.show($mdDialog.alert()
             .title('Guardar medicamento')
             .textContent('Accion Exitosa :)')

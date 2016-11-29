@@ -8,9 +8,12 @@ function NavBarController($scope,$location,$rootScope) {
         vm.logged = $rootScope.logged;
     });
 
-    vm.logout = function(){
+    vm.logout = function() {
       $rootScope.logged = false;
+      $rootScope.delToken();
+      delete $rootScope.user;
       $rootScope.$broadcast("logged");
+      $location.path("/")
     }
 }
 

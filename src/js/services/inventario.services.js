@@ -2,15 +2,22 @@ function InventarioServices ($http,constants) {
   this.getMedicamentos = function(entidad) {
     return $http({
         method: 'GET',
-        url: constants.url + '/medicamentos',
-        data : { idEntidad : entidad.idEntidad }
+        url: constants.url + '/farmacia/medicamentos/' +  entidad.idEntidad
       });
   }
 
   this.guardarMedicamento = function(medicamento) {
     return $http({
+        method: 'POST',
+        url: constants.url + '/farmacia',
+        data : medicamento
+      });
+  }
+
+  this.actualizarMedicamento = function(medicamento) {
+    return $http({
         method: 'PUT',
-        url: constants.url + '/medicamentos',
+        url: constants.url + '/farmacia',
         data : medicamento
       });
   }
@@ -18,7 +25,7 @@ function InventarioServices ($http,constants) {
   this.eliminarMedicamento = function(medicamento) {
     return $http({
         method: 'DELETE',
-        url: constants.url + '/medicamentos',
+        url: constants.url + '/farmacia',
         data : medicamento
       });
   }

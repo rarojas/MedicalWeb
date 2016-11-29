@@ -8,7 +8,7 @@
 /* Make clicks pass-through */
 #loading-bar{
    pointer-events: all;
-   z-index: 99999;
+   z-index: 9999;
    border: none;
    margin: 0px;
    padding: 0px;

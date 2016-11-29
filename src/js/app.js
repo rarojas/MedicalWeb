@@ -23,23 +23,39 @@ function config($locationProvider){
 }
 
 
-run.$inject = ['$rootScope', '$location', '$http'];
-function run($rootScope, $location, $http) {
-       
+run.$inject = ['$rootScope', '$location', '$http',"$window"];
+function run($rootScope, $location, $http, $window) {
         $rootScope.logged = false;
-        $rootScope.$on("logged", function(){
-          if(!$rootScope.logged)
+
+        $rootScope.saveToken = function(token) {
+          $window.localStorage['user'] = token;
+        }
+
+        $rootScope.getToken = function() {
+          return $window.localStorage['user'];
+        }
+
+        $rootScope.delToken = function() {
+          delete $window.localStorage['user']
+        }
+
+        var token = $rootScope.getToken();
+        if(token) {
+            $rootScope.logged = true;
+            $rootScope.user  = token;
+            $rootScope.$broadcast("logged");
+            $location.path("/home")
+        }else{
+            $location.path("/")
+        }
+        if ($rootScope.user) {
+          $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.user;
+        }
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+          var restrictedPage = $.inArray($location.path(), ['/', '/registro']) === -1;
+          var loggedIn = $rootScope.user;
+          if (restrictedPage && !loggedIn) {
             $location.path('/');
+          }
         });
-//         if ($rootScope.globals.currentUser) {
-//             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-//         }
-//         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-//             // redirect to login page if not logged in and trying to access a restricted page
-//             var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-//             var loggedIn = $rootScope.globals.currentUser;
-//             if (restrictedPage && !loggedIn) {
-//                  $location.path('/login');
-//             }
-//         });
-    }
+      }

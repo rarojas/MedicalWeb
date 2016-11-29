@@ -23,68 +23,23 @@
             <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
+            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#inicio"> Inicio</a></li>
+              <li><a href="#caracteristicas">Caracteristicas</a></li>
+              <li><a href="#sistemas">Sistemas</a></li>
+              <li><a href="#price-sec">Precios</a></li>
+              <li><a href="#Parallax-two">Subscripcion</a></li>
+            </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#/MiPerfil"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
-            </ul>
+            <!--block navbar-->
           </div>
         </div>
       </nav>
     </header>
-    <!--div(ng-view)-->
-    <div id="inicio" ng-controller="solicitudController  as solicitudCtrl">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="div-trans text-center">
-              <h3>Crear Solicitud</h3>
-              <form name="form" novalidate class="form">
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.tipoSolicitud.$touched &amp;&amp; form.tipoSolicitud.$invalid }" class="form-group">
-                    <ng-repeat ng-repeat="tipoSolicitud in solicitudCtrl.tipoSolicitudEnum">
-                      <label class="radio-inline">
-                        <input type="radio" name="tipoSolicitud" ng-model="solicitudCtrl.solicitud.tipo" value="{{tipoSolicitud.value}}">{{tipoSolicitud.text}}
-                      </label>
-                    </ng-repeat>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <select name="tipo" ng-model="solicitudCtrl.solititud.tipo" required="required" ng-show="solicitudCtrl.solicitud.tipo == 1" class="form-control">
-                      <option value="">Tipo Análisis</option>
-                      <option value="0">Químicos</option>
-                      <option value="1">Bioquímicos</option>
-                      <option value="2">Hemáticos</option>
-                      <option value="3">Microbiológicos</option>
-                      <option value="4">Otros</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <div class="form-group">
-                      <label for="comment">Descripción</label>
-                      <textarea rows="5" name="descripcion" required="required" ng-model="solicitudCtrl.solicitud.descripcion" class="form-control"></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <label for="comment">Impresión Diagnostica</label>
-                    <textarea rows="5" name="impresion" required="required" ng-model="solicitudCtrl.solicitud.impresion" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrarse</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-view></div>
+    <!--block content-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -106,7 +61,6 @@
     <script src="/assets/js/custom.js"></script>
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
-    <script src="/js/app.routes.js"></script>
     <script src="/js/navbar.controller.js"></script>
     <script src="/js/common.directives.js"></script>
     <script src="/js/cps.service.js"></script>
@@ -119,6 +73,7 @@
     <script src="/js/inventario.controller.js"></script>
     <script src="/js/inventario.services.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
+    <script src="/js/app.routes.js"></script>
     <script src="/js/solicitud.controller.js"></script>
   </body>
 </html>

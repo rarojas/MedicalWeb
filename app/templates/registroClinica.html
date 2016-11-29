@@ -23,116 +23,23 @@
             <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           </div>
           <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
+            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="#inicio"> Inicio</a></li>
+              <li><a href="#caracteristicas">Caracteristicas</a></li>
+              <li><a href="#sistemas">Sistemas</a></li>
+              <li><a href="#price-sec">Precios</a></li>
+              <li><a href="#Parallax-two">Subscripcion</a></li>
+            </ul>
+            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+            </ul>
+            <!--block navbar-->
           </div>
         </div>
       </nav>
     </header>
-    <!--div(ng-view)-->
-    <div id="inicio" ng-controller="registroClinicaController  as vm">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <div class="div-trans text-center">
-              <h3>Registro Datos de la Clínica </h3>
-              <form name="form" novalidate ng-submit="vm.sendRegistro()" class="form">
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.institucion.$touched &amp;&amp; form.institucion.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.nombre" name="institucion" required="required" placeholder="Institución Médica" class="form-control">
-                    <div ng-messages="form.institucion.$error" ng-show="form.institucion.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.calle.$touched &amp;&amp; form.calle.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.calle" name="calle" required="required" placeholder="Calle" class="form-control">
-                    <div ng-messages="form.calle.$error" ng-show="form.calle.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.numero.$touched &amp;&amp; form.numero.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.numero" name="numero" required="required" placeholder="Número" class="form-control">
-                    <div ng-messages="form.numero.$error" ng-show="form.numero.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.cp.$touched &amp;&amp; form.cp.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.codigoPostal" name="cp" required="required" placeholder="CP" class="form-control">
-                    <div ng-messages="form.cp.$error" ng-show="form.cp.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.telefono.$touched &amp;&amp; form.telefono.$invalid }" class="form-group">
-                    <input type="phone" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" class="form-control">
-                    <div ng-messages="form.telefono.$error" ng-show="form.telefono.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" class="form-control">
-                    <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <select ng-model="tipo" class="form-control">
-                      <option value="0">Entidad - Sanatorio</option>
-                      <option value="1">Entidad - Hospital</option>
-                      <option value="2">Entidad - Clinica</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <ng-repeat ng-repeat="modulo in vm.modulos">
-                    <div ng-click="vm.toogle(modulo)" class="col-md-4 col-sm-6">
-                      <ul ng-class="{'plan-active': modulo.selected }" class="plan">
-                        <li class="plan-head head-active">{{modulo.title}}</li>
-                        <li class="main-price">{{modulo.price | currency: "MXN$ ": 2}} / Mes</li>
-                        <li><strong>{{modulo.description}}</strong></li>
-                        <li class="bottom">
-                          <div class="col-md-12">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" name="selectedModules[]" value="{{modulo}}" ng-model="modulo.selected"><strong>{{modulo.title}}</strong>
-                              </label>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </ng-repeat>
-                </div>
-                <md-content layout-padding>
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <h4>Fecha inicio</h4>
-                      <md-datepicker ng-model="vm.registro.fechaInicio" name="dateField" md-min-date="vm.minDate" md-max-date="vm.registro.fechaFin"></md-datepicker>
-                    </div>
-                    <div flex>
-                      <h4>Fecha fin</h4>
-                      <md-datepicker ng-model="vm.registro.fechaFin" md-min-date="vm.minDate" md-max-date="vm.maxDate">                   </md-datepicker>
-                    </div>
-                  </div>
-                </md-content>
-                <div class="form-group">
-                  <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Entidad</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-view></div>
+    <!--block content-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -154,7 +61,6 @@
     <script src="/assets/js/custom.js"></script>
     <script src="/js/app.js">   </script>
     <script src="/js/app.constants.js"></script>
-    <script src="/js/app.routes.js"></script>
     <script src="/js/navbar.controller.js"></script>
     <script src="/js/common.directives.js"></script>
     <script src="/js/cps.service.js"></script>
@@ -167,5 +73,6 @@
     <script src="/js/inventario.controller.js"></script>
     <script src="/js/inventario.services.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
+    <script src="/js/app.routes.js"></script>
   </body>
 </html>
