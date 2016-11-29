@@ -15,7 +15,7 @@ block content
             form.form(name="form",novalidate,ng-submit="vm.sendRegistro()")
               .col-md-12.col-sm-12
                 +formvalid_("institucion")
-                  input.form-control(type='text',ng-model="vm.registro.institucion",name="institucion",required='required', placeholder='Institución Médica')
+                  input.form-control(type='text',ng-model="vm.registro.nombre",name="institucion",required='required', placeholder='Institución Médica')
                   +message_("institucion")
               .col-md-12.col-sm-12
                 +formvalid_("calle")
@@ -27,7 +27,7 @@ block content
                   +message_("numero")
               .col-md-12.col-sm-12
                 +formvalid_("cp")
-                  input.form-control(type='text',ng-model="vm.registro.cp",name="cp", required='required', placeholder='CP')
+                  input.form-control(type='text',ng-model="vm.registro.codigoPostal",name="cp", required='required', placeholder='CP')
                   +message_("cp")
               .col-md-12.col-sm-12
                 +formvalid_("telefono")
@@ -35,11 +35,11 @@ block content
                   +message_("telefono")
               .col-md-12.col-sm-12
                 +formvalid_("rfc")
-                  input.form-control(type='password',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC')
+                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC')
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control
+                  select.form-control(ng-model="tipo")
                     each type, i in entitadTipos
                       option(value=i) Entidad - #{type}
               .col-md-12.col-sm-12

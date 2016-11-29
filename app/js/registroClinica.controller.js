@@ -1,4 +1,4 @@
-function RegistroClinicaController($scope,constants,$filter,codigoPostalServices) {
+function RegistroClinicaController($scope,constants,$filter,RegistroServices) {
     var vm = this;
     vm.registro = {
       fechaInicio : new Date(),
@@ -16,13 +16,7 @@ function RegistroClinicaController($scope,constants,$filter,codigoPostalServices
     function sumPrices(total, num){
         return total + num.price;
     }
-    vm.codigos = []
-    vm.updateCPS = function(typed) {
-      console.log(typed)
-      codigoPostalServices.findCP(typed).success(function(data){
-        vm.codigos =  data.codigos;
-      });
-    }
+
     vm.getTotal = function getTotal(){
       return vm.selectedModules().reduce(sumPrices,0);
     }
@@ -30,7 +24,18 @@ function RegistroClinicaController($scope,constants,$filter,codigoPostalServices
     vm.minDate = new Date()
     vm.maxDate = new Date()
     vm.maxDate.setMonth(vm.minDate.getMonth() + 1)
+
+    vm.sendRegistro =  function() {
+      vm.registro.modulos = vm.selectedModules();
+      RegistroServices.registroClinica(vm.registro)
+        .then((response) => {
+
+        }).catch(() => {
+
+        });
+
+    }
 }
 
-RegistroClinicaController.$inject = ["$scope","constants","$filter","codigoPostalServices"];
+RegistroClinicaController.$inject = ["$scope","constants","$filter","RegistroServices"];
 angular.module("app.controllers").controller("registroClinicaController", RegistroClinicaController);

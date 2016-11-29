@@ -48,16 +48,24 @@
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.apellidos.$touched &amp;&amp; form.apellidos.$invalid }" class="form-group">
-                    <input type="text" required="required" placeholder="Apellidos" ng-model="vm.registro.apellido" name="apellidos" class="form-control">
-                    <div ng-messages="form.apellidos.$error" ng-show="form.apellidos.$touched" class="help-block">
+                  <div ng-class="{ 'has-error':form.apPaterno.$touched &amp;&amp; form.apPaterno.$invalid }" class="form-group">
+                    <input type="text" required="required" placeholder="Apellido Paterno" ng-model="vm.registro.apPaterno" name="apPaterno" class="form-control">
+                    <div ng-messages="form.apPaterno.$error" ng-show="form.apPaterno.$touched" class="help-block">
+                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error':form.apMaterno.$touched &amp;&amp; form.apMaterno.$invalid }" class="form-group">
+                    <input type="text" required="required" placeholder="Apellido Materno" ng-model="vm.registro.apMaterno" name="apMaterno" class="form-control">
+                    <div ng-messages="form.apMaterno.$error" ng-show="form.apMaterno.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error':form.email.$touched &amp;&amp; form.email.$invalid }" class="form-group">
-                    <input type="email" required="required" placeholder="Email" ng-model="vm.registro.email" name="email" class="form-control">
+                    <input type="email" required="required" placeholder="Email" ng-model="vm.registro.email" name="email" unique-email class="form-control">
                     <div ng-messages="form.email.$error" ng-show="form.email.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -72,9 +80,10 @@
                   </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error':form.username.$touched &amp;&amp; form.username.$invalid }" class="form-group">
-                    <input type="text" required="required" placeholder="Usuario" ng-model="vm.registro.username" name="username" class="form-control">
-                    <div ng-messages="form.username.$error" ng-show="form.username.$touched" class="help-block">
+                  <div ng-class="{ 'has-error':form.fechaNacimiento.$touched &amp;&amp; form.fechaNacimiento.$invalid }" class="form-group">
+                    <label>Fecha Nacimiento</label>
+                    <input type="date" required="required" placeholder="Fecha Nacimiento" ng-model="vm.registro.fechaNacimiento" name="fechaNacimiento" class="form-control">
+                    <div ng-messages="form.fechaNacimiento.$error" ng-show="form.fechaNacimiento.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
                   </div>

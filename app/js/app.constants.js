@@ -2,9 +2,7 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        "url": "http://localhost:8080",
-        "port": "8080",
-        "urllogin":"http://localhost:8080/auth/login",
+        "url": "http://localhost:8000",
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},
           { "value": 1, "text": "Cuteana"},

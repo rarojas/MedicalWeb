@@ -4,7 +4,7 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
         HomeServices.login($scope.user)
           .then((response) => {
               let data = response.data;
-              if(data.estatus == "SUCCESS"){
+              if(data.estatus == "ACTIVO"){
                 $rootScope.logged = true;
                 $rootScope.user = $scope.user;
                 $rootScope.user.token = data.token;
@@ -13,6 +13,10 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
               else{
                 if(data.estatus == "INEXISTENTE"){
                   $scope.showAlert("Los datos proporcionados nu son validos");
+                }else{
+                  if(data.estatus == "BAD_CREDENTIAL") {
+                    $scope.showAlert("Los datos proporcionados nu son validos");
+                  }
                 }
               }
         }).catch((error) => {

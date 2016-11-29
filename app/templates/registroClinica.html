@@ -37,7 +37,7 @@
               <form name="form" novalidate ng-submit="vm.sendRegistro()" class="form">
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error':form.institucion.$touched &amp;&amp; form.institucion.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.institucion" name="institucion" required="required" placeholder="Institución Médica" class="form-control">
+                    <input type="text" ng-model="vm.registro.nombre" name="institucion" required="required" placeholder="Institución Médica" class="form-control">
                     <div ng-messages="form.institucion.$error" ng-show="form.institucion.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error':form.cp.$touched &amp;&amp; form.cp.$invalid }" class="form-group">
-                    <input type="text" ng-model="vm.registro.cp" name="cp" required="required" placeholder="CP" class="form-control">
+                    <input type="text" ng-model="vm.registro.codigoPostal" name="cp" required="required" placeholder="CP" class="form-control">
                     <div ng-messages="form.cp.$error" ng-show="form.cp.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid }" class="form-group">
-                    <input type="password" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" class="form-control">
+                    <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" class="form-control">
                     <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div class="form-group">
-                    <select class="form-control">
+                    <select ng-model="tipo" class="form-control">
                       <option value="0">Entidad - Sanatorio</option>
                       <option value="1">Entidad - Hospital</option>
                       <option value="2">Entidad - Clinica</option>
