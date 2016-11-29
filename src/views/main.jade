@@ -1,0 +1,34 @@
+// my-template.jade
+extends layoutLogged
+
+block head
+  title Pantalla Principal
+
+
+block content
+  #inicio(ng-controller="pacientesController as pacientesCtrl")
+    #wrapper
+      #sidebar-wrapper
+        ul.sidebar-nav
+          li.sidebar-brand
+            a(href="#") Start Bootstrap
+      #page-content-wrapper
+        .container-fluid
+        .row
+          .col-md-12.col-sm-12
+            .div-trans.text-center
+              h3 Pacientes
+              .col-md-12.col-sm-12
+                  table(class="table table-striped table-bordered table-hover ")
+                    thead
+                      tr
+                        th  Paciente
+                        th  Paciente
+                        th  Paciente
+                        th  Paciente
+                    tbody
+                      tr(ng-repeat="paciente in pacientesCtrl.pacientes" style="color:black;")
+                        td {{paciente.name}}
+                        td {{paciente.name}}
+                        td {{paciente.name}}
+                        td {{paciente.name}}
