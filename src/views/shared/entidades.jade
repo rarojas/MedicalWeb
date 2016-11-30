@@ -1,0 +1,23 @@
+#inicio(ng-controller="EntidadesController as vm")
+  .container
+    .row
+      .col-md-12.col-sm-12
+        .div-trans.text-center
+          h3 Entidades
+          .col-md-12.col-sm-12
+              table(class="table table-striped table-bordered table-hover ")
+                thead
+                  tr  
+                    th  Nombre
+                    th  RFC
+                    th  Descripcion
+                    th  telefono
+                    th  Tipo
+                tbody
+                  tr(ng-repeat="entidad in vm.entidades" style="color:black;")
+                    td {{ entidad.nombre}}
+                    td {{ entidad.rfc}}
+                    td {{ entidad.telefono}}
+                    td {{ entidad.tipo}}
+                    td 
+                      a.btn.btn-primary(href="#/farmacia/{{entidad.idEntidad}}") Farmacia

@@ -8,7 +8,8 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
                 $rootScope.logged = true;
                 $rootScope.user = data.token;
                 $rootScope.$broadcast("logged");
-                $rootScope.saveToken(data.token);
+                if(vm.usuario.remember)
+                  $rootScope.saveToken(data.token);
                 $location.path("/home");
               }
               else{

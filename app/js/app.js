@@ -31,6 +31,18 @@ function run($rootScope, $location, $http, $window) {
           $window.localStorage['user'] = token;
         }
 
+        $rootScope.$on("logged", function(){
+          if($rootScope.logged){
+            $rootScope.userData = $rootScope.parseJwt($rootScope.user);
+          }
+        })
+
+        $rootScope.parseJwt = function(token) {
+          var base64Url = token.split('.')[1];
+          var base64 = base64Url.replace('-', '+').replace('_', '/');
+          return JSON.parse($window.atob(base64));
+        }
+
         $rootScope.getToken = function() {
           return $window.localStorage['user'];
         }
@@ -45,6 +57,7 @@ function run($rootScope, $location, $http, $window) {
             $rootScope.user  = token;
             $rootScope.$broadcast("logged");
             $location.path("/home")
+            $rootScope.userData = $rootScope.parseJwt(token);
         }else{
             $location.path("/")
         }

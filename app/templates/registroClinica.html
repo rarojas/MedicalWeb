@@ -1,78 +1,104 @@
-<!DOCTYPE html>
-<html ng-app="medicalWeb">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="PT_2">
-    <meta name="author" content="Patricia G.">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/css/autocomplete.css" rel="stylesheet">
-    <link href="/css/angular-material.min.css" rel="stylesheet">
-    <link href="/css/loading-bar.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="/assets/medicalweb.ico">
-    <title>Registra tu Clínica - Datos de la Clínica</title>
-  </head>
-  <body>
-    <header ng-controller="navBarController as navCtrl">
-      <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-          </div>
-          <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
-            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#inicio"> Inicio</a></li>
-              <li><a href="#caracteristicas">Caracteristicas</a></li>
-              <li><a href="#sistemas">Sistemas</a></li>
-              <li><a href="#price-sec">Precios</a></li>
-              <li><a href="#Parallax-two">Subscripcion</a></li>
-            </ul>
-            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
-            </ul>
-            <!--block navbar-->
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div ng-view></div>
-    <!--block content-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="social-icon"><a href="https://www.facebook.com/"><i class="fa fa-facebook fa-1x"></i></a></div>
+
+<div id="inicio" ng-controller="registroClinicaController  as vm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Registro Datos de la Clínica </h3>
+          <form name="form" novalidate="novalidate" ng-submit="vm.sendRegistro()" class="form">
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.institucion.$touched &amp;&amp; form.institucion.$invalid }" class="form-group">
+                <input type="text" ng-model="vm.registro.nombre" name="institucion" required="required" placeholder="Institución Médica" class="form-control"/>
+                <div ng-messages="form.institucion.$error" ng-show="form.institucion.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.calle.$touched &amp;&amp; form.calle.$invalid }" class="form-group">
+                <input type="text" ng-model="vm.registro.calle" name="calle" required="required" placeholder="Calle" class="form-control"/>
+                <div ng-messages="form.calle.$error" ng-show="form.calle.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.numero.$touched &amp;&amp; form.numero.$invalid }" class="form-group">
+                <input type="text" ng-model="vm.registro.numero" name="numero" required="required" placeholder="Número" class="form-control"/>
+                <div ng-messages="form.numero.$error" ng-show="form.numero.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.cp.$touched &amp;&amp; form.cp.$invalid }" class="form-group">
+                <input type="text" ng-model="vm.registro.codigoPostal" name="cp" required="required" placeholder="CP" class="form-control"/>
+                <div ng-messages="form.cp.$error" ng-show="form.cp.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.telefono.$touched &amp;&amp; form.telefono.$invalid }" class="form-group">
+                <input type="phone" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" class="form-control"/>
+                <div ng-messages="form.telefono.$error" ng-show="form.telefono.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid }" class="form-group">
+                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" class="form-control"/>
+                <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group">
+                <select ng-model="vm.registro.tipo" name="tipo" required="required" ng-options="tipo.value as tipo.text for tipo in vm.tipoEntidadEnum track by tipo.value" class="form-control">
+                  <option value="">Elige un tipo</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <ng-repeat ng-repeat="modulo in vm.modulos">
+                <div ng-click="vm.toogle(modulo)" class="col-md-4 col-sm-6">
+                  <ul ng-class="{'plan-active': modulo.selected }" class="plan">
+                    <li class="plan-head head-active">{{modulo.title}}</li>
+                    <li class="main-price">{{modulo.price | currency: "MXN$ ": 2}} / Mes</li>
+                    <li><strong>{{modulo.description}}</strong></li>
+                    <li class="bottom">
+                      <div class="col-md-12">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="selectedModules[]" value="{{modulo}}" ng-model="modulo.selected"/><strong>{{modulo.title}}</strong>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </ng-repeat>
+            </div>
+            <md-content layout-padding="layout-padding">
+              <div layout="row" layout-xs="column">
+                <div flex="flex">
+                  <h4>Fecha inicio</h4>
+                  <md-datepicker ng-model="vm.registro.fechaInicio" name="dateField" md-min-date="vm.minDate" md-max-date="vm.registro.fechaFin"></md-datepicker>
+                </div>
+                <div flex="flex">
+                  <h4>Fecha fin</h4>
+                  <md-datepicker ng-model="vm.registro.fechaFin" md-min-date="vm.minDate" md-max-date="vm.maxDate">                   </md-datepicker>
+                </div>
+              </div>
+            </md-content>
+            <div class="form-group">
+              <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Entidad</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div id="footer" class="for-full-back">2016 www.medicalweb.com | Patricia G.</div>
-    <script src="/assets/plugins/jquery-1.10.2.js"></script>
-    <script src="/js/angular.min.js"></script>
-    <script src="/js/angular-messages.min.js"></script>
-    <script src="/js/angular-route.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/assets/plugins/jquery.parallax-1.1.3.js"></script>
-    <script src="/js/angular-animate.min.js"></script>
-    <script src="/js/angular-aria.min.js"></script>
-    <script src="/js/angular-material.min.js"></script>
-    <script src="/js/loading-bar.min.js"></script>
-    <script src="/assets/js/custom.js"></script>
-    <script src="/js/app.js">   </script>
-    <script src="/js/app.constants.js"></script>
-    <script src="/js/navbar.controller.js"></script>
-    <script src="/js/common.directives.js"></script>
-    <script src="/js/cps.service.js"></script>
-    <script src="/js/autocomplete.js"></script>
-    <script src="/js/home.controller.js"></script>
-    <script src="/js/registro.controller.js"></script>
-    <script src="/js/paciente.controller.js"></script>
-    <script src="/js/home.services.js"></script>
-    <script src="/js/registro.services.js"></script>
-    <script src="/js/inventario.controller.js"></script>
-    <script src="/js/inventario.services.js"></script>
-    <script src="/js/registroClinica.controller.js"></script>
-    <script src="/js/app.routes.js"></script>
-  </body>
-</html>
+  </div>
+</div>

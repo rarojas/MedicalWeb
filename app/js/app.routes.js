@@ -8,7 +8,11 @@ angular.module("app.routes",["ngRoute"])
   .when("/receta", { templateUrl: '/templates/receta.html', title :"Generar Receta" })
   .when("/solicitud", { templateUrl: '/templates/solicitud.html', title :"Generar solicitud" })
   .when("/paciente", { templateUrl: '/templates/paciente.html', title :"Registro Paciente" })
-  .when("/farmacia", { templateUrl: '/templates/farmacia/inventario.html', title :"Inventario"  }) 
+  .when("/entidades", { templateUrl: '/templates/shared/entidades.html', title :"Entidades" })
+  .when("/farmacia/:idEntidad", {
+      templateUrl: '/templates/farmacia/inventario.html',
+      title :"Inventario", controller : "InventarioController", controllerAs:"vm"}
+  )
   .when("/doctores", { templateUrl: '/templates/shared/doctores.html', title :"Doctores"  })
   .otherwise("/");
 });

@@ -1,5 +1,5 @@
 
-<div id="inicio" ng-controller="InventarioController as vm">
+<div id="inicio">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
@@ -36,7 +36,7 @@
                     <input type="number" required="required" placeholder="Cantidad" ng-model="medicamento.cantidad" name="cantidad" min="0" max="500" class="form-control"/>
                   </td>
                   <td> 
-                    <button type="button" ng-click="vm.borrarMedicamento(medicamento)" ng-show="!!medicamento.idMedicamento" class="btn btn-danger">Eliminar </button>
+                    <!--button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)", ng-show="!!medicamento.idMedicamento") Eliminar -->
                     <button type="button" ng-click="vm.guardarMedicamento(medicamento)" class="btn btn-success">Guardar Cambios</button>
                   </td>
                 </tr>

@@ -1,6 +1,6 @@
-function InventarioController($scope,$mdDialog,InventarioServices){
+function InventarioController($scope,$mdDialog,InventarioServices, $routeParams ){
     var vm = this;
-    var entidad = 8
+    var entidad = $routeParams.idEntidad
 
     InventarioServices.getMedicamentos({idEntidad : entidad })
       .then((response) => {
@@ -22,6 +22,7 @@ function InventarioController($scope,$mdDialog,InventarioServices){
         var accion = !medicamento.idMedicamento ?
         InventarioServices.guardarMedicamento : InventarioServices.actualizarMedicamento;
         accion(medicamento).then((response) => {
+          medicamento.idMedicamento = response.data.idMedicamento
           $mdDialog.show($mdDialog.alert()
             .title('Guardar medicamento')
             .textContent('Accion Exitosa :)')
@@ -58,5 +59,5 @@ function InventarioController($scope,$mdDialog,InventarioServices){
 
 }
 
-InventarioController.$inject = ["$scope","$mdDialog","InventarioServices"];
+InventarioController.$inject = ["$scope","$mdDialog","InventarioServices","$routeParams"];
 angular.module("app.controllers").controller("InventarioController", InventarioController);

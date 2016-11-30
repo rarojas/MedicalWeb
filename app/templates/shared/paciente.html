@@ -28,10 +28,14 @@
               <li><a href="#caracteristicas">Caracteristicas</a></li>
               <li><a href="#sistemas">Sistemas</a></li>
               <li><a href="#price-sec">Precios</a></li>
-              <li><a href="#Parallax-two">Subscripcion</a></li>
+              <li><a href="#/registro">Subscripcion</a></li>
             </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="" ng-click="navCtrl.logout()"><i class="fa fa-user fa-fw"></i>Mi Perfil</a></li>
+              <li><a href="" ng-click="navCtrl.logout()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>Mi Perfil</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" ng-click="navCtrl.logout()"> Cerrar Sesion</a></li>
+                </ul>
+              </li>
             </ul>
             <!--block navbar-->
           </div>
@@ -73,6 +77,8 @@
     <script src="/js/inventario.controller.js"></script>
     <script src="/js/inventario.services.js"></script>
     <script src="/js/registroClinica.controller.js"></script>
+    <script src="/js/entidades.controller.js"></script>
+    <script src="/js/entidades.services.js"></script>
     <script src="/js/app.routes.js"></script>
   </body>
 </html>

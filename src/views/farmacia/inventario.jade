@@ -1,4 +1,4 @@
-#inicio(ng-controller="InventarioController as vm")
+#inicio
   .container
     .row
       .col-md-12.col-sm-12
@@ -28,5 +28,5 @@
                     td
                       input.form-control(type='number', required='required', placeholder='Cantidad',ng-model="medicamento.cantidad",name="cantidad",min="0" max="500")
                     td 
-                      button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)", ng-show="!!medicamento.idMedicamento") Eliminar 
+                      //button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)", ng-show="!!medicamento.idMedicamento") Eliminar 
                       button.btn.btn-success(type='button',ng-click="vm.guardarMedicamento(medicamento)") Guardar Cambios

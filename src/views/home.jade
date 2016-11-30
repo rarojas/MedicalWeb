@@ -38,7 +38,7 @@
             .col-md-12.col-sm-3
               .form-group
                 input.form-control(type='password', required='required', placeholder='Password',ng-model="vm.usuario.password",name="password")
-            input(type='checkbox')
+            input(type='checkbox',name="remember",ng-model="vm.usuario.remember")
             | Remember me
             .form-group
               button.btn.btn-success(type='submit') Login

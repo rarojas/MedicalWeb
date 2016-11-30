@@ -1,5 +1,6 @@
-function RegistroClinicaController($scope,constants,$filter,RegistroServices) {
+function RegistroClinicaController($scope,constants,$filter,RegistroServices,$rootScope,$mdDialog,$location) {
     var vm = this;
+    var idUser = $rootScope.userData.userId;
     vm.tipoEntidadEnum = constants.tipoEntidadEnum;
 
     vm.registro = {
@@ -29,16 +30,32 @@ function RegistroClinicaController($scope,constants,$filter,RegistroServices) {
 
     vm.sendRegistro =  function() {
       //vm.registro.modulos = vm.selectedModules();
-      vm.registro.administrador = { idUser : 14 };
+      vm.registro.administrador = { idUser : idUser };
       RegistroServices.registroClinica(vm.registro)
-        .then((response) => {
-
-        }).catch(() => {
-
+      .then((response) => {
+        vm.showAlert({
+           title :"Registro Exitoso",
+           text  :"Ingresa el menu entidades para comenzar"
+        }).then(function() {
+            $location.path("/entidades")
         });
+      }).catch((error) =>{
+        vm.showAlert({
+           title :"Ocurrio un error :(",
+           text  : error.data.mensaje | 'Ocurrio un error :('
+        })
+      });
 
     }
+
+    vm.showAlert = (content) => {
+      return $mdDialog.show(
+          $mdDialog.confirm()
+            .title(content.title)
+            .textContent(content.text )
+            .ok('Entendido'));
+     }
 }
 
-RegistroClinicaController.$inject = ["$scope","constants","$filter","RegistroServices"];
+RegistroClinicaController.$inject = ["$scope","constants","$filter","RegistroServices","$rootScope","$mdDialog","$location"];
 angular.module("app.controllers").controller("registroClinicaController", RegistroClinicaController);

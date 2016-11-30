@@ -54,12 +54,16 @@ html(ng-app="medicalWeb")
                 li
                   a(href='#price-sec') Precios
                 li
-                  a(href='#Parallax-two') Subscripcion
+                  a(href='#/registro') Subscripcion
             ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
               li
-                a(href='' ng-click="navCtrl.logout()")
+                a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-user.fa-fw
                   | Mi Perfil
+                ul.dropdown-menu
+                  li
+                    a(href="", ng-click="navCtrl.logout()")  Cerrar Sesion
+                
             //block navbar
     div(ng-view)
     //block content
@@ -97,6 +101,8 @@ html(ng-app="medicalWeb")
     script(src='/js/inventario.controller.js')
     script(src='/js/inventario.services.js')
     script(src="/js/registroClinica.controller.js")
+    script(src="/js/entidades.controller.js")
+    script(src="/js/entidades.services.js")
     script(src="/js/app.routes.js")
 
     block scripts
