@@ -14,9 +14,9 @@ angular
          { value : 1, text :"Análisis" }
        ],
        modulos : [
-         {"id": 1,"title":"Consulta", "price": 2500.00  , "description":"12GB Espacio en disco "},
-         {"id": 2,"title":"Farmacia", "price": 2500.00  , "description":"12GB Espacio en disco "},
-         {"id": 3,"title":"Laboratorio", "price": 2500.00 , "description":"12GB Espacio en disco "}
+         {"idModulo": 1,"title":"Consulta", "price": 2500.00  , "description":"12GB Espacio en disco "},
+         {"idModulo": 2,"title":"Farmacia", "price": 2500.00  , "description":"12GB Espacio en disco "},
+         {"idModulo": 3,"title":"Laboratorio", "price": 2500.00 , "description":"12GB Espacio en disco "}
        ],
        getCPS : 'https://api-codigos-postales.herokuapp.com/v2/buscar',
        tipoSanguinioEnum : [
