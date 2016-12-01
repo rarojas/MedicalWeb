@@ -1,14 +1,8 @@
 // my-template.jade
-extends layoutLogged
-
-block head
-  title Lista de Doctores de Clinica
-
-block scripts
-  script(src='/js/doctores.controller.js')
+extends funcions
 
 block content
-  #inicio(ng-controller="doctoresController as doctoresCtrl")
+  #inicio
     .container
       .row
         .col-md-12.col-sm-12
@@ -19,12 +13,12 @@ block content
                   thead
                     tr
                       th  Doctores
-                      th  Doctores
-                      th  Doctores
-                      th  Doctores
+                      th  Especialidad
+                      th  Subespecialidad
+                      th  Cedula
                   tbody
-                    tr(ng-repeat="doctor in doctoresCtrl.doctores" style="color:black;")
-                      td {{doctor.name}}
-                      td {{doctor.name}}
-                      td {{doctor.name}}
-                      td {{doctor.name}}
+                    tr(ng-repeat="doctor in vm.doctores" style="color:black;")
+                      td {{doctor.nombre}}
+                      td {{doctor.especialidad}}
+                      td {{doctor.sub_especialidad}}
+                      td {{doctor.cedula_profesional}}

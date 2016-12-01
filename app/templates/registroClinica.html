@@ -7,7 +7,7 @@
           <h3>Registro Datos de la Clínica </h3>
           <form name="form" novalidate="novalidate" ng-submit="vm.sendRegistro()" class="form">
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.institucion.$touched &amp;&amp; form.institucion.$invalid }" class="form-group">
+              <div ng-class="{ 'has-error':form.institucion.$touched &amp;&amp; form.institucion.$invalid, 'has-success':form.institucion.$touched &amp;&amp; form.institucion.$valid }" class="form-group">
                 <input type="text" ng-model="vm.registro.nombre" name="institucion" required="required" placeholder="Institución Médica" class="form-control"/>
                 <div ng-messages="form.institucion.$error" ng-show="form.institucion.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.calle.$touched &amp;&amp; form.calle.$invalid }" class="form-group">
+              <div ng-class="{ 'has-error':form.calle.$touched &amp;&amp; form.calle.$invalid, 'has-success':form.calle.$touched &amp;&amp; form.calle.$valid }" class="form-group">
                 <input type="text" ng-model="vm.registro.calle" name="calle" required="required" placeholder="Calle" class="form-control"/>
                 <div ng-messages="form.calle.$error" ng-show="form.calle.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.numero.$touched &amp;&amp; form.numero.$invalid }" class="form-group">
+              <div ng-class="{ 'has-error':form.numero.$touched &amp;&amp; form.numero.$invalid, 'has-success':form.numero.$touched &amp;&amp; form.numero.$valid }" class="form-group">
                 <input type="text" ng-model="vm.registro.numero" name="numero" required="required" placeholder="Número" class="form-control"/>
                 <div ng-messages="form.numero.$error" ng-show="form.numero.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
@@ -31,24 +31,24 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.cp.$touched &amp;&amp; form.cp.$invalid }" class="form-group">
-                <input type="text" ng-model="vm.registro.codigoPostal" name="cp" required="required" placeholder="CP" class="form-control"/>
+              <div ng-class="{ 'has-error':form.cp.$touched &amp;&amp; form.cp.$invalid, 'has-success':form.cp.$touched &amp;&amp; form.cp.$valid }" class="form-group">
+                <input type="text" ng-model="vm.registro.codigoPostal" name="cp" required="required" placeholder="CP" codigo-postal="codigo-postal" class="form-control"/>
                 <div ng-messages="form.cp.$error" ng-show="form.cp.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.telefono.$touched &amp;&amp; form.telefono.$invalid }" class="form-group">
-                <input type="phone" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" class="form-control"/>
+              <div ng-class="{ 'has-error':form.telefono.$touched &amp;&amp; form.telefono.$invalid, 'has-success':form.telefono.$touched &amp;&amp; form.telefono.$valid }" class="form-group">
+                <input type="number" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" phone="phone" class="form-control"/>
                 <div ng-messages="form.telefono.$error" ng-show="form.telefono.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid }" class="form-group">
-                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" class="form-control"/>
+              <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid, 'has-success':form.rfc.$touched &amp;&amp; form.rfc.$valid }" class="form-group">
+                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" rfc="rfc" class="form-control"/>
                 <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>

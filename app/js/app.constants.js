@@ -3,6 +3,12 @@ angular
     .module('app.constants', [])
     .constant("constants", {
         "url": "http://localhost:8000",
+        "ADMINISTRADOR":[
+          {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
+        ],
+        "DOCTOR":[
+          {path:"#home",text:"Inicio"}, {path:"#consulta",text:"Consulta"}, {path:"#recetas",text:"recetas"}
+        ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},
           { "value": 1, "text": "Cuteana"},

@@ -13,6 +13,14 @@ function RegistroServices ($http,constants) {
         data : clinica
       });
   }
+
+  this.registroDoctor = function(doctor) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/registro/registroDoctor',
+        data : doctor
+      });
+  }
 }
 
 RegistroServices.$inject =  ["$http","constants"]

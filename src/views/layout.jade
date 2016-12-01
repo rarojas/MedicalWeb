@@ -32,7 +32,7 @@ html(ng-app="medicalWeb")
     link(rel="shortcut icon",href="#{ico}")
     block head
   body
-    header(ng-controller="navBarController as navCtrl")
+    header(ng-controller="NavBarController as navCtrl")
       nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
         .container
           .navbar-header
@@ -55,16 +55,16 @@ html(ng-app="medicalWeb")
                   a(href='#price-sec') Precios
                 li
                   a(href='#/registro') Subscripcion
+            ul.nav.navbar-nav.navbar-left(ng-if="navCtrl.logged", ng-repeat="modulo in navCtrl.modulos")
+              li
+                a(href="", ng-href='{{modulo.path}}')  {{modulo.text}}
+            
             ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
               li
                 a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-user.fa-fw
-                  | Mi Perfil
-                ul.dropdown-menu
-                  li
-                    a(href="", ng-click="navCtrl.logout()")  Cerrar Sesion
+                  | Cerrar Sesion
                 
-            //block navbar
     div(ng-view)
     //block content
     .container
@@ -96,6 +96,8 @@ html(ng-app="medicalWeb")
     script(src="/js/home.controller.js")
     script(src='/js/registro.controller.js')
     script(src='/js/paciente.controller.js')
+    script(src='/js/paciente.services.js')
+    script(src='/js/pacientes.controller.js')
     script(src='/js/home.services.js')
     script(src='/js/registro.services.js')
     script(src='/js/inventario.controller.js')
@@ -103,6 +105,13 @@ html(ng-app="medicalWeb")
     script(src="/js/registroClinica.controller.js")
     script(src="/js/entidades.controller.js")
     script(src="/js/entidades.services.js")
+    script(src='/js/solicitud.controller.js')
+    script(src='/js/doctor.controller.js')
+    script(src='/js/doctores.controller.js')
+    script(src='/js/doctor.services.js')
+
     script(src="/js/app.routes.js")
+    
+
 
     block scripts

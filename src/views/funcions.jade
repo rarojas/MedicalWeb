@@ -11,7 +11,7 @@ mixin message_(name)
       .div(ng-messages-include="/templates/shared/messages.html")
         
 mixin formvalid_(name)
-  .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid }")
+  .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid, 'has-success':form.#{name}.$touched && form.#{name}.$valid }")
     block
 
 block content

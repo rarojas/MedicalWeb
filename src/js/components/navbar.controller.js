@@ -1,12 +1,21 @@
-function NavBarController($scope,$location,$rootScope) {
+function NavBarController($scope,$location,$rootScope,constants) {
     var vm = this;
     vm.logged = $rootScope.logged;
     vm.isActive = function (viewLocation) {
       return viewLocation === $location.path();
     }
+
     $rootScope.$on("logged", function(){
         vm.logged = $rootScope.logged;
+        if($rootScope.logged)
+        vm.modulos = constants[$rootScope.userData.role];
     });
+
+    vm.modulos = []
+    if($rootScope.logged)
+      vm.modulos = constants[$rootScope.userData.role];
+
+
 
     vm.logout = function() {
       $rootScope.logged = false;
@@ -17,5 +26,5 @@ function NavBarController($scope,$location,$rootScope) {
     }
 }
 
-NavBarController.$inject = ["$scope","$location","$rootScope"];
-angular.module("app.controllers").controller("navBarController", NavBarController);
+NavBarController.$inject = ["$scope","$location","$rootScope","constants"];
+angular.module("app.controllers").controller("NavBarController", NavBarController);

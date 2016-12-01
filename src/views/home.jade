@@ -32,14 +32,18 @@
         .div-trans.text-center
           h3 LOG IN 
           form(name="form" novalidate, ng-submit="vm.login()")
-            .col-md-12.col-sm-3
+            .col-md-12.col-sm-12
               .form-group
                 input.form-control(type='text', required='required', placeholder='User',ng-model="vm.usuario.username",name="user")
-            .col-md-12.col-sm-3
+            .col-md-12.col-sm-12
               .form-group
                 input.form-control(type='password', required='required', placeholder='Password',ng-model="vm.usuario.password",name="password")
-            input(type='checkbox',name="remember",ng-model="vm.usuario.remember")
-            | Remember me
+            .form-group
+              .col-md-12
+                .checkbox
+                  label
+                    input(type='checkbox',name="remember",ng-model="vm.usuario.remember")
+                    | Remember me
             .form-group
               button.btn.btn-success(type='submit') Login
     // *************************************hasta aqui***************************************

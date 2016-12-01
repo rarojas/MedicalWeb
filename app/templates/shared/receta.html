@@ -16,7 +16,7 @@
     <title>Receta Médica</title>
   </head>
   <body>
-    <header ng-controller="navBarController as navCtrl">
+    <header ng-controller="NavBarController as navCtrl">
       <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
@@ -30,14 +30,12 @@
               <li><a href="#price-sec">Precios</a></li>
               <li><a href="#/registro">Subscripcion</a></li>
             </ul>
-            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="" ng-click="navCtrl.logout()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>Mi Perfil</a>
-                <ul class="dropdown-menu">
-                  <li><a href="" ng-click="navCtrl.logout()"> Cerrar Sesion</a></li>
-                </ul>
-              </li>
+            <ul ng-if="navCtrl.logged" ng-repeat="modulo in navCtrl.modulos" class="nav navbar-nav navbar-left">
+              <li><a href="" ng-href="{{modulo.path}}"> {{modulo.text}}</a></li>
             </ul>
-            <!--block navbar-->
+            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
+              <li><a href="" ng-click="navCtrl.logout()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>Cerrar Sesion</a></li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -72,6 +70,8 @@
     <script src="/js/home.controller.js"></script>
     <script src="/js/registro.controller.js"></script>
     <script src="/js/paciente.controller.js"></script>
+    <script src="/js/paciente.services.js"></script>
+    <script src="/js/pacientes.controller.js"></script>
     <script src="/js/home.services.js"></script>
     <script src="/js/registro.services.js"></script>
     <script src="/js/inventario.controller.js"></script>
@@ -79,6 +79,10 @@
     <script src="/js/registroClinica.controller.js"></script>
     <script src="/js/entidades.controller.js"></script>
     <script src="/js/entidades.services.js"></script>
+    <script src="/js/solicitud.controller.js"></script>
+    <script src="/js/doctor.controller.js"></script>
+    <script src="/js/doctores.controller.js"></script>
+    <script src="/js/doctor.services.js"></script>
     <script src="/js/app.routes.js"></script>
     <script src="/js/receta.controller.js"></script>
   </body>

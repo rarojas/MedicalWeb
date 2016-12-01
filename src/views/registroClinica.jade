@@ -22,15 +22,15 @@ block content
                   +message_("numero")
               .col-md-12.col-sm-12
                 +formvalid_("cp")
-                  input.form-control(type='text',ng-model="vm.registro.codigoPostal",name="cp", required='required', placeholder='CP')
+                  input.form-control(type='text',ng-model="vm.registro.codigoPostal",name="cp", required='required', placeholder='CP',codigo-postal)
                   +message_("cp")
               .col-md-12.col-sm-12
                 +formvalid_("telefono")
-                  input.form-control(type='phone',ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono')
+                  input.form-control(type='number',ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono', phone)
                   +message_("telefono")
               .col-md-12.col-sm-12
                 +formvalid_("rfc")
-                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC')
+                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc)
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group

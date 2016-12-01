@@ -34,6 +34,8 @@ function run($rootScope, $location, $http, $window) {
         $rootScope.$on("logged", function(){
           if($rootScope.logged){
             $rootScope.userData = $rootScope.parseJwt($rootScope.user);
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.user;
+            $rootScope.logged = true;
           }
         })
 
@@ -53,17 +55,15 @@ function run($rootScope, $location, $http, $window) {
 
         var token = $rootScope.getToken();
         if(token) {
+            $rootScope.user = token;
             $rootScope.logged = true;
-            $rootScope.user  = token;
             $rootScope.$broadcast("logged");
-            $location.path("/home")
-            $rootScope.userData = $rootScope.parseJwt(token);
+            if($location.path() === '/')
+              $location.path("/home")
         }else{
             $location.path("/")
         }
-        if ($rootScope.user) {
-          $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.user;
-        }
+
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
           var restrictedPage = $.inArray($location.path(), ['/', '/registro']) === -1;
           var loggedIn = $rootScope.user;

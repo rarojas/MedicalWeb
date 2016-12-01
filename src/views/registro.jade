@@ -45,4 +45,4 @@ block content
                   input.form-control(type='password', required='required', placeholder='Cofirma Contraseña', ng-model="vm.registro.confirm",name="confirm",compare-to="vm.registro.password")
                   +message_("confirm")
               .form-group
-                button.btn.btn-success(type='submit' ng-disabled="form.$invalid") Registrarse
+                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrarse

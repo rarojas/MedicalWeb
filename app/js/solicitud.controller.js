@@ -1,4 +1,4 @@
-function SolicitudController($scope,constants) {
+function SolicitudController($scope,constants,$routeParams) {
     var vm = this;
     vm.solicitud = {
       descripcion : "paciente",
@@ -8,5 +8,5 @@ function SolicitudController($scope,constants) {
     vm.tipoSolicitudEnum = constants.tipoSolicitudEnum
 }
 
-SolicitudController.$inject = ["$scope","constants"];
-angular.module("app.controllers").controller("solicitudController", SolicitudController);
+SolicitudController.$inject = ["$scope","constants","$routeParams"];
+angular.module("app.controllers").controller("SolicitudController", SolicitudController);

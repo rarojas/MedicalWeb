@@ -1,14 +1,7 @@
-// my-template.jade
-extends ../layoutLogged
-
-block head
-  title Crear Solicitud
-
-block scripts
-  script(src='/js/solicitud.controller.js')
+extends ../funcions
 
 block content
-  #inicio(ng-controller="solicitudController  as solicitudCtrl")
+  #inicio
     .container
       .row
         .col-md-12.col-sm-12
@@ -17,13 +10,13 @@ block content
             form.form(name="form",novalidate)
               .col-md-12.col-sm-12
                 +formvalid_("tipoSolicitud")
-                  ng-repeat(ng-repeat="tipoSolicitud in solicitudCtrl.tipoSolicitudEnum")
+                  ng-repeat(ng-repeat="tipoSolicitud in vm.tipoSolicitudEnum")
                     label(class="radio-inline")
-                      input(type="radio", name="tipoSolicitud" ng-model="solicitudCtrl.solicitud.tipo" value="{{tipoSolicitud.value}}")
+                      input(type="radio", name="tipoSolicitud" ng-model="vm.solicitud.tipo" value="{{tipoSolicitud.value}}")
                       | {{tipoSolicitud.text}}
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control(name="tipo",ng-model="solicitudCtrl.solititud.tipo",required="required",ng-show="solicitudCtrl.solicitud.tipo == 1")
+                  select.form-control(name="tipo",ng-model="vm.solititud.tipo",required="required",ng-show="vm.solicitud.tipo == 1")
                     option(value="") Tipo Análisis
                     each type, i in tiposAnalisisEnum
                       option(value=i) #{type}
@@ -31,10 +24,11 @@ block content
                 .form-group
                   .form-group
                     label(for="comment") Descripción
-                    textarea(class="form-control",rows="5",name="descripcion",required="required",ng-model="solicitudCtrl.solicitud.descripcion")
+                    textarea(class="form-control",rows="5",name="descripcion",required="required",ng-model="vm.solicitud.descripcion")
               .col-md-12.col-sm-12
                 .form-group
                   label(for="comment") Impresión Diagnostica
-                  textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="solicitudCtrl.solicitud.impresion")
+                  textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="vm.solicitud.impresion")
               .form-group
                 button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrarse
+        

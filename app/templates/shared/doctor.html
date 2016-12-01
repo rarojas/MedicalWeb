@@ -1,84 +1,106 @@
-<!DOCTYPE html>
-<html ng-app="medicalWeb">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="PT_2">
-    <meta name="author" content="Patricia G.">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/css/autocomplete.css" rel="stylesheet">
-    <link href="/css/angular-material.min.css" rel="stylesheet">
-    <link href="/css/loading-bar.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="/assets/medicalweb.ico">
-    <title>Registro de Nuevo Doctor</title>
-  </head>
-  <body>
-    <header ng-controller="navBarController as navCtrl">
-      <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-          </div>
-          <div class="collapse navbar-collapse navbar-ex1-collapse"><a href="#inicio" class="navbar-brand"><img src="/assets/img/logo.png" style="max-width: 180px;position: relative;top: -60px;"></a>
-            <ul ng-if="!navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#inicio"> Inicio</a></li>
-              <li><a href="#caracteristicas">Caracteristicas</a></li>
-              <li><a href="#sistemas">Sistemas</a></li>
-              <li><a href="#price-sec">Precios</a></li>
-              <li><a href="#/registro">Subscripcion</a></li>
-            </ul>
-            <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="" ng-click="navCtrl.logout()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>Mi Perfil</a>
-                <ul class="dropdown-menu">
-                  <li><a href="" ng-click="navCtrl.logout()"> Cerrar Sesion</a></li>
-                </ul>
-              </li>
-            </ul>
-            <!--block navbar-->
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div ng-view></div>
-    <!--block content-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div id="social-icon"><a href="https://www.facebook.com/"><i class="fa fa-facebook fa-1x"></i></a></div>
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Registro Nuevo Doctor</h3>
+          <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.name.$touched &amp;&amp; form.name.$invalid, 'has-success':form.name.$touched &amp;&amp; form.name.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Nombre" ng-model="vm.registro.nombre" name="name" class="form-control"/>
+                <div ng-messages="form.name.$error" ng-show="form.name.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.apPaterno.$touched &amp;&amp; form.apPaterno.$invalid, 'has-success':form.apPaterno.$touched &amp;&amp; form.apPaterno.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Apellido Paterno" ng-model="vm.registro.apPaterno" name="apPaterno" class="form-control"/>
+                <div ng-messages="form.apPaterno.$error" ng-show="form.apPaterno.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.apMaterno.$touched &amp;&amp; form.apMaterno.$invalid, 'has-success':form.apMaterno.$touched &amp;&amp; form.apMaterno.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Apellido Materno" ng-model="vm.registro.apMaterno" name="apMaterno" class="form-control"/>
+                <div ng-messages="form.apMaterno.$error" ng-show="form.apMaterno.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.email.$touched &amp;&amp; form.email.$invalid, 'has-success':form.email.$touched &amp;&amp; form.email.$valid }" class="form-group">
+                <input type="email" required="required" placeholder="Email" ng-model="vm.registro.email" name="email" unique-email="unique-email" class="form-control"/>
+                <div ng-messages="form.email.$error" ng-show="form.email.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.cargo.$touched &amp;&amp; form.cargo.$invalid, 'has-success':form.cargo.$touched &amp;&amp; form.cargo.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Cargo" ng-model="vm.registro.cargo" name="cargo" class="form-control"/>
+                <div ng-messages="form.cargo.$error" ng-show="form.cargo.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.fechaNacimiento.$touched &amp;&amp; form.fechaNacimiento.$invalid, 'has-success':form.fechaNacimiento.$touched &amp;&amp; form.fechaNacimiento.$valid }" class="form-group">
+                <label>Fecha Nacimiento</label>
+                <input type="date" required="required" placeholder="Fecha Nacimiento" ng-model="vm.registro.fechaNacimiento" name="fechaNacimiento" class="form-control"/>
+                <div ng-messages="form.fechaNacimiento.$error" ng-show="form.fechaNacimiento.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.especialidad.$touched &amp;&amp; form.especialidad.$invalid, 'has-success':form.especialidad.$touched &amp;&amp; form.especialidad.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Especialidad" ng-model="vm.registro.especialidad" name="especialidad" class="form-control"/>
+                <div ng-messages="form.especialidad.$error" ng-show="form.especialidad.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.sub_especialidad.$touched &amp;&amp; form.sub_especialidad.$invalid, 'has-success':form.sub_especialidad.$touched &amp;&amp; form.sub_especialidad.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Subespecialidad" ng-model="vm.registro.sub_especialidad" name="sub_especialidad" class="form-control"/>
+                <div ng-messages="form.sub_especialidad.$error" ng-show="form.sub_especialidad.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$invalid, 'has-success':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Cedula profesional" ng-model="vm.registro.cedula_profesional" class="form-control"/>
+                <div ng-messages="form.cedula_profesional.$error" ng-show="form.cedula_profesional.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.password.$touched &amp;&amp; form.password.$invalid, 'has-success':form.password.$touched &amp;&amp; form.password.$valid }" class="form-group">
+                <input type="password" required="required" placeholder="Contraseña" ng-model="vm.registro.password" name="password" class="form-control"/>
+                <div ng-messages="form.password.$error" ng-show="form.password.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.confirm.$touched &amp;&amp; form.confirm.$invalid, 'has-success':form.confirm.$touched &amp;&amp; form.confirm.$valid }" class="form-group">
+                <input type="password" required="required" placeholder="Cofirma Contraseña" ng-model="vm.registro.confirm" name="confirm" compare-to="vm.registro.password" class="form-control"/>
+                <div ng-messages="form.confirm.$error" ng-show="form.confirm.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Doctor</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div id="footer" class="for-full-back">2016 www.medicalweb.com | Patricia G.</div>
-    <script src="/assets/plugins/jquery-1.10.2.js"></script>
-    <script src="/js/angular.min.js"></script>
-    <script src="/js/angular-messages.min.js"></script>
-    <script src="/js/angular-route.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/assets/plugins/jquery.parallax-1.1.3.js"></script>
-    <script src="/js/angular-animate.min.js"></script>
-    <script src="/js/angular-aria.min.js"></script>
-    <script src="/js/angular-material.min.js"></script>
-    <script src="/js/loading-bar.min.js"></script>
-    <script src="/assets/js/custom.js"></script>
-    <script src="/js/app.js">   </script>
-    <script src="/js/app.constants.js"></script>
-    <script src="/js/navbar.controller.js"></script>
-    <script src="/js/common.directives.js"></script>
-    <script src="/js/cps.service.js"></script>
-    <script src="/js/autocomplete.js"></script>
-    <script src="/js/home.controller.js"></script>
-    <script src="/js/registro.controller.js"></script>
-    <script src="/js/paciente.controller.js"></script>
-    <script src="/js/home.services.js"></script>
-    <script src="/js/registro.services.js"></script>
-    <script src="/js/inventario.controller.js"></script>
-    <script src="/js/inventario.services.js"></script>
-    <script src="/js/registroClinica.controller.js"></script>
-    <script src="/js/entidades.controller.js"></script>
-    <script src="/js/entidades.services.js"></script>
-    <script src="/js/app.routes.js"></script>
-  </body>
-</html>
+  </div>
+</div>

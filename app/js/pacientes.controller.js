@@ -1,10 +1,11 @@
-function PacientesController($scope) {
+function PacientesController($scope,PacienteServices,$mdDialog,$routeParams){
     var vm = this;
-    vm.pacientes = [{
-      name: "paciente"
-    }]
-    $scope.vm = vm;
+    vm.pacientes = []
+    PacienteServices.getPacientes($routeParams.idEntidad)
+      .then(function (response) {
+        vm.pacientes = response.data;
+    })
 }
 
-PacientesController.$inject = ["$scope"];
-angular.module("app.controllers").controller("pacientesController", PacientesController);
+PacientesController.$inject = ["$scope","PacienteServices","$mdDialog","$routeParams"];
+angular.module("app.controllers").controller("PacientesController", PacientesController);

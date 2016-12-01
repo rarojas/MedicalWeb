@@ -26,7 +26,7 @@ function RegistroClinicaController($scope,constants,$filter,RegistroServices,$ro
 
     vm.minDate = new Date()
     vm.maxDate = new Date()
-    vm.maxDate.setMonth(vm.minDate.getMonth() + 1)
+    vm.maxDate.setFullYear(vm.minDate.getFullYear() + 1)
 
     vm.sendRegistro =  function() {
       vm.registro.modulos = vm.selectedModules();
