@@ -5,19 +5,19 @@
       <div class="col-md-12 col-sm-12">
         <div class="div-trans text-center">
           <h3>Crear Solicitud</h3>
-          <form name="form" novalidate="novalidate" class="form">
+          <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.tipoSolicitud.$touched &amp;&amp; form.tipoSolicitud.$invalid, 'has-success':form.tipoSolicitud.$touched &amp;&amp; form.tipoSolicitud.$valid }" class="form-group">
                 <ng-repeat ng-repeat="tipoSolicitud in vm.tipoSolicitudEnum">
                   <label class="radio-inline">
-                    <input type="radio" name="tipoSolicitud" ng-model="vm.solicitud.tipo" value="{{tipoSolicitud.value}}"/>{{tipoSolicitud.text}}
+                    <input type="radio" name="tipoSolicitud" ng-model="vm.solicitud.tipo_solicitud" value="{{tipoSolicitud.value}}"/>{{tipoSolicitud.text}}
                   </label>
                 </ng-repeat>
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
-                <select name="tipo" ng-model="vm.solititud.tipo" required="required" ng-show="vm.solicitud.tipo == 1" class="form-control">
+                <select name="tipo" ng-model="vm.solititud.tipo" ng-show="vm.solicitud.tipo_solicitud == 1" class="form-control">
                   <option value="">Tipo Análisis</option>
                   <option value="0">Químicos</option>
                   <option value="1">Bioquímicos</option>

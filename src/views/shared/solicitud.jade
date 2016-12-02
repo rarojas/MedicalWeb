@@ -7,16 +7,16 @@ block content
         .col-md-12.col-sm-12
           .div-trans.text-center
             h3 Crear Solicitud
-            form.form(name="form",novalidate)
+            form.form(name="form",novalidate,ng-submit="vm.submit()")
               .col-md-12.col-sm-12
                 +formvalid_("tipoSolicitud")
                   ng-repeat(ng-repeat="tipoSolicitud in vm.tipoSolicitudEnum")
                     label(class="radio-inline")
-                      input(type="radio", name="tipoSolicitud" ng-model="vm.solicitud.tipo" value="{{tipoSolicitud.value}}")
+                      input(type="radio", name="tipoSolicitud" ng-model="vm.solicitud.tipo_solicitud" value="{{tipoSolicitud.value}}")
                       | {{tipoSolicitud.text}}
               .col-md-12.col-sm-12
                 .form-group
-                  select.form-control(name="tipo",ng-model="vm.solititud.tipo",required="required",ng-show="vm.solicitud.tipo == 1")
+                  select.form-control(name="tipo",ng-model="vm.solititud.tipo",ng-show="vm.solicitud.tipo_solicitud == 1")
                     option(value="") Tipo Análisis
                     each type, i in tiposAnalisisEnum
                       option(value=i) #{type}
@@ -30,5 +30,5 @@ block content
                   label(for="comment") Impresión Diagnostica
                   textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="vm.solicitud.impresion")
               .form-group
-                button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrarse
+                button.btn.btn-success(type='submit', ng-disabled="form.$invalid") Registrarse
         

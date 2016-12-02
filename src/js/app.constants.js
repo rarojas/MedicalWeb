@@ -7,7 +7,13 @@ angular
           {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
         ],
         "DOCTOR":[
-          {path:"#home",text:"Inicio"}, {path:"#consulta",text:"Consulta"}, {path:"#recetas",text:"recetas"}
+          {path:"#home",text:"Inicio"}, {path:"#consultas",text:"Consulta"}, {path:"#diagnosticos",text:"Diagnosticos"}
+        ],
+        "ENFERMERO":[
+          {path:"#home",text:"Inicio"}, {path:"#solicit",text:"Solicitud"}, {path:"#pacientes",text:"Pacientes"}
+        ],
+        "FARMACIA":[
+          {path:"#home",text:"Inicio"}, {path:"#inventario",text:"Inventario"},{path:"#recetas",text:"Recetas"}
         ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},

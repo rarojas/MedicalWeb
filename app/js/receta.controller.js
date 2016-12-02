@@ -1,4 +1,4 @@
-function RecetaController($scope,constants) {
+function RecetaController($scope,constants,$routeParams,DoctorServices) {
     var vm = this;
     vm.receta = {
       medicamentos : [],
@@ -17,8 +17,13 @@ function RecetaController($scope,constants) {
 
     vm.minDate = new Date();
     vm.tipoAdministracionMedicamentoEnum = constants.tipoAdministracionMedicamentoEnum;
-    $scope.vm = vm;
+
+
+    DoctorServices.obtenerDiagnostico($routeParams.idDiagnostico)
+      .then(function(response){
+        vm.diagnostico = response.data
+    });
 }
 
-RecetaController.$inject = ["$scope","constants"];
-angular.module("app.controllers").controller("recetaController", RecetaController);
+RecetaController.$inject = ["$scope","constants","$routeParams","DoctorServices"];
+angular.module("app.controllers").controller("RecetaController", RecetaController);

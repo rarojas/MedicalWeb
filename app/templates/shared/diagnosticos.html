@@ -1,0 +1,32 @@
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Diagnoticos</h3>
+          <div class="col-md-12 col-sm-12">
+            <table class="table table-striped table-bordered table-hover ">
+              <thead>
+                <tr>
+                  <th> Paciente</th>
+                  <th> tratamiento</th>
+                  <th> diagnotico</th>
+                  <th> Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="diagnostico in vm.diagnosticos" style="color:black;">
+                  <td>{{diagnostico.paciente.nombre}}</td>
+                  <td>{{diagnostico.tratamiento}}</td>
+                  <td>{{diagnostico.diagnostico}}</td>
+                  <td><a href="#/receta/{{diagnostico.idDiagnostico}}" class="btn btn-primary">Receta</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

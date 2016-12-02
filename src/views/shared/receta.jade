@@ -1,30 +1,24 @@
 // my-template.jade
-extends ../layoutLogged
-
-block head
-  title Receta Médica
-
-block scripts
-  script(src='/js/receta.controller.js')
+extends ../funcions
      
 block content
-  #inicio(ng-controller="recetaController as recetaCtrl")
+  #inicio
     .container
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
             h3 Receta Médica
-            form(name="form",class="css-form",novalidate,ng-submit="recetaCtrl.submitForm()")
+            form(name="form",class="css-form",novalidate,ng-submit="vm.submitForm()")
               .col-md-12.col-sm-12
                 .form-group
-                  input.form-control(type='text',readonly="readonly",placeholder='Paciente')
+                  h3 Paciente {{vm.diagnostico.paciente.nombre}}
               .form-group
-                    button.btn.btn-success(type='button',ng-click="recetaCtrl.addMedicamento()") Agregar medicamento
+                    button.btn.btn-success(type='button',ng-click="vm.addMedicamento()") Agregar medicamento
               .row
-                .col-md-4(ng-repeat="(key, medicamento) in recetaCtrl.receta.medicamentos")
+                .col-md-4(ng-repeat="(key, medicamento) in vm.receta.medicamentos")
                   .col-md-12.col-sm-12
                       label  Medicamento {{key + 1 }}
-                      button.btn.btn-danger.pull-right(type='button',ng-click="recetaCtrl.removeMedicamento(medicamento)") x
+                      button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeMedicamento(medicamento)") x
                   .col-md-12.col-sm-12
                     +formvalid("mMedicamento_")
                       input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento')
@@ -39,12 +33,12 @@ block content
                       +message("mToma_")
                   .col-md-12.col-sm-12
                     +formvalid("mAdministracion_")
-                      select.form-control(required='required',ng-model="medicamento.administracion",name="mAdministracion",ng-options="tipo.text for tipo in recetaCtrl.tipoAdministracionMedicamentoEnum track by tipo.value")
+                      select.form-control(required='required',ng-model="medicamento.administracion",name="mAdministracion",ng-options="tipo.text for tipo in vm.tipoAdministracionMedicamentoEnum track by tipo.value")
                         option(value="") Tipo Administracion
                   .col-md-12.col-sm-12
                     +formvalid("mInicio_")
                       label(for="mInicio_{{key}}") Fecha Inicio 
-                      input.form-control(type='date',ng-model="medicamento.inicio",name="mInicio_{{key}}",required='required',placeholder='Desde',ng-min="{{recetaCtrl.minDate | date:'yyyy-MM-dd' }}")
+                      input.form-control(type='date',ng-model="medicamento.inicio",name="mInicio_{{key}}",required='required',placeholder='Desde',ng-min="{{vm.minDate | date:'yyyy-MM-dd' }}")
                       +message("mInicio_")
                   .col-md-12.col-sm-12
                     +formvalid("mFin_")

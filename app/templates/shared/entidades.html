@@ -10,19 +10,15 @@
               <thead>
                 <tr> 
                   <th> Nombre</th>
-                  <th> RFC</th>
-                  <th> Descripcion</th>
-                  <th> telefono</th>
                   <th> Tipo</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="entidad in vm.entidades" style="color:black;">
                   <td>{{ entidad.nombre}}</td>
-                  <td>{{ entidad.rfc}}</td>
-                  <td>{{ entidad.telefono}}</td>
                   <td>{{ entidad.tipo}}</td>
-                  <td> <a href="#/farmacia/{{entidad.idEntidad}}" class="btn btn-primary">Farmacia</a><a href="#/paciente/{{entidad.idEntidad}}" class="btn btn-primary">Paciente</a><a href="#/pacientes/{{entidad.idEntidad}}" class="btn btn-primary">Pacientes</a><a href="#/registroDoctor/{{entidad.idEntidad}}" class="btn btn-primary">Doctor</a><a href="#/doctores/{{entidad.idEntidad}}" class="btn btn-primary">Doctores</a></td>
+                  <td> <a href="#/farmacia/{{entidad.idEntidad}}" class="btn btn-primary">Farmacia</a><a href="#/paciente/{{entidad.idEntidad}}" class="btn btn-primary">Paciente</a><a href="#/pacientes/{{entidad.idEntidad}}" class="btn btn-primary">Pacientes</a><a href="#/registroDoctor/{{entidad.idEntidad}}" class="btn btn-primary">Doctor</a><a href="#/doctores/{{entidad.idEntidad}}" class="btn btn-primary">Doctores</a><a href="#/registroFarmacologo/{{entidad.idEntidad}}" class="btn btn-primary">Farmacologo</a><a href="#/registroEnfermero/{{entidad.idEntidad}}" class="btn btn-primary">Enfermero</a></td>
                 </tr>
               </tbody>
             </table>

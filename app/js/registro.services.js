@@ -21,6 +21,20 @@ function RegistroServices ($http,constants) {
         data : doctor
       });
   }
+  this.registroEnfermero = function(enfermero) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/registro/registroEnfermero',
+        data : enfermero
+      });
+  }
+  this.registroFarmacologo = function(farmacologo) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/registro/registroFarmacologo',
+        data : farmacologo
+      });
+  }
 }
 
 RegistroServices.$inject =  ["$http","constants"]

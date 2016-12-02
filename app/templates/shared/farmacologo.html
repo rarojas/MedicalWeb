@@ -1,0 +1,90 @@
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Registro Nuevo Farmacologo</h3>
+          <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.name.$touched &amp;&amp; form.name.$invalid, 'has-success':form.name.$touched &amp;&amp; form.name.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Nombre" ng-model="vm.registro.nombre" name="name" class="form-control"/>
+                <div ng-messages="form.name.$error" ng-show="form.name.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.apPaterno.$touched &amp;&amp; form.apPaterno.$invalid, 'has-success':form.apPaterno.$touched &amp;&amp; form.apPaterno.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Apellido Paterno" ng-model="vm.registro.apPaterno" name="apPaterno" class="form-control"/>
+                <div ng-messages="form.apPaterno.$error" ng-show="form.apPaterno.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.apMaterno.$touched &amp;&amp; form.apMaterno.$invalid, 'has-success':form.apMaterno.$touched &amp;&amp; form.apMaterno.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Apellido Materno" ng-model="vm.registro.apMaterno" name="apMaterno" class="form-control"/>
+                <div ng-messages="form.apMaterno.$error" ng-show="form.apMaterno.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.email.$touched &amp;&amp; form.email.$invalid, 'has-success':form.email.$touched &amp;&amp; form.email.$valid }" class="form-group">
+                <input type="email" required="required" placeholder="Email" ng-model="vm.registro.email" name="email" unique-email="unique-email" class="form-control"/>
+                <div ng-messages="form.email.$error" ng-show="form.email.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.cargo.$touched &amp;&amp; form.cargo.$invalid, 'has-success':form.cargo.$touched &amp;&amp; form.cargo.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Cargo" ng-model="vm.registro.cargo" name="cargo" class="form-control"/>
+                <div ng-messages="form.cargo.$error" ng-show="form.cargo.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.fechaNacimiento.$touched &amp;&amp; form.fechaNacimiento.$invalid, 'has-success':form.fechaNacimiento.$touched &amp;&amp; form.fechaNacimiento.$valid }" class="form-group">
+                <label>Fecha Nacimiento</label>
+                <input type="date" required="required" placeholder="Fecha Nacimiento" ng-model="vm.registro.fechaNacimiento" name="fechaNacimiento" class="form-control"/>
+                <div ng-messages="form.fechaNacimiento.$error" ng-show="form.fechaNacimiento.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$invalid, 'has-success':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$valid }" class="form-group">
+                <input type="text" required="required" placeholder="Cedula profesional" ng-model="vm.registro.cedula_profesional" class="form-control"/>
+                <div ng-messages="form.cedula_profesional.$error" ng-show="form.cedula_profesional.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.password.$touched &amp;&amp; form.password.$invalid, 'has-success':form.password.$touched &amp;&amp; form.password.$valid }" class="form-group">
+                <input type="password" required="required" placeholder="Contraseña" ng-model="vm.registro.password" name="password" class="form-control"/>
+                <div ng-messages="form.password.$error" ng-show="form.password.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div ng-class="{ 'has-error':form.confirm.$touched &amp;&amp; form.confirm.$invalid, 'has-success':form.confirm.$touched &amp;&amp; form.confirm.$valid }" class="form-group">
+                <input type="password" required="required" placeholder="Cofirma Contraseña" ng-model="vm.registro.confirm" name="confirm" compare-to="vm.registro.password" class="form-control"/>
+                <div ng-messages="form.confirm.$error" ng-show="form.confirm.$touched" class="help-block">
+                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Farmacologo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

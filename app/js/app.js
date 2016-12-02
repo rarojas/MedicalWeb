@@ -34,7 +34,7 @@ function run($rootScope, $location, $http, $window) {
         $rootScope.$on("logged", function(){
           if($rootScope.logged){
             $rootScope.userData = $rootScope.parseJwt($rootScope.user);
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.user;
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.user;
             $rootScope.logged = true;
           }
         })
@@ -54,6 +54,8 @@ function run($rootScope, $location, $http, $window) {
         }
 
         var token = $rootScope.getToken();
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.user;
+
         if(token) {
             $rootScope.user = token;
             $rootScope.logged = true;

@@ -5,6 +5,33 @@ function DoctorServices ($http,constants){
         url: constants.url + '/doctores/'+ idEntidad,
       });
   }
+  this.obtenerConsultas = function(idEntidad){
+    return $http({
+        method: 'GET',
+        url: constants.url + '/doctores/obtenerConsultas/'+ idEntidad,
+      });
+  }
+
+  this.obtenerConsulta = function(idSolicitud){
+    return $http({
+        method: 'GET',
+        url: constants.url + '/doctores/consulta/'+ idSolicitud,
+      });
+  }
+
+  this.obtenerDiagnosticos = function(){
+    return $http({
+        method: 'GET',
+        url: constants.url + '/doctores/diagnosticos'
+      });
+  }
+
+  this.obtenerDiagnostico = function(idDiagnostico) {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/doctores/diagnosticos/' + idDiagnostico
+      });
+  }
 }
 
 DoctorServices.$inject =  ["$http","constants"]

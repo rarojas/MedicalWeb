@@ -9,15 +9,11 @@
                 thead
                   tr  
                     th  Nombre
-                    th  RFC
-                    th  Descripcion
-                    th  telefono
                     th  Tipo
+                    th
                 tbody
                   tr(ng-repeat="entidad in vm.entidades" style="color:black;")
                     td {{ entidad.nombre}}
-                    td {{ entidad.rfc}}
-                    td {{ entidad.telefono}}
                     td {{ entidad.tipo}}
                     td 
                       a.btn.btn-primary(href="#/farmacia/{{entidad.idEntidad}}") Farmacia
@@ -25,3 +21,5 @@
                       a.btn.btn-primary(href="#/pacientes/{{entidad.idEntidad}}") Pacientes
                       a.btn.btn-primary(href="#/registroDoctor/{{entidad.idEntidad}}") Doctor
                       a.btn.btn-primary(href="#/doctores/{{entidad.idEntidad}}") Doctores
+                      a.btn.btn-primary(href="#/registroFarmacologo/{{entidad.idEntidad}}") Farmacologo
+                      a.btn.btn-primary(href="#/registroEnfermero/{{entidad.idEntidad}}") Enfermero
