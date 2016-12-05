@@ -2,7 +2,7 @@ function InventarioController($rootScope,$mdDialog,InventarioServices){
     var vm = this;
     var entidad = $rootScope.userData.idEntidad
 
-    InventarioServices.getMedicamentos({idEntidad : entidad })
+    InventarioServices.getMedicamentos()
       .then((response) => {
         vm.medicamentos = response.data
       })
