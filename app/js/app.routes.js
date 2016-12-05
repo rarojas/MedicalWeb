@@ -5,6 +5,14 @@ angular.module("app.routes",["ngRoute"])
   .when("/home", { templateUrl: '/templates/main.html', title :"MedicalWeb", })
   .when("/registro", { templateUrl: '/templates/registro.html', title :"Registro " })
   .when("/registroClinica", { templateUrl: '/templates/registroClinica.html', title :"Registro de Clinica" })
+  .when("/entregaReceta/:idReceta",
+    { templateUrl: '/templates/farmacia/entrega.html', title :"Entregar Receta" ,
+    controller : "EntregaController", controllerAs:"vm"
+  })
+  .when("/recetas",
+    { templateUrl: '/templates/farmacia/recetas.html', title :"Recetas" ,
+    controller : "RecetasController", controllerAs:"vm"
+  })
   .when("/receta/:idDiagnostico",
     { templateUrl: '/templates/shared/receta.html', title :"Generar Receta" ,
     controller : "RecetaController", controllerAs:"vm"
@@ -26,15 +34,15 @@ angular.module("app.routes",["ngRoute"])
       title :"Solicitud de Servicio", controller : "SolicitudController", controllerAs:"vm"
     })
   .when("/entidades", { templateUrl: '/templates/shared/entidades.html', title :"Entidades" })
-  .when("/paciente/:idEntidad", {
+  .when("/paciente", {
     templateUrl: '/templates/shared/paciente.html',
     title :"Paciente", controller : "PacienteController", controllerAs:"vm"
   })
-  .when("/pacientes/:idEntidad", {
+  .when("/pacientes", {
     templateUrl: '/templates/pacientes.html',
     title :"Pacientes", controller : "PacientesController", controllerAs:"vm"
   })
-  .when("/farmacia/:idEntidad", {
+  .when("/farmacia", {
       templateUrl: '/templates/farmacia/inventario.html',
       title :"Inventario", controller : "InventarioController", controllerAs:"vm"
   })

@@ -1,8 +1,11 @@
-function SolicitudController($scope,constants,$routeParams,SolicitudServices,$mdDialog) {
+function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,PacienteServices) {
     var vm = this;
+    PacienteServices.getPaciente($routeParams.idPaciente)
+      .then(function(response){
+        vm.paciente = response.data
+      });
+
     vm.solicitud = {
-      descripcion : "paciente",
-      impresion : "algo",
       tipo_solicitud : 0,
       idPaciente : $routeParams.idPaciente
     }
@@ -32,5 +35,6 @@ function SolicitudController($scope,constants,$routeParams,SolicitudServices,$md
      }
 }
 
-SolicitudController.$inject = ["$scope","constants","$routeParams","SolicitudServices","$mdDialog"];
+
+SolicitudController.$inject = ["constants","$routeParams","SolicitudServices","$mdDialog","PacienteServices"];
 angular.module("app.controllers").controller("SolicitudController", SolicitudController);

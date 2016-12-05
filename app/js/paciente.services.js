@@ -6,10 +6,17 @@ function PacienteServices ($http,constants){
         data : paciente
       });
   }
-  this.getPacientes = function(idEntidad){
+  this.getPacientes = function(){
     return $http({
         method: 'GET',
-        url: constants.url + '/pacientes/'+ idEntidad,
+        url: constants.url + '/pacientes',
+      });
+  }
+
+  this.getPaciente = function(idPaciente){
+    return $http({
+        method: 'GET',
+        url: constants.url + '/pacientes/' + idPaciente,
       });
   }
 }

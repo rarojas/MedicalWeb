@@ -1,6 +1,6 @@
-function InventarioController($scope,$mdDialog,InventarioServices, $routeParams ){
+function InventarioController($rootScope,$mdDialog,InventarioServices){
     var vm = this;
-    var entidad = $routeParams.idEntidad
+    var entidad = $rootScope.userData.idEntidad
 
     InventarioServices.getMedicamentos({idEntidad : entidad })
       .then((response) => {
@@ -59,5 +59,5 @@ function InventarioController($scope,$mdDialog,InventarioServices, $routeParams 
 
 }
 
-InventarioController.$inject = ["$scope","$mdDialog","InventarioServices","$routeParams"];
+InventarioController.$inject = ["$rootScope","$mdDialog","InventarioServices"];
 angular.module("app.controllers").controller("InventarioController", InventarioController);

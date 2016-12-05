@@ -29,6 +29,8 @@ function InventarioServices ($http,constants) {
         data : medicamento
       });
   }
+
+  
 }
 
 InventarioServices.$inject =  ["$http","constants"]

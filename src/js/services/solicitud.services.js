@@ -13,6 +13,28 @@ function SolicitudServices ($http,constants) {
         data : diagnostico
       });
   }
+
+  this.crearReceta = function(receta) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/solicitudes/receta',
+        data : receta
+      });
+  }
+
+  this.obtenerRecetas = function() {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/solicitudes/recetas'
+    });
+  }
+  this.obtenerReceta = function(idReceta) {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/solicitudes/recetas/' + idReceta
+    });
+  }
+
 }
 
 SolicitudServices.$inject =  ["$http","constants"]

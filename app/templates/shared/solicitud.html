@@ -17,6 +17,11 @@
             </div>
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
+                <h3>{{vm.paciente.nombre }}</h3>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group">
                 <select name="tipo" ng-model="vm.solititud.tipo" ng-show="vm.solicitud.tipo_solicitud == 1" class="form-control">
                   <option value="">Tipo Análisis</option>
                   <option value="0">Químicos</option>

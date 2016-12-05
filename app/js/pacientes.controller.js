@@ -1,7 +1,7 @@
 function PacientesController($scope,PacienteServices,$mdDialog,$routeParams){
     var vm = this;
     vm.pacientes = []
-    PacienteServices.getPacientes($routeParams.idEntidad)
+    PacienteServices.getPacientes()
       .then(function (response) {
         vm.pacientes = response.data;
     })

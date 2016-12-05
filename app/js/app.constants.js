@@ -2,7 +2,7 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        "url": "http://localhost:8000",
+        "url": "http://localhost:8080/api",
         "ADMINISTRADOR":[
           {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
         ],
@@ -10,10 +10,13 @@ angular
           {path:"#home",text:"Inicio"}, {path:"#consultas",text:"Consulta"}, {path:"#diagnosticos",text:"Diagnosticos"}
         ],
         "ENFERMERO":[
-          {path:"#home",text:"Inicio"}, {path:"#solicit",text:"Solicitud"}, {path:"#pacientes",text:"Pacientes"}
+          {path:"#home",text:"Inicio"}, {path:"#pacientes",text:"Pacientes"} , {path:"#paciente",text:"Nuevo Paciente"}
+        ],
+        "ADMINISTRADOR_CE":[
+          {path:"#home",text:"Inicio"}, {path:"#doctores",text:"Doctores"},{path:"#farmacologo",text:"Farmacologo"}
         ],
         "FARMACIA":[
-          {path:"#home",text:"Inicio"}, {path:"#inventario",text:"Inventario"},{path:"#recetas",text:"Recetas"}
+          {path:"#home",text:"Inicio"}, {path:"#farmacia",text:"Farmacia"},{path:"#recetas",text:"Recetas"}
         ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},

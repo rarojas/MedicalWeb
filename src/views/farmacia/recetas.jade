@@ -1,0 +1,20 @@
+#inicio
+  .container
+    .row
+      .col-md-12.col-sm-12
+        .div-trans.text-center
+          h3 Recetas
+          div
+          .col-md-12.col-sm-12
+              table(class="table table-striped table-bordered table-hover ")
+                thead
+                  tr
+                    th  Paciente
+                    th  Doctor
+                    th  Acciones
+                tbody
+                  tr(ng-repeat="receta in vm.recetas" style="color:black;")
+                    td {{receta.paciente.nombre}}
+                    td {{receta.doctor.nombre}}
+                    td 
+                      a.btn.btn-primary(href="#/entregaReceta/{{receta.idReceta}}") Entrega...

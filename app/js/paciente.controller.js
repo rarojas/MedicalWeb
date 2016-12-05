@@ -1,7 +1,7 @@
-function PacienteController($scope,constants, PacienteServices,$mdDialog,$routeParams) {
+function PacienteController($rootScope,constants, PacienteServices,$mdDialog,$routeParams) {
     var vm = this;
     vm.paciente = {
-      idEntidad : $routeParams.idEntidad
+      idEntidad : $rootScope.userData.idEntidad
     };
     vm.tipoSanguinioEnum = constants.tipoSanguinioEnum
     vm.sexoEnum =  constants.sexoEnum
@@ -19,8 +19,8 @@ function PacienteController($scope,constants, PacienteServices,$mdDialog,$routeP
             .ok('Entendido'));
         });
     }
-
 }
+
 
 PacienteController.$inject = ["$scope","constants","PacienteServices","$mdDialog","$routeParams"];
 angular.module("app.controllers").controller("PacienteController", PacienteController);
