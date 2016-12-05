@@ -3,7 +3,8 @@ angular.module("app.routes",["ngRoute"])
   $routeProvider
   .when("/", { templateUrl: '/templates/home.html', title :"MedicalWeb", controller : "HomeController", controllerAs:"vm"})
   .when("/home", { templateUrl: '/templates/main.html', title :"MedicalWeb", })
-  .when("/registro", { templateUrl: '/templates/registro.html', title :"Registro "
+  .when("/registro", {
+    templateUrl: '/templates/registro.html', title :"Registro "
   })
   .when("/registroClinica", {
     templateUrl: '/templates/registroClinica.html', title :"Registro de Clinica"
