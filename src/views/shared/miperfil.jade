@@ -1,0 +1,57 @@
+extends ../funcions
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Mi perfil
+            form(name="form",novalidate, class="form",ng-submit="vm.submit()")
+              .col-md-12.col-sm-12
+                +formvalid_("name")
+                  input.form-control(type='text', required='required', placeholder='Nombre', ng-model="vm.registro.nombre",name="name")
+                  +message_("name")
+              .col-md-12.col-sm-12
+                +formvalid_("apPaterno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Paterno', ng-model="vm.registro.apPaterno",name="apPaterno")
+                  +message_("apPaterno")
+              .col-md-12.col-sm-12
+                +formvalid_("apMaterno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Materno', ng-model="vm.registro.apMaterno",name="apMaterno")
+                  +message_("apMaterno")
+              .col-md-12.col-sm-12
+                +formvalid_("email")
+                  input.form-control(type='email', required='required', placeholder='Email', ng-model="vm.registro.email",name="email", unique-email)
+                  +message_("email")
+              .col-md-12.col-sm-12
+                +formvalid_("cargo")
+                  input.form-control(type='text', required='required', placeholder='Cargo', ng-model="vm.registro.cargo",name="cargo")
+                  +message_("cargo")
+              .col-md-12.col-sm-12
+                +formvalid_("fechaNacimiento")
+                  label Fecha Nacimiento
+                  input.form-control(type='date', required='required', placeholder='Fecha Nacimiento', ng-model="vm.registro.fechaNacimiento",name="fechaNacimiento")
+                  +message_("fechaNacimiento")
+              .col-md-12.col-sm-12
+                +formvalid_("especialidad")
+                  input.form-control(type='text', required='required', placeholder='Especialidad',ng-model="vm.registro.especialidad",name="especialidad")
+                  +message_("especialidad")
+              .col-md-12.col-sm-12
+                +formvalid_("sub_especialidad")
+                  input.form-control(type='text', required='required', placeholder='Subespecialidad',ng-model="vm.registro.sub_especialidad",name="sub_especialidad")
+                  +message_("sub_especialidad")
+              .col-md-12.col-sm-12
+                +formvalid_("cedula_profesional")
+                  input.form-control(type='text', required='required', placeholder='Cedula profesional',ng-model="vm.registro.cedula_profesional") 
+                  +message_("cedula_profesional")
+              .col-md-12.col-sm-12
+                +formvalid_("password")
+                  input.form-control(type='password', required='required', placeholder='Contraseña', ng-model="vm.registro.password",name="password")
+                  +message_("password")
+              .col-md-12.col-sm-12
+                +formvalid_("confirm")
+                  input.form-control(type='password', required='required', placeholder='Cofirma Contraseña', ng-model="vm.registro.confirm",name="confirm",compare-to="vm.registro.password")
+                  +message_("confirm")
+              .form-group
+                button.btn.btn-success(type='submit', ng-disabled="form.$invalid") Guardar Cambios

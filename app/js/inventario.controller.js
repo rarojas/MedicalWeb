@@ -1,40 +1,40 @@
-function InventarioController($rootScope,$mdDialog,InventarioServices){
+function InventarioController($rootScope,$mdDialog,InventarioServices,ModalServices){
     var vm = this;
     var entidad = $rootScope.userData.idEntidad
 
-    InventarioServices.getMedicamentos({idEntidad : entidad })
-      .then((response) => {
+    InventarioServices.getMedicamentos()
+      .then(function(response) {
         vm.medicamentos = response.data
       })
-      .catch((error) =>{
-          $mdDialog.show($mdDialog.alert()
-            .title('Error ')
-            .textContent(error.data || 'ocurrio un error')
-            .ok('Entendido'));
+      .catch(function(error)  {
+        ModalServices.showAlert({
+            title : "Error",
+            text  : error.data
+        });
       });
-    vm.medicamentos = [ ]
+    vm.medicamentos = []
 
-    vm.agregarMedicamento = () => {
-      vm.medicamentos.push({nombre : "Paracetamol", cantidad : 100 , idEntidad : entidad});
+    vm.agregarMedicamento = function() {
+      vm.medicamentos.push({nombre : "Paracetamol", cantidad : 20 , idEntidad : entidad});
     }
 
-    vm.guardarMedicamento = (medicamento) =>{
+    vm.guardarMedicamento = function(medicamento) {
         var accion = !medicamento.idMedicamento ?
         InventarioServices.guardarMedicamento : InventarioServices.actualizarMedicamento;
-        accion(medicamento).then((response) => {
+        accion(medicamento).then(function(response) {
           medicamento.idMedicamento = response.data.idMedicamento
-          $mdDialog.show($mdDialog.alert()
-            .title('Guardar medicamento')
-            .textContent('Accion Exitosa :)')
-            .ok('Entendido'));
-        }).catch(() =>{
-          $mdDialog.show($mdDialog.alert()
-            .title('Error :(')
-            .textContent('ocurrio un error')
-            .ok('Entendido'));
+          ModalServices.showAlert({
+              title : "Guardar medicamento",
+              text  : "Accion Exitosa"
+          });
+        }).catch(function(){
+            ModalServices.showAlert({
+                title : "Error",
+                text  : error.data
+            });
         });
     }
-    vm.borrarMedicamento = (medicamento) => {
+    vm.borrarMedicamento = function(medicamento) {
          var confirm = $mdDialog.confirm()
                .title('Deseas borrar el medicamento ')
                .textContent('Perderas definitivamente toda la informacion del medicamento')
@@ -42,22 +42,21 @@ function InventarioController($rootScope,$mdDialog,InventarioServices){
                .cancel('Cancelar');
 
          $mdDialog.show(confirm).then(function() {
-           InventarioServices.eliminarMedicamento(medicamento).then(() => {
-             $mdDialog.show($mdDialog.alert()
-               .title('Borrar medicamento')
-               .textContent('Accion Exitosa :)')
-               .ok('Entendido'));
+           InventarioServices.eliminarMedicamento(medicamento).then(function(){
+             ModalServices.showAlert({
+                 title : "Borrar medicamento",
+                 text  : "Accion Exitosa"
+             });
            }).catch(() => {
-             $mdDialog.show(
-               $mdDialog.alert()
-               .title("Error ")
-               .textContent('ocurrio un error')
-               .ok('Entendido'));
+             ModalServices.showAlert({
+                 title : "Error",
+                 text  : error.data
              });
            });
+       });
     }
 
 }
 
-InventarioController.$inject = ["$rootScope","$mdDialog","InventarioServices"];
+InventarioController.$inject = ["$rootScope","$mdDialog","InventarioServices","ModalServices"];
 angular.module("app.controllers").controller("InventarioController", InventarioController);

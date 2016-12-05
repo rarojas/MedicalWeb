@@ -6,6 +6,14 @@ function RegistroServices ($http,constants) {
         data : administrador
       });
   }
+
+  this.registroAdministradorCE = function(administradorCE) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/registro/registroAdministradorCe',
+        data : administradorCE
+      });
+  }
   this.registroClinica = function(clinica) {
     return $http({
         method: 'POST',

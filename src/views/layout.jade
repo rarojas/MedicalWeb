@@ -61,8 +61,12 @@ html(ng-app="medicalWeb")
             
             ul.nav.navbar-nav.navbar-right(ng-if="navCtrl.logged")
               li
-                a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
+                a(href='#/miPerfil',class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-user.fa-fw
+                  | Mi Perfil
+              li
+                a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
+                  i.fa.fa-sign-out.fa-fw
                   | Cerrar Sesion
                 
     div(ng-view)
@@ -116,8 +120,8 @@ html(ng-app="medicalWeb")
     script(src='/js/receta.controller.js')
     script(src='/js/recetas.controller.js')
     script(src='/js/entrega.controller.js')
-
-
+    script(src='/js/modal.services.js')
+    script(src='/js/miperfil.controller.js')
 
 
     script(src="/js/app.routes.js")

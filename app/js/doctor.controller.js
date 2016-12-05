@@ -1,7 +1,7 @@
-function DoctorController(RegistroServices,$scope,$mdDialog,$location,$routeParams) {
+function DoctorController(RegistroServices,$rootScope,$mdDialog,$location,$routeParams) {
     var vm = this;
     vm.registro = {
-      idEntidad : $routeParams.idEntidad
+      idEntidad : $rootScope.idEntidad
     }
     vm.submit = () => {
         RegistroServices.registroDoctor(vm.registro)
@@ -27,5 +27,5 @@ function DoctorController(RegistroServices,$scope,$mdDialog,$location,$routePara
      }
 }
 
-DoctorController.$inject = ["RegistroServices","$scope","$mdDialog","$location","$routeParams"];
+DoctorController.$inject = ["RegistroServices","$rootScope","$mdDialog","$location","$routeParams"];
 angular.module("app.controllers").controller("DoctorController", DoctorController);

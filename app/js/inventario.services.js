@@ -1,8 +1,8 @@
 function InventarioServices ($http,constants) {
-  this.getMedicamentos = function(entidad) {
+  this.getMedicamentos = function() {
     return $http({
         method: 'GET',
-        url: constants.url + '/farmacia/medicamentos/' +  entidad.idEntidad
+        url: constants.url + '/farmacia/medicamentos'
       });
   }
 
@@ -30,7 +30,7 @@ function InventarioServices ($http,constants) {
       });
   }
 
-  
+
 }
 
 InventarioServices.$inject =  ["$http","constants"]
