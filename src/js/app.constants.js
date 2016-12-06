@@ -18,6 +18,9 @@ angular
         "FARMACIA":[
           {path:"#home",text:"Inicio"}, {path:"#farmacia",text:"Farmacia"},{path:"#recetas",text:"Recetas"}
         ],
+        "SUPERADMINISTRADOR":[
+          {path:"#home",text:"Inicio"}, {path:"#entidadesServicio",text:"Entidades"}
+        ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},
           { "value": 1, "text": "Cuteana"},

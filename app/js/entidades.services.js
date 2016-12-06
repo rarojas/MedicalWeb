@@ -5,6 +5,13 @@ function EntidadesServices ($http,constants){
         url: constants.url + '/entidades/' + user ,
       });
   }
+
+  this.getEntidades = function(){
+    return $http({
+        method: 'GET',
+        url: constants.url + '/entidades' ,
+      });
+  }
 }
 
 EntidadesServices.$inject =  ["$http","constants"]

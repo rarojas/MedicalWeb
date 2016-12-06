@@ -34,6 +34,9 @@ angular.module("app.routes",["ngRoute"])
       title :"Solicitud de Servicio", controller : "SolicitudController", controllerAs:"vm"
     })
   .when("/entidades", { templateUrl: '/templates/shared/entidades.html', title :"Entidades" })
+  .when("/entidadesServicio", { templateUrl: '/templates/shared/entidadesall.html', title :"Entidades"
+       ,controller : "EntidadesAllController", controllerAs:"vm"
+  })
   .when("/paciente", {
     templateUrl: '/templates/shared/paciente.html',
     title :"Paciente", controller : "PacienteController", controllerAs:"vm"
