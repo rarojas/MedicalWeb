@@ -1,0 +1,30 @@
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Entidades</h3>
+          <div class="col-md-12 col-sm-12">
+            <table class="table table-striped table-bordered table-hover ">
+              <thead>
+                <tr> 
+                  <th> Nombre</th>
+                  <th> Tipo</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="entidad in vm.entidades" style="color:black;">
+                  <td>{{ entidad.nombre}}</td>
+                  <td>{{ entidad.tipo}}</td>
+                  <td> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
