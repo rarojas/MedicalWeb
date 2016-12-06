@@ -38,8 +38,6 @@ function InventarioServices ($http,constants) {
       });
   }
 
-
-
 }
 
 InventarioServices.$inject =  ["$http","constants"]

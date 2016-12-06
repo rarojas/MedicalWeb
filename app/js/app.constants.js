@@ -2,7 +2,7 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        "url": "http://localhost:8080/api",
+        "url": "http://localhost:8000/api",
         "ADMINISTRADOR":[
           {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
         ],
@@ -13,13 +13,17 @@ angular
           {path:"#home",text:"Inicio"}, {path:"#pacientes",text:"Pacientes"} , {path:"#paciente",text:"Nuevo Paciente"}
         ],
         "ADMINISTRADOR_CE":[
-          {path:"#home",text:"Inicio"}, {path:"#doctores",text:"Doctores"},{path:"#farmacologo",text:"Farmacologo"}
+          {path:"#home",text:"Inicio"}, {path:"#registroDoctor",text:"Doctores"},{path:"#registroFarmacologo",text:"Farmacologo"},{path:"#registroEnfermero",text:"Enfermero"}
         ],
         "FARMACIA":[
           {path:"#home",text:"Inicio"}, {path:"#farmacia",text:"Farmacia"},{path:"#recetas",text:"Recetas"}
         ],
         "SUPERADMINISTRADOR":[
+<<<<<<< HEAD
           {path:"#home",text:"Inicio"}, {path:"#entidadesServicio",text:"Entidades"}
+=======
+            {path:"#home",text:"Inicio" },  {path:"#servicios",text:"Servicios" },  {path:"#modulos",text:"Modulos" }
+>>>>>>> 7ce8f924b666a661cdedd1755f39490bb3ead3dd
         ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},

@@ -3,8 +3,12 @@ angular.module("app.routes",["ngRoute"])
   $routeProvider
   .when("/", { templateUrl: '/templates/home.html', title :"MedicalWeb", controller : "HomeController", controllerAs:"vm"})
   .when("/home", { templateUrl: '/templates/main.html', title :"MedicalWeb", })
-  .when("/registro", { templateUrl: '/templates/registro.html', title :"Registro " })
-  .when("/registroClinica", { templateUrl: '/templates/registroClinica.html', title :"Registro de Clinica" })
+  .when("/registro", {
+    templateUrl: '/templates/registro.html', title :"Registro "
+  })
+  .when("/registroClinica", {
+    templateUrl: '/templates/registroClinica.html', title :"Registro de Clinica"
+  })
   .when("/entregaReceta/:idReceta",
     { templateUrl: '/templates/farmacia/entrega.html', title :"Entregar Receta" ,
     controller : "EntregaController", controllerAs:"vm"
@@ -49,7 +53,7 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/farmacia/inventario.html',
       title :"Inventario", controller : "InventarioController", controllerAs:"vm"
   })
-  .when("/registroDoctor/:idEntidad", {
+  .when("/registroDoctor", {
       templateUrl: '/templates/shared/doctor.html', title :"Doctores"
     , controller : "DoctorController", controllerAs:"vm"
   })
@@ -57,13 +61,21 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/doctores.html', title :"Doctores"
     , controller : "DoctoresController", controllerAs:"vm"
   })
-  .when("/registroEnfermero/:idEntidad", {
+  .when("/registroEnfermero", {
       templateUrl: '/templates/shared/enfermero.html', title :"Enfermero"
     , controller : "EnfermeroController", controllerAs:"vm"
   })
-  .when("/registroFarmacologo/:idEntidad", {
+  .when("/registroAdministradorCE/:idEntidad", {
+      templateUrl: '/templates/shared/administradorce.html', title :"Administrador CE"
+    , controller : "AdministradorCEController", controllerAs:"vm"
+  })
+  .when("/registroFarmacologo", {
       templateUrl: '/templates/shared/farmacologo.html', title :"Farmacologo"
     , controller : "FarmacologoController", controllerAs:"vm"
+  })
+  .when("/miPerfil", {
+      templateUrl: '/templates/shared/miperfil.html', title :"Mi Perfil"
+    , controller : "MiPerfilController", controllerAs:"vm"
   })
   .otherwise("/");
 });
