@@ -6,7 +6,7 @@ block content
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
-            h3 Consultas
+            h3 Analisis
             .col-md-12.col-sm-12
                 table(class="table table-striped table-bordered table-hover ")
                   thead
@@ -16,10 +16,10 @@ block content
                       th  descripcion
                       th  Acciones
                   tbody
-                    tr(ng-repeat="consulta in vm.consultas" style="color:black;")
-                      td {{consulta.paciente.nombre}}
-                      td {{consulta.impresion}}
-                      td {{consulta.descripcion}}
+                    tr(ng-repeat="resltado in vm.resultados" style="color:black;")
+                      td {{resltado.paciente.nombre}}
+                      td {{resltado.impresion}}
+                      td {{resltado.descripcion}}
                       td
-                        a.btn.btn-primary(href="#/diagnostico/{{consulta.idSolicitud}}") Diagnostico
-                    
+                        a.btn.btn-primary(href="#/resultadoPendiente/{{resltado.idSolicitud}}") Analisis
+              

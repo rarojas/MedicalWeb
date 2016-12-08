@@ -43,6 +43,14 @@ function RegistroServices ($http,constants) {
         data : farmacologo
       });
   }
+
+  this.registroLaboratorista = function(laboratorista) {
+    return $http({
+        method: 'POST',
+        url: constants.url + '/registro/registroLaboratorista',
+        data : laboratorista
+      });
+  }
 }
 
 RegistroServices.$inject =  ["$http","constants"]

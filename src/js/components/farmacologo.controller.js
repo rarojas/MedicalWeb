@@ -1,7 +1,7 @@
 function FarmacologoController(RegistroServices,$rootScope,$mdDialog,$location,$routeParams) {
     var vm = this;
     vm.registro = {
-      idEntidad : $rootScope.idEntidad
+      idEntidad : $rootScope.userData.idEntidad
     }
     vm.submit = () => {
         RegistroServices.registroFarmacologo(vm.registro)
@@ -17,7 +17,6 @@ function FarmacologoController(RegistroServices,$rootScope,$mdDialog,$location,$
           })
         });
     }
-
     vm.showAlert = (content) => {
       return $mdDialog.show(
           $mdDialog.confirm()

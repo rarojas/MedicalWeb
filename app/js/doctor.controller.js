@@ -1,7 +1,7 @@
 function DoctorController(RegistroServices,$rootScope,$mdDialog,$location,$routeParams) {
     var vm = this;
     vm.registro = {
-      idEntidad : $rootScope.idEntidad
+      idEntidad : $rootScope.userData.idEntidad
     }
     vm.submit = () => {
         RegistroServices.registroDoctor(vm.registro)

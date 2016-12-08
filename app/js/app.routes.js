@@ -3,7 +3,8 @@ angular.module("app.routes",["ngRoute"])
   $routeProvider
   .when("/", { templateUrl: '/templates/home.html', title :"MedicalWeb", controller : "HomeController", controllerAs:"vm"})
   .when("/home", { templateUrl: '/templates/main.html', title :"MedicalWeb", })
-  .when("/registro", { templateUrl: '/templates/registro.html', title :"Registro "
+  .when("/registro", {
+    templateUrl: '/templates/registro.html', title :"Registro "
   })
   .when("/registroClinica", {
     templateUrl: '/templates/registroClinica.html', title :"Registro de Clinica"
@@ -37,7 +38,8 @@ angular.module("app.routes",["ngRoute"])
       title :"Solicitud de Servicio", controller : "SolicitudController", controllerAs:"vm"
     })
   .when("/entidades", { templateUrl: '/templates/shared/entidades.html', title :"Entidades" })
-  .when("/entidadesServicio", { templateUrl: '/templates/shared/entidadesall.html', title :"Entidades"
+  .when("/entidadesServicio", {
+        templateUrl: '/templates/shared/entidadesall.html', title :"Entidades"
        ,controller : "EntidadesAllController", controllerAs:"vm"
   })
   .when("/paciente", {
@@ -72,9 +74,25 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/shared/farmacologo.html', title :"Farmacologo"
     , controller : "FarmacologoController", controllerAs:"vm"
   })
+  .when("/registroLaboratorista", {
+      templateUrl: '/templates/shared/laboratorista.html', title :"Laboratorista"
+    , controller : "LaboratoristaController", controllerAs:"vm"
+  })
   .when("/miPerfil", {
       templateUrl: '/templates/shared/miperfil.html', title :"Mi Perfil"
     , controller : "MiPerfilController", controllerAs:"vm"
+  })
+  .when("/analisis", {
+      templateUrl: '/templates/laboratorio/analisis.html',
+      title :"Analisis ", controller : "AnalisisController", controllerAs:"vm"
+    })
+    .when("/realizarAnalisis/:idAnalisis", {
+        templateUrl: '/templates/laboratorio/realizarAnalisis.html',
+        title :"Analisis ", controller : "RealizarAnalisisController", controllerAs:"vm"
+      })
+  .when("/resultados", {
+        templateUrl: '/templates/shared/consultas.html',
+        title :"Consultas ", controller : "ConsultasController", controllerAs:"vm"
   })
   .otherwise("/");
 });

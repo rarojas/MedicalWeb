@@ -3,11 +3,7 @@ function InventarioController($rootScope,$mdDialog,InventarioServices,ModalServi
     var entidad = $rootScope.userData.idEntidad
 
     InventarioServices.getMedicamentos()
-<<<<<<< HEAD
-      .then((response) => {
-=======
       .then(function(response) {
->>>>>>> 7ce8f924b666a661cdedd1755f39490bb3ead3dd
         vm.medicamentos = response.data
       })
       .catch(function(error)  {

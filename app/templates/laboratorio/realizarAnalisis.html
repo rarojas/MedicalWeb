@@ -1,0 +1,53 @@
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Análisis Médico</h3>
+          <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group">
+                <h3>Paciente {{vm.consulta.paciente.nombre}}</h3>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button" ng-click="vm.addMuestra()" class="btn btn-success">Agregar muestra</button>
+            </div>
+            <div class="row">
+              <div ng-repeat="(key, muestra) in vm.analisis.muestras" class="col-md-4">
+                <div class="col-md-12 col-sm-12">
+                  <label> Muestra {{key + 1 }}</label>
+                  <button type="button" ng-click="vm.removeMuestra(muestra)" class="btn btn-danger pull-right">x</button>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error': form['tipo_muestra' + $index].$touched &amp;&amp; form['tipo_muestra' + $index].$invalid }" class="form-group">
+                    <input type="text" ng-model="muestra.tipo_muestra" name="tipo_muestra_{{key}}" required="required" placeholder="Tipo muestra" class="form-control"/>
+                    <div ng-messages="form['tipo_muestra' + $index].$error" ng-show="form['tipo_muestra' + $index].$touched" class="help-block">
+                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error': form['numero' + $index].$touched &amp;&amp; form['numero' + $index].$invalid }" class="form-group">
+                    <input type="number" ng-model="muestra.numero" name="numero_{{key}}" min="1" max="10" required="required" placeholder="Cantidad" class="form-control"/>
+                    <div ng-messages="form['numero' + $index].$error" ng-show="form['numero' + $index].$touched" class="help-block">
+                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="observaciones">Observaciones</label>
+              <textarea rows="5" name="tratamiento" required="required" ng-model="vm.analisis.observaciones" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Analisis  Medico</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

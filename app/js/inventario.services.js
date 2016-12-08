@@ -30,7 +30,6 @@ function InventarioServices ($http,constants) {
       });
   }
 
-<<<<<<< HEAD
   this.entregaReceta = function(recetas) {
     return $http({
         method: 'POST',
@@ -38,10 +37,6 @@ function InventarioServices ($http,constants) {
         data : recetas
       });
   }
-
-
-=======
->>>>>>> 7ce8f924b666a661cdedd1755f39490bb3ead3dd
 
 }
 

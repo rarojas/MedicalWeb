@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12 col-sm-12">
         <div class="div-trans text-center">
-          <h3>Registro Nuevo Doctor</h3>
+          <h3>Registro Nuevo Laboratorista</h3>
           <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.name.$touched &amp;&amp; form.name.$invalid, 'has-success':form.name.$touched &amp;&amp; form.name.$valid }" class="form-group">
@@ -56,22 +56,6 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.especialidad.$touched &amp;&amp; form.especialidad.$invalid, 'has-success':form.especialidad.$touched &amp;&amp; form.especialidad.$valid }" class="form-group">
-                <input type="text" required="required" placeholder="Especialidad" ng-model="vm.registro.especialidad" name="especialidad" class="form-control"/>
-                <div ng-messages="form.especialidad.$error" ng-show="form.especialidad.$touched" class="help-block">
-                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div ng-class="{ 'has-error':form.sub_especialidad.$touched &amp;&amp; form.sub_especialidad.$invalid, 'has-success':form.sub_especialidad.$touched &amp;&amp; form.sub_especialidad.$valid }" class="form-group">
-                <input type="text" required="required" placeholder="Subespecialidad" ng-model="vm.registro.sub_especialidad" name="sub_especialidad" class="form-control"/>
-                <div ng-messages="form.sub_especialidad.$error" ng-show="form.sub_especialidad.$touched" class="help-block">
-                  <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$invalid, 'has-success':form.cedula_profesional.$touched &amp;&amp; form.cedula_profesional.$valid }" class="form-group">
                 <input type="text" required="required" placeholder="Cedula profesional" ng-model="vm.registro.cedula_profesional" class="form-control"/>
                 <div ng-messages="form.cedula_profesional.$error" ng-show="form.cedula_profesional.$touched" class="help-block">
@@ -96,7 +80,7 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Doctor</button>
+              <button type="submit" ng-disabled="form.$invalid" class="btn btn-success">Registrar Laboratorista</button>
             </div>
           </form>
         </div>

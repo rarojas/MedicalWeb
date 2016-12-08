@@ -2,7 +2,7 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        "url": "http://localhost:8000/api",
+        "url": "http://localhost:8080/api",
         "ADMINISTRADOR":[
           {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
         ],
@@ -13,10 +13,15 @@ angular
           {path:"#home",text:"Inicio"}, {path:"#pacientes",text:"Pacientes"} , {path:"#paciente",text:"Nuevo Paciente"}
         ],
         "ADMINISTRADOR_CE":[
-          {path:"#home",text:"Inicio"}, {path:"#registroDoctor",text:"Doctores"},{path:"#registroFarmacologo",text:"Farmacologo"},{path:"#registroEnfermero",text:"Enfermero"}
+          {path:"#home",text:"Inicio"}, {path:"#registroDoctor",text:"Doctores"},
+          {path:"#registroFarmacologo",text:"Farmacologo"},{path:"#registroEnfermero",text:"Enfermero"}
+          ,{path:"#registroLaboratorista",text:"Laboratorista"}
         ],
         "FARMACIA":[
           {path:"#home",text:"Inicio"}, {path:"#farmacia",text:"Farmacia"},{path:"#recetas",text:"Recetas"}
+        ],
+        "LABORATORIO":[
+          {path:"#home",text:"Inicio"}, {path:"#analisis",text:"Análisis"},{path:"#resultados",text:"Resultados"}
         ],
         "SUPERADMINISTRADOR":[
           {path:"#home",text:"Inicio"}, {path:"#entidadesServicio",text:"Entidades"}
