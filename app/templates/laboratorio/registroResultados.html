@@ -1,0 +1,53 @@
+
+<div id="inicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="div-trans text-center">
+          <h3>Análisis Médico</h3>
+          <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="form">
+            <div class="col-md-12 col-sm-12">
+              <div class="form-group">
+                <h3>Paciente {{vm.consulta.paciente.nombre}}</h3>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button" ng-click="vm.addEvidencia()" class="btn btn-success">Agregar evidencia</button>
+            </div>
+            <div class="row">
+              <div ng-repeat="(key, evidencia) in vm.resultado.evidencias" class="col-md-4">
+                <div class="col-md-12 col-sm-12">
+                  <label> Muestra {{key + 1 }}</label>
+                  <button type="button" ng-click="vm.removeEvidencia(evidencia)" class="btn btn-danger pull-right">x</button>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error': form['nombre' + $index].$touched &amp;&amp; form['nombre' + $index].$invalid }" class="form-group">
+                    <input type="text" ng-model="evidencia.nombre" name="nombre_{{key}}" required="required" placeholder="Nombre" class="form-control"/>
+                    <div ng-messages="form['nombre' + $index].$error" ng-show="form['nombre' + $index].$touched" class="help-block">
+                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error': form['file' + $index].$touched &amp;&amp; form['file' + $index].$invalid }" class="form-group">
+                    <input type="file" file-model="evidencia.file" name="file_{{key}}" required="required" placeholder="Nombre" class="form-control"/>
+                    <div ng-messages="form['file' + $index].$error" ng-show="form['file' + $index].$touched" class="help-block">
+                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="observaciones">Observaciones</label>
+              <textarea rows="5" name="observaciones" required="required" ng-model="vm.resultado.observaciones" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Analisis  Medico</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

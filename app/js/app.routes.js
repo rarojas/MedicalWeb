@@ -75,7 +75,7 @@ angular.module("app.routes",["ngRoute"])
     , controller : "FarmacologoController", controllerAs:"vm"
   })
   .when("/registroLaboratorista", {
-      templateUrl: '/templates/shared/laboratorista.html', title :"Laboratorista"
+      templateUrl: '/templates/shared/laboraResultadoPendienteControllertorista.html', title :"Laboratorista"
     , controller : "LaboratoristaController", controllerAs:"vm"
   })
   .when("/miPerfil", {
@@ -86,13 +86,17 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/laboratorio/analisis.html',
       title :"Analisis ", controller : "AnalisisController", controllerAs:"vm"
     })
-    .when("/realizarAnalisis/:idAnalisis", {
+  .when("/realizarAnalisis/:idAnalisis", {
         templateUrl: '/templates/laboratorio/realizarAnalisis.html',
         title :"Analisis ", controller : "RealizarAnalisisController", controllerAs:"vm"
-      })
+  })
   .when("/resultados", {
-        templateUrl: '/templates/shared/consultas.html',
-        title :"Consultas ", controller : "ConsultasController", controllerAs:"vm"
+        templateUrl: '/templates/laboratorio/resultadosPendientes.html',
+        title :"Registro Resultados ", controller : "ResultadosPendienteController", controllerAs:"vm"
+  })
+  .when("/resultadoPendiente/:idAnalisis", {
+        templateUrl: '/templates/laboratorio/registroResultados.html',
+        title :"Resultado Pendiente ", controller : "ResultadoPendienteController", controllerAs:"vm"
   })
   .otherwise("/");
 });

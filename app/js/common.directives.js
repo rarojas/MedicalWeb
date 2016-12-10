@@ -78,10 +78,26 @@ var codigoPostal = function() {
         }
     }
 };
+var fileModel =  function ($parse) {
+        return {
+           restrict: 'A',
+           link: function(scope, element, attrs) {
+              var model = $parse(attrs.fileModel);
+              var modelSetter = model.assign;
 
+              element.bind('change', function(){
+                 scope.$apply(function(){
+                    console.log(element[0].files[0])
+                    modelSetter(scope, element[0].files[0]);
+                 });
+              });
+           }
+        };
+}
 
 
 angular.module("app.directives")
+.directive("fileModel", fileModel)
 .directive("uniqueEmail", uniqueEmail)
 .directive("phone", phoneValid)
 .directive("rfc", rfcValid)

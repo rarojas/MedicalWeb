@@ -1,0 +1,34 @@
+
+extends ../funcions
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Análisis Médico
+            form(name="form",novalidate,class="form",ng-submit="vm.submit()")
+              .col-md-12.col-sm-12
+                .form-group
+                  h3 Paciente {{vm.consulta.paciente.nombre}}
+              .form-group
+                    button.btn.btn-success(type='button',ng-click="vm.addEvidencia()") Agregar evidencia
+              .row
+                .col-md-4(ng-repeat="(key, evidencia) in vm.resultado.evidencias")
+                  .col-md-12.col-sm-12
+                      label  Muestra {{key + 1 }}
+                      button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeEvidencia(evidencia)") x
+                  .col-md-12.col-sm-12
+                    +formvalid("nombre")
+                      input.form-control(type='text',ng-model="evidencia.nombre",name="nombre_{{key}}",required='required', placeholder='Nombre')
+                      +message("nombre")
+                  .col-md-12.col-sm-12
+                    +formvalid("file")
+                      input.form-control(type='file',file-model="evidencia.file", name="file_{{key}}",required='required', placeholder='Nombre')
+                      +message("file")
+              .form-group
+                  label(for="observaciones") Observaciones
+                  textarea(class="form-control",rows="5",name="observaciones",required,ng-model="vm.resultado.observaciones")
+              .form-group
+                button.btn.btn-success(type='submit') Analisis  Medico
