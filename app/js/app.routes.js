@@ -75,7 +75,7 @@ angular.module("app.routes",["ngRoute"])
     , controller : "FarmacologoController", controllerAs:"vm"
   })
   .when("/registroLaboratorista", {
-      templateUrl: '/templates/shared/laboraResultadoPendienteControllertorista.html', title :"Laboratorista"
+      templateUrl: '/templates/shared/laboratorista.html', title :"Laboratorista"
     , controller : "LaboratoristaController", controllerAs:"vm"
   })
   .when("/miPerfil", {
@@ -97,6 +97,10 @@ angular.module("app.routes",["ngRoute"])
   .when("/resultadoPendiente/:idAnalisis", {
         templateUrl: '/templates/laboratorio/registroResultados.html',
         title :"Resultado Pendiente ", controller : "ResultadoPendienteController", controllerAs:"vm"
+  })
+  .when("/detalleEntidad/:idEntidad", {
+        templateUrl: '/templates/shared/detalleEntidad.html',
+        title :"Detalle de Servicio ", controller : "DetalleEntidadControler", controllerAs:"vm"
   })
   .otherwise("/");
 });

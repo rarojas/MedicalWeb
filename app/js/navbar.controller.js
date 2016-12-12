@@ -7,13 +7,33 @@ function NavBarController($scope,$location,$rootScope,constants) {
 
     $rootScope.$on("logged", function(){
         vm.logged = $rootScope.logged;
-        if($rootScope.logged)
-        vm.modulos = constants[$rootScope.userData.role];
-    });
+        if($rootScope.logged){
+            var modulos = constants[$rootScope.userData.role];
+            var modulosContratados = $rootScope.userData.modulos;
+            var filtered = modulos.filter(function(item) {
+                if(!item.modulo)
+                  return true;
+                return modulosContratados.indexOf(item.modulo) != -1
+            });
+            console.log("filtrado");
+            vm.modulos = filtered;
+          }
+       });
 
     vm.modulos = []
-    if($rootScope.logged)
-      vm.modulos = constants[$rootScope.userData.role];
+    if($rootScope.logged){
+      var modulos = constants[$rootScope.userData.role];
+      var modulosContratados = $rootScope.userData.modulos;
+      var filtered = modulos.filter(function(item) {
+          if(!item.modulo)
+            return true;
+          return modulosContratados.indexOf(item.modulo) != -1
+      });
+      console.log("filtrado");
+      vm.modulos = filtered;
+    }
+
+
 
 
 

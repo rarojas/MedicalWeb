@@ -96,10 +96,36 @@ var fileModel =  function ($parse) {
 }
 
 
+var pacienteLabel = function () {
+      return {
+          template: '<h3>Paciente {{pacienteInfo.nombre | capitalize }} {{pacienteInfo.apellido_paterno  | capitalize }} {{pacienteInfo.apellido_materno | capitalize }} </h3>',
+          restrict: 'E',
+          scope: {
+            pacienteInfo : '=paciente'
+          }
+    };
+}
+
+var capitalize = function() {
+  return function(input, scope) {
+    if (input != undefined)
+      input = input.toLowerCase();
+    else
+      input = '';
+    if(input.length > 2)
+      return input.substring(0,1).toUpperCase() + input.substring(1);
+    else
+      return input;
+  };
+};
+
+
 angular.module("app.directives")
 .directive("fileModel", fileModel)
 .directive("uniqueEmail", uniqueEmail)
 .directive("phone", phoneValid)
 .directive("rfc", rfcValid)
 .directive("codigoPostal", codigoPostal)
+.directive("pacienteLabel",pacienteLabel)
+.filter("capitalize", capitalize)
 .directive("compareTo", compareTo);

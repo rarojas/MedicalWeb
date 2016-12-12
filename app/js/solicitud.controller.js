@@ -1,5 +1,6 @@
-function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,PacienteServices) {
+function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,PacienteServices,$rootScope) {
     var vm = this;
+
     PacienteServices.getPaciente($routeParams.idPaciente)
       .then(function(response){
         vm.paciente = response.data
@@ -9,7 +10,11 @@ function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,
       tipo_solicitud : 0,
       idPaciente : $routeParams.idPaciente
     }
-    vm.tipoSolicitudEnum = constants.tipoSolicitudEnum
+    var modulos = $rootScope.userData.modulos;
+    var tipoSolicitud = constants.tipoSolicitudEnum;
+    vm.tipoSolicitudEnum  = tipoSolicitud.filter(function(item){
+      return modulos.indexOf(item.modulo) != -1;
+    });
 
     vm.submit = function(){
       SolicitudServices.crearSolicitud(vm.solicitud)
@@ -36,5 +41,5 @@ function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,
 }
 
 
-SolicitudController.$inject = ["constants","$routeParams","SolicitudServices","$mdDialog","PacienteServices"];
+SolicitudController.$inject = ["constants","$routeParams","SolicitudServices","$mdDialog","PacienteServices","$rootScope"];
 angular.module("app.controllers").controller("SolicitudController", SolicitudController);

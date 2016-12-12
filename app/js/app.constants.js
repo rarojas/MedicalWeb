@@ -4,27 +4,40 @@ angular
     .constant("constants", {
         "url": "http://localhost:8080/api",
         "ADMINISTRADOR":[
-          {path:"#home",text:"Inicio"}, {path:"#registroClinica",text:"Registro Clinica"},{path:"#entidades",text:"Entidades"}
+          {path:"#home",text:"Inicio"},
+          {path:"#registroClinica",text:"Registro Clinica"},
+          {path:"#entidades",text:"Entidades"}
         ],
         "DOCTOR":[
-          {path:"#home",text:"Inicio"}, {path:"#consultas",text:"Consulta"}, {path:"#diagnosticos",text:"Diagnosticos"}
+          {path:"#home",text:"Inicio"},
+          {path:"#consultas",text:"Consulta",modulo:"CONSULTA"},
+          {path:"#diagnosticos",text:"Diagnosticos",modulo:"CONSULTA"}
         ],
         "ENFERMERO":[
-          {path:"#home",text:"Inicio"}, {path:"#pacientes",text:"Pacientes"} , {path:"#paciente",text:"Nuevo Paciente"}
+          {path:"#home",text:"Inicio"},
+          {path:"#pacientes",text:"Pacientes",modulo:"CONSULTA"},
+          {path:"#paciente",text:"Nuevo Paciente",modulo:"CONSULTA"}
         ],
         "ADMINISTRADOR_CE":[
-          {path:"#home",text:"Inicio"}, {path:"#registroDoctor",text:"Doctores"},
-          {path:"#registroFarmacologo",text:"Farmacologo"},{path:"#registroEnfermero",text:"Enfermero"}
-          ,{path:"#registroLaboratorista",text:"Laboratorista"}
+          {path:"#home",text:"Inicio"},
+          {path:"#registroDoctor",text:"Doctores",modulo:"CONSULTA"},
+          {path:"#registroFarmacologo",text:"Farmacologo",modulo:"FARMACIA"},
+          {path:"#registroEnfermero",text:"Enfermero",modulo:"CONSULTA"},
+          {path:"#registroLaboratorista",text:"Laboratorista",modulo:"LABORATORIO"}
         ],
         "FARMACIA":[
-          {path:"#home",text:"Inicio"}, {path:"#farmacia",text:"Farmacia"},{path:"#recetas",text:"Recetas"}
+          {path:"#home",text:"Inicio"},
+          {path:"#farmacia",text:"Farmacia",modulo:"FARMACIA"},
+          {path:"#recetas",text:"Recetas",modulo:"FARMACIA"}
         ],
         "LABORATORIO":[
-          {path:"#home",text:"Inicio"}, {path:"#analisis",text:"Análisis"},{path:"#resultados",text:"Resultados"}
+          {path:"#home",text:"Inicio"},
+          {path:"#analisis",text:"Análisis",modulo:"LABORATORIO"},
+          {path:"#resultados",text:"Resultados",modulo:"LABORATORIO"}
         ],
         "SUPERADMINISTRADOR":[
-          {path:"#home",text:"Inicio"}, {path:"#entidadesServicio",text:"Entidades"}
+          {path:"#home",text:"Inicio"},
+          {path:"#entidadesServicio",text:"Entidades"}
         ],
         "tipoAdministracionMedicamentoEnum": [
           { "value": 0, "text": "Oral"},
@@ -33,8 +46,8 @@ angular
           { "value": 3, "text": "Intramuscular"}
         ],
         tipoSolicitudEnum : [
-         { value : 0, text :"Atención médica" },
-         { value : 1, text :"Análisis" }
+         { value : 0, text :"Atención médica", modulo: "CONSULTA" },
+         { value : 1, text :"Análisis" , modulo: "LABORATORIO" }
        ],
        modulos : [
          {"idModulo": 1,"title":"Consulta", "price": 2500.00  , "description":"12GB Espacio en disco "},
