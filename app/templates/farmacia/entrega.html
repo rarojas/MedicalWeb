@@ -8,73 +8,48 @@
           <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="css-form">
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
-                <h3>Paciente {{vm.diagnostico.paciente.nombre}}</h3>
+                <paciente-label paciente="vm.receta.paciente"></paciente-label>
               </div>
-            </div>
-            <div class="form-group">
-              <button type="button" ng-click="vm.addMedicamento()" class="btn btn-success">Agregar medicamento</button>
             </div>
             <div class="row">
               <div ng-repeat="(key, medicamento) in vm.receta.medicamentos" class="col-md-4">
                 <div class="col-md-12 col-sm-12">
                   <label> Medicamento {{key + 1 }}</label>
-                  <button type="button" ng-click="vm.removeMedicamento(medicamento)" class="btn btn-danger pull-right">x</button>
+                </div>
+                <div ng-if="vm.farmacia" class="col-md-12 col-sm-12">
+                  <label for="medicamento{{key}}">Medicamento:</label>
+                  <label>{{ vm.getMedicamento(medicamento.idMedicamento) }}</label>
+                </div>
+                <div ng-if="!vm.farmacia" class="col-md-12 col-sm-12">
+                  <label for="medicamento{{key}}">Medicamento:</label>
+                  <label>{{medicamento.medicamento }}</label>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mMedicamento_' + $index].$touched &amp;&amp; form['mMedicamento_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" class="form-control"/>
-                    <div ng-messages="form['mMedicamento_' + $index].$error" ng-show="form['mMedicamento_' + $index].$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
+                  <label for="dosis{{key}}">Dosis:</label>
+                  <label>{{medicamento.dosis }}</label>
+                </div>
+                <div class="col-md-12 col-sm-12">                 
+                  <label for="mFin_{{key}}">Toma:</label>
+                  <label>{{medicamento.toma  }}</label>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mDosis_' + $index].$touched &amp;&amp; form['mDosis_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.dosis" name="mDosis_{{key}}" required="required" placeholder="Dosis" class="form-control"/>
-                    <div ng-messages="form['mDosis_' + $index].$error" ng-show="form['mDosis_' + $index].$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
+                  <label for="tipo_administracion{{key}}">Tipo Administracion:</label>
+                  <label>{{medicamento.tipo_administracion | capitalize }}</label>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mToma_' + $index].$touched &amp;&amp; form['mToma_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.toma" name="mToma_{{key}}" required="required" placeholder="Toma" class="form-control"/>
-                    <div ng-messages="form['mToma_' + $index].$error" ng-show="form['mToma_' + $index].$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
+                  <label for="Desde{{key}}">Desde:</label>
+                  <label>{{medicamento.desde | date}}</label>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mAdministracion_' + $index].$touched &amp;&amp; form['mAdministracion_' + $index].$invalid }" class="form-group">
-                    <select required="required" ng-model="medicamento.tipo_administracion" name="mAdministracion" ng-options="tipo.value as tipo.text for tipo in vm.tipoAdministracionMedicamentoEnum track by tipo.value" class="form-control">
-                      <option value="">Tipo Administracion</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mInicio_' + $index].$touched &amp;&amp; form['mInicio_' + $index].$invalid }" class="form-group">
-                    <label for="mInicio_{{key}}">Fecha Inicio </label>
-                    <input type="date" ng-model="medicamento.desde" name="mInicio_{{key}}" required="required" placeholder="Desde" ng-min="{{vm.minDate | date:'yyyy-MM-dd' }}" class="form-control"/>
-                    <div ng-messages="form['mInicio_' + $index].$error" ng-show="form['mInicio_' + $index].$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-12">
-                  <div ng-class="{ 'has-error': form['mFin_' + $index].$touched &amp;&amp; form['mFin_' + $index].$invalid }" class="form-group">
-                    <label for="mFin_{{key}}">Fecha Fin</label>
-                    <input type="date" ng-model="medicamento.hasta" name="mFin_{{key}}" required="required" placeholder="Hasta" ng-min="medicamento.fin" class="form-control"/>
-                    <div ng-messages="form['mFin_' + $index].$error" ng-show="form['mFin_' + $index].$touched" class="help-block">
-                      <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
-                    </div>
-                  </div>
+                  <label for="hasta{{key}}">Hasta:</label>
+                  <label>{{medicamento.hasta | date}}</label>
                 </div>
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error': form.mComment.$touched &amp;&amp; form.mComment.$invalid }" class="form-group">
                 <label for="comment">Información Adicional</label>
-                <textarea required="required" name="mComment" ng-model="vm.receta.comentarios" rows="5" class="form-control"></textarea>
+                <textarea required="required" name="mComment" ng-model="vm.receta.comentarios" rows="5" disabled="disabled" class="form-control"></textarea>
                 <div ng-messages="form.mComment.$error" ng-show="form.mComment.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>

@@ -32,6 +32,13 @@ function DoctorServices ($http,constants){
         url: constants.url + '/doctores/diagnosticos/' + idDiagnostico
       });
   }
+
+  this.obtenerMedicamentosDisponibles = function() {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/farmacia/medicamentos/disponibles'
+      });
+  }
 }
 
 DoctorServices.$inject =  ["$http","constants"]

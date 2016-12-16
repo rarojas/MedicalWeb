@@ -1,10 +1,14 @@
-function RecetaController($scope,constants,$routeParams,DoctorServices,SolicitudServices,$mdDialog) {
+function RecetaController($rootScope,constants,$routeParams,DoctorServices,SolicitudServices,$mdDialog) {
     var vm = this;
     vm.receta = {
       medicamentos : []
     };
 
+    vm.farmacia = $rootScope.userData.modulos.indexOf("FARMACIA") != -1
 
+    DoctorServices.obtenerMedicamentosDisponibles().then(function(response){
+      vm.medicamentos =  response.data
+    });
     vm.addMedicamento = function() {
       vm.receta.medicamentos.push({
         idMedicamento: 11,
@@ -48,5 +52,5 @@ function RecetaController($scope,constants,$routeParams,DoctorServices,Solicitud
     });
 }
 
-RecetaController.$inject = ["$scope","constants","$routeParams","DoctorServices","SolicitudServices","$mdDialog"];
+RecetaController.$inject = ["$rootScope","constants","$routeParams","DoctorServices","SolicitudServices","$mdDialog"];
 angular.module("app.controllers").controller("RecetaController", RecetaController);

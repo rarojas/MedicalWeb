@@ -11,15 +11,19 @@ block content
             form(name="form",class="css-form",novalidate,ng-submit="vm.submit()")
               .col-md-12.col-sm-12
                 .form-group
-                  h3 Paciente {{vm.diagnostico.paciente.nombre}}
+                  paciente-label(paciente="vm.paciente")
               .form-group
                     button.btn.btn-success(type='button',ng-click="vm.addMedicamento()") Agregar medicamento
               .row
                 .col-md-4(ng-repeat="(key, medicamento) in vm.receta.medicamentos")
                   .col-md-12.col-sm-12
                       label  Medicamento {{key + 1 }}
-                      button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeMedicamento(medicamento)") x
-                  .col-md-12.col-sm-12
+                      button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeMedicamento(medicamento)") x                      
+                  .col-md-12.col-sm-12(ng-if="vm.farmacia")
+                    +formvalid("idMedicamento")
+                      select.form-control(required='required',ng-model="medicamento.idMedicamento",name="idMedicamento",ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.value")
+                        option(value="") Medicamento
+                  .col-md-12.col-sm-12(ng-if="!vm.farmacia")
                     +formvalid("mMedicamento_")
                       input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento')
                       +message("mMedicamento_")

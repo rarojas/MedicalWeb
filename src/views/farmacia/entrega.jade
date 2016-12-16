@@ -11,44 +11,36 @@ block content
             form(name="form",class="css-form",novalidate,ng-submit="vm.submit()")
               .col-md-12.col-sm-12
                 .form-group
-                  h3 Paciente {{vm.diagnostico.paciente.nombre}}
-              .form-group
-                    button.btn.btn-success(type='button',ng-click="vm.addMedicamento()") Agregar medicamento
+                  paciente-label(paciente="vm.receta.paciente")
               .row
                 .col-md-4(ng-repeat="(key, medicamento) in vm.receta.medicamentos")
                   .col-md-12.col-sm-12
                       label  Medicamento {{key + 1 }}
-                      button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeMedicamento(medicamento)") x
+                  .col-md-12.col-sm-12(ng-if="vm.farmacia")
+                    label(for="medicamento{{key}}") Medicamento:
+                    label {{ vm.getMedicamento(medicamento.idMedicamento) }}
+                  .col-md-12.col-sm-12(ng-if="!vm.farmacia")
+                    label(for="medicamento{{key}}") Medicamento:
+                    label {{medicamento.medicamento }}
                   .col-md-12.col-sm-12
-                    +formvalid("mMedicamento_")
-                      input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento')
-                      +message("mMedicamento_")
+                    label(for="dosis{{key}}") Dosis:
+                    label {{medicamento.dosis }}
+                  .col-md-12.col-sm-12                  
+                    label(for="mFin_{{key}}") Toma:
+                    label {{medicamento.toma  }}
                   .col-md-12.col-sm-12
-                    +formvalid("mDosis_")
-                      input.form-control(type='text',ng-model="medicamento.dosis",name="mDosis_{{key}}",required='required',placeholder='Dosis')
-                      +message("mDosis_")
+                    label(for="tipo_administracion{{key}}") Tipo Administracion:
+                    label {{medicamento.tipo_administracion | capitalize }}
                   .col-md-12.col-sm-12
-                    +formvalid("mToma_")
-                      input.form-control(type='text',ng-model="medicamento.toma",name="mToma_{{key}}",required='required',placeholder='Toma')
-                      +message("mToma_")
+                    label(for="Desde{{key}}") Desde:
+                    label {{medicamento.desde | date}}
                   .col-md-12.col-sm-12
-                    +formvalid("mAdministracion_")
-                      select.form-control(required='required',ng-model="medicamento.tipo_administracion",name="mAdministracion",ng-options="tipo.value as tipo.text for tipo in vm.tipoAdministracionMedicamentoEnum track by tipo.value")
-                        option(value="") Tipo Administracion
-                  .col-md-12.col-sm-12
-                    +formvalid("mInicio_")
-                      label(for="mInicio_{{key}}") Fecha Inicio 
-                      input.form-control(type='date',ng-model="medicamento.desde",name="mInicio_{{key}}",required='required',placeholder='Desde',ng-min="{{vm.minDate | date:'yyyy-MM-dd' }}")
-                      +message("mInicio_")
-                  .col-md-12.col-sm-12
-                    +formvalid("mFin_")
-                      label(for="mFin_{{key}}") Fecha Fin
-                      input.form-control(type='date',ng-model="medicamento.hasta",name="mFin_{{key}}",required='required',placeholder='Hasta', ng-min="medicamento.fin")
-                      +message("mFin_")
+                      label(for="hasta{{key}}") Hasta:
+                      label {{medicamento.hasta | date}}
               .col-md-12.col-sm-12
                 .form-group(ng-class="{ 'has-error': form.mComment.$touched && form.mComment.$invalid }")
                     label(for="comment") Información Adicional
-                    textarea(class="form-control",required='required',name="mComment",ng-model="vm.receta.comentarios",rows="5")
+                    textarea(class="form-control",required='required',name="mComment",ng-model="vm.receta.comentarios",rows="5",disabled="disabled")
                     .help-block(ng-messages="form.mComment.$error",ng-show="form.mComment.$touched")
                       .div(ng-messages-include="/templates/shared/messages.html")
               .form-group

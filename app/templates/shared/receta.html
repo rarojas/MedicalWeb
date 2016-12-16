@@ -8,7 +8,7 @@
           <form name="form" novalidate="novalidate" ng-submit="vm.submit()" class="css-form">
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
-                <h3>Paciente {{vm.diagnostico.paciente.nombre}}</h3>
+                <paciente-label paciente="vm.paciente"></paciente-label>
               </div>
             </div>
             <div class="form-group">
@@ -18,9 +18,16 @@
               <div ng-repeat="(key, medicamento) in vm.receta.medicamentos" class="col-md-4">
                 <div class="col-md-12 col-sm-12">
                   <label> Medicamento {{key + 1 }}</label>
-                  <button type="button" ng-click="vm.removeMedicamento(medicamento)" class="btn btn-danger pull-right">x</button>
+                  <button type="button" ng-click="vm.removeMedicamento(medicamento)" class="btn btn-danger pull-right">x                      </button>
                 </div>
-                <div class="col-md-12 col-sm-12">
+                <div ng-if="vm.farmacia" class="col-md-12 col-sm-12">
+                  <div ng-class="{ 'has-error': form['idMedicamento' + $index].$touched &amp;&amp; form['idMedicamento' + $index].$invalid }" class="form-group">
+                    <select required="required" ng-model="medicamento.idMedicamento" name="idMedicamento" ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.value" class="form-control">
+                      <option value="">Medicamento</option>
+                    </select>
+                  </div>
+                </div>
+                <div ng-if="!vm.farmacia" class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error': form['mMedicamento_' + $index].$touched &amp;&amp; form['mMedicamento_' + $index].$invalid }" class="form-group">
                     <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" class="form-control"/>
                     <div ng-messages="form['mMedicamento_' + $index].$error" ng-show="form['mMedicamento_' + $index].$touched" class="help-block">

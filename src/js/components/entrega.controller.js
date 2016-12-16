@@ -1,11 +1,30 @@
-function EntregaController(SolicitudServices,$routeParams,InventarioServices,$mdDialog) {
+function EntregaController(SolicitudServices,$routeParams,InventarioServices,$mdDialog,constants,DoctorServices,$rootScope) {
     var vm = this;
     vm.receta = []
+    vm.minDate = new Date();
+    vm.tipoAdministracionMedicamentoEnum = constants.tipoAdministracionMedicamentoEnum;
+    vm.farmacia = $rootScope.userData.modulos.indexOf("FARMACIA") != -1
+
+    DoctorServices.obtenerMedicamentosDisponibles().then(function(response){
+      vm.medicamentos =  response.data
+    });
 
     SolicitudServices.obtenerReceta($routeParams.idReceta)
     .then(function(response){
       vm.receta = response.data
     })
+
+
+    vm.getMedicamento = function (idMedicamento) {
+        var medicamento = vm.medicamentos.filter(function(item){
+            return item.idMedicamento ===  idMedicamento;
+        }).shift();
+
+        if(!medicamento){
+          return "";
+        }
+        return medicamento.nombre + " ("+ medicamento.cantidad + ")";
+    }
 
     vm.submit = function(){
       InventarioServices.entregaReceta(vm.receta)
@@ -32,5 +51,5 @@ function EntregaController(SolicitudServices,$routeParams,InventarioServices,$md
      }
 }
 
-EntregaController.$inject = ["SolicitudServices","$routeParams","InventarioServices","$mdDialog"];
+EntregaController.$inject = ["SolicitudServices","$routeParams","InventarioServices","$mdDialog","constants","DoctorServices","$rootScope"];
 angular.module("app.controllers").controller("EntregaController", EntregaController);
