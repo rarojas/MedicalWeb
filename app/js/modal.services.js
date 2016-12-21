@@ -1,4 +1,4 @@
-function ModalServices ($http,constants,$mdDialog){
+function ModalServices (constants,$mdDialog){
     var factory = {};
 
     factory.showAlert = (content) => {
@@ -19,5 +19,5 @@ function ModalServices ($http,constants,$mdDialog){
     return factory;
 }
 
-ModalServices.$inject =  ["$http","constants","$mdDialog"]
+ModalServices.$inject =  ["constants","$mdDialog"]
 angular.module("app.services").factory('ModalServices', ModalServices);

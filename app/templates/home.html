@@ -1,7 +1,4 @@
 
-<!--extends layout-->
-<!--block head-->
-<!--    title Registra tu Clínica-->
 <!--block content-->
 <div id="inicio">
   <div class="container">
@@ -167,7 +164,7 @@
       </div>
     </div>
     <div class="row text-center">
-      <ng-repeat ng-repeat="modulo in modulos">
+      <ng-repeat ng-repeat="modulo in vm.modulos">
         <div class="col-md-4 col-sm-6">
           <ul ng-class="{'plan-active': modulo.selected }" class="plan">
             <li class="plan-head head-active">{{modulo.title}}</li>
@@ -179,58 +176,3 @@
     </div>
   </div>
 </section>
-<!-- End Pricing Section-->
-<!-- *********************************************************ULTIMO/SUSCRIPCION************************************************************-->
-<!-- parallax two-->
-<section id="Parallax-two">
-  <div class="container">
-    <section id="contact-sec">
-      <div class="row text-center">
-        <div class="col-md-8 col-md-offset-2">
-          <h2><i class="fa fa-pencil-square-o fa-3x"></i> SUSCRIPCIÓN</h2>
-          <h4><strong>Medical Web</strong><i>La opción de acuerdo a sus necesidades</i></h4>
-          <!-- ****************************SUSCRIPCION***********************-->
-          <div class="text-center">
-            <form>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Nombre:" class="form-control"/>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Apellidos:" class="form-control"/>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Email:" class="form-control"/>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Cargo:" class="form-control"/>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Usuario:" class="form-control"/>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                  <input type="text" required="required" placeholder="Contraseña:" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-success">Continuar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- ./hasta aqui***************************************---->
-      </div>
-    </section>
-  </div>
-</section>
-<!-- ./parallax two-->

@@ -2,7 +2,8 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        "url": "http://localhost:8080/api",
+        //"url": "https://medicalweb.azurewebsites.net/api",
+        "url": "http://localhost:8000/api",
         "ADMINISTRADOR":[
           {path:"#home",text:"Inicio"},
           {path:"#registroClinica",text:"Registro Clinica"},
@@ -23,7 +24,7 @@ angular
           {path:"#registroDoctor",text:"Doctores",modulo:"CONSULTA"},
           {path:"#registroFarmacologo",text:"Farmacologo",modulo:"FARMACIA"},
           {path:"#registroEnfermero",text:"Enfermero",modulo:"CONSULTA"},
-          {path:"#registroLaboratorista",text:"Laboratorista",modulo:"LABORATORIO"}
+          //{path:"#registroLaboratorista",text:"Laboratorista",modulo:"LABORATORIO"}
         ],
         "FARMACIA":[
           {path:"#home",text:"Inicio"},
@@ -52,7 +53,7 @@ angular
        modulos : [
          {"idModulo": 1,"title":"Consulta", "price": 2500.00  , "description":"12GB Espacio en disco "},
          {"idModulo": 2,"title":"Farmacia", "price": 2500.00  , "description":"12GB Espacio en disco "},
-         {"idModulo": 3,"title":"Laboratorio", "price": 2500.00 , "description":"12GB Espacio en disco "}
+         //{"idModulo": 3,"title":"Laboratorio", "price": 2500.00 , "description":"12GB Espacio en disco "}
        ],
        getCPS : 'https://api-codigos-postales.herokuapp.com/v2/buscar',
        tipoSanguinioEnum : [

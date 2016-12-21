@@ -1,6 +1,6 @@
 function EntregaController(SolicitudServices,$routeParams,InventarioServices,$mdDialog,constants,DoctorServices,$rootScope) {
     var vm = this;
-    vm.receta = []
+    vm.receta = {}
     vm.minDate = new Date();
     vm.tipoAdministracionMedicamentoEnum = constants.tipoAdministracionMedicamentoEnum;
     vm.farmacia = $rootScope.userData.modulos.indexOf("FARMACIA") != -1

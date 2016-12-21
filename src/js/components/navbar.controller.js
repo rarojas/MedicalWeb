@@ -1,4 +1,4 @@
-function NavBarController($scope,$location,$rootScope,constants) {
+function NavBarController($scope,$location,$rootScope,constants,AuthServices) {
     var vm = this;
     vm.logged = $rootScope.logged;
     vm.isActive = function (viewLocation) {
@@ -15,7 +15,10 @@ function NavBarController($scope,$location,$rootScope,constants) {
                   return true;
                 return modulosContratados.indexOf(item.modulo) != -1
             });
-            console.log("filtrado");
+            AuthServices.obtenerMiPerfil()
+              .then(function(response) {
+                $rootScope.miperfil =  response.data
+              });
             vm.modulos = filtered;
           }
        });
@@ -29,7 +32,10 @@ function NavBarController($scope,$location,$rootScope,constants) {
             return true;
           return modulosContratados.indexOf(item.modulo) != -1
       });
-      console.log("filtrado");
+      AuthServices.obtenerMiPerfil()
+        .then(function(response) {
+          $rootScope.miperfil =  response.data
+        });
       vm.modulos = filtered;
     }
 
@@ -46,5 +52,5 @@ function NavBarController($scope,$location,$rootScope,constants) {
     }
 }
 
-NavBarController.$inject = ["$scope","$location","$rootScope","constants"];
+NavBarController.$inject = ["$scope","$location","$rootScope","constants","AuthServices"];
 angular.module("app.controllers").controller("NavBarController", NavBarController);

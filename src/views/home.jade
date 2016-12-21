@@ -1,20 +1,3 @@
-//extends layout
-
-//block head
-//    title Registra tu Clínica
-
-//- block navbar
-//-     ul.nav.navbar-nav.navbar-right
-//-       li
-//-         a(href='#inicio') INICIO
-//-       li
-//-         a(href='#caracteristicas') CARACTERISTICAS
-//-       li
-//-         a(href='#sistemas') SISTEMAS
-//-       li
-//-         a(href='#price-sec') PRECIOS
-//-       li
-//-         a(href='#contact-sec') SUSCRIBIRSE
 
 //block content
 #inicio
@@ -163,50 +146,10 @@ section#price-sec
             | Tenemos el objetivo de ayudar a los médicos a ejecutar mejores prácticas, somos empresa liider em proveer software y servicios
             | de TI aplicados a la Salud, basados en Tecnologías de la Nube.
     .row.text-center
-      ng-repeat(ng-repeat="modulo in modulos")
+      ng-repeat(ng-repeat="modulo in vm.modulos")
         .col-md-4.col-sm-6
             ul.plan(ng-class="{'plan-active': modulo.selected }")
               li.plan-head.head-active {{modulo.title}}
               li.main-price {{modulo.price | currency: "MXN$ ": 2}} / Mes
               li
                 strong {{modulo.description}}
-// End Pricing Section
-// *********************************************************ULTIMO/SUSCRIPCION************************************************************
-// parallax two
-section#Parallax-two
-  .container
-    section#contact-sec
-      .row.text-center
-        .col-md-8.col-md-offset-2
-          h2
-            i.fa.fa-pencil-square-o.fa-3x
-            |  SUSCRIPCIÓN
-          h4
-            strong
-              | Medical Web
-            i La opción de acuerdo a sus necesidades
-          // ****************************SUSCRIPCION***********************
-          .text-center
-            form
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Nombre:')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Apellidos:')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Email:')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Cargo:')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Usuario:')
-              .col-md-12.col-sm-12
-                .form-group
-                  input.form-control(type='text', required='required', placeholder='Contraseña:')
-              .form-group
-                button.btn.btn-success(type='submit') Continuar
-        // ./hasta aqui***************************************--
-// ./parallax two

@@ -1,5 +1,5 @@
-function AuthServices ($http,constants){
-  var baseUrl =  constants.url + ":"  + constants.port
+function AuthServices ($http, constants){
+  var baseUrl =  constants.url
 
   this.login = function(user){
     return $http({
@@ -8,6 +8,15 @@ function AuthServices ($http,constants){
         data : user
       });
   }
+
+  this.obtenerMiPerfil = function() {
+    return $http({
+        method: 'GET',
+        url: baseUrl + '/miperfil',
+        ignoreLoadingBar: true
+      });
+  }
+
 }
 
 AuthServices.$inject =  ["$http","constants"]
