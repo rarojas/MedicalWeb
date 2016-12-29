@@ -12,20 +12,8 @@ angular.module("medicalWeb",[
     delete $httpProvider.defaults.headers.common["X-Requested-With"];
     $httpProvider.defaults.headers.common["Accept"] = "application/json";
     $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-
-    $httpProvider.interceptors.push(function($q, $injector) {
-      return {
-       'responseError': function(rejection)   {
-          if (rejection.status === 403) {
-            $injector.get('ModalServices').showAlert({
-                title : "Error", text : "Acceso denegado"
-            });
-          }
-          return $q.reject(rejection);
-        }
-      }
-    });
-}])
+  }
+])
 .run(run);
 
 

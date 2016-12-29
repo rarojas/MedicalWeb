@@ -2,7 +2,7 @@
 angular
     .module('app.constants', [])
     .constant("constants", {
-        //"url": "https://medicalweb.azurewebsites.net/api",
+        //"url": "/api",
         "url": "http://localhost:8000/api",
         "ADMINISTRADOR":[
           {path:"#home",text:"Inicio"},

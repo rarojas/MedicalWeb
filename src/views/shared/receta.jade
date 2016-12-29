@@ -11,7 +11,7 @@ block content
             form(name="form",class="css-form",novalidate,ng-submit="vm.submit()")
               .col-md-12.col-sm-12
                 .form-group
-                  paciente-label(paciente="vm.paciente")
+                  paciente-label(paciente="vm.diagnostico.paciente")
               .form-group
                     button.btn.btn-success(type='button',ng-click="vm.addMedicamento()") Agregar medicamento
               .row
