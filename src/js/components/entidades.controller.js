@@ -1,7 +1,7 @@
 function EntidadesController($rootScope,$mdDialog,EntidadesServices){
     var vm = this;
 
-    EntidadesServices.getEntidades($rootScope.userData.userId)
+    EntidadesServices.getEntidadesAdministrador()
       .then((response) => {
         vm.entidades = response.data
       })

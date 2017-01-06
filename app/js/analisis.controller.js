@@ -21,6 +21,7 @@ function RealizarAnalisisController(LaboratorioServices,DoctorServices,$routePar
     DoctorServices.obtenerConsulta(vm.analisis.idAnalisis)
       .then(function(response){
         vm.consulta =  response.data
+        vm.analisis.idPaciente = vm.consulta.idPaciente
       })
 
     vm.addMuestra = function(){

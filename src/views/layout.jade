@@ -63,7 +63,7 @@ html(ng-app="medicalWeb")
               li
                 a(href='#/miPerfil',class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-user.fa-fw
-                  | Mi Perfil
+                  | {{miperfil.email}}
               li
                 a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-sign-out.fa-fw

@@ -22,6 +22,7 @@ function DiagnosticoController($rootScope,constants, DoctorServices,$mdDialog,$r
     DoctorServices.obtenerConsulta(vm.diagnostico.idDiagnostico)
       .then(function(response){
         vm.consulta = response.data
+        vm.diagnostico.idPaciente = vm.consulta.idPaciente
     });
 
     vm.submit = function(){
