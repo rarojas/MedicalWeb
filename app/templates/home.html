@@ -15,7 +15,7 @@
       <div class="col-md-3 col-sm-12">
         <div style="min-height: initial" class="div-trans text-center">
           <h3>LOG IN </h3>
-          <form name="form" novalidate="novalidate" ng-submit="vm.login()">
+          <form name="form" novalidate="novalidate" ng-submit="vm.login()" ng-if="!logged">
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
                 <input type="text" required="required" placeholder="User" ng-model="vm.usuario.username" name="user" class="form-control"/>

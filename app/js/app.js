@@ -66,6 +66,10 @@ function run($rootScope, $location, $http, $window) {
             $location.path("/")
         }
 
+        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+          $rootScope.title = current.$$route.title;
+        });
+
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
           var restrictedPage = $.inArray($location.path(), ['/', '/registro']) === -1;
           var loggedIn = $rootScope.user;

@@ -1,7 +1,8 @@
 angular.module("app.routes",["ngRoute"])
 .config(function($routeProvider){
   $routeProvider
-  .when("/", { templateUrl: '/templates/home.html', title :"MedicalWeb", controller : "HomeController", controllerAs:"vm"})
+  .when("/",  { templateUrl: '/templates/home.html', title :"MedicalWeb",
+      controller : "HomeController", controllerAs:"vm"})
   .when("/home", { templateUrl: '/templates/main.html', title :"MedicalWeb", })
   .when("/registro", {
     templateUrl: '/templates/registro.html', title :"Registro "
@@ -101,6 +102,10 @@ angular.module("app.routes",["ngRoute"])
   .when("/detalleEntidad/:idEntidad", {
         templateUrl: '/templates/shared/detalleEntidad.html',
         title :"Detalle de Servicio ", controller : "DetalleEntidadControler", controllerAs:"vm"
+  })
+  .when("/historial/:idPaciente", {
+        templateUrl: '/templates/pacientes/historial.html',
+        title :"Historial paciente", controller : "HistorialController", controllerAs:"vm"
   })
   .otherwise("/");
 });

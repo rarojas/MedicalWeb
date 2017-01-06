@@ -119,6 +119,27 @@ var capitalize = function() {
   };
 };
 
+var passwordValidation = function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function(scope, elem, attrs, ctrl) {
+        ctrl.$parsers.unshift(function(viewValue) {
+          var pwdValidLength, pwdHasLetter, pwdHasNumber;
+          pwdValidLength = (viewValue && viewValue.length >= 6 ? true : false);
+          pwdHasLetter = (viewValue && /[A-z]/.test(viewValue)) ? true : false;
+          pwdHasNumber = (viewValue && /\d/.test(viewValue)) ? true : false;
+          if( pwdValidLength && pwdHasLetter && pwdHasNumber ) {
+            ctrl.$setValidity('pwd', true);
+          } else {
+            ctrl.$setValidity('pwd', false);
+          }
+          return viewValue;
+      });
+    }
+  }
+}
+
 
 angular.module("app.directives")
 .directive("fileModel", fileModel)
@@ -127,5 +148,6 @@ angular.module("app.directives")
 .directive("rfc", rfcValid)
 .directive("codigoPostal", codigoPostal)
 .directive("pacienteLabel",pacienteLabel)
+.directive("passwordValidation", passwordValidation)
 .filter("capitalize", capitalize)
 .directive("compareTo", compareTo);

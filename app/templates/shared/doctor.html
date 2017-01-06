@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.password.$touched &amp;&amp; form.password.$invalid, 'has-success':form.password.$touched &amp;&amp; form.password.$valid }" class="form-group">
-                <input type="password" required="required" placeholder="Contraseña" ng-model="vm.registro.password" name="password" class="form-control"/>
+                <input type="password" required="required" placeholder="Contraseña" ng-model="vm.registro.password" name="password" password-validation="password-validation" class="form-control"/>
                 <div ng-messages="form.password.$error" ng-show="form.password.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>
