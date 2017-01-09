@@ -70,11 +70,11 @@
                     <li><strong>{{modulo.description}}</strong></li>
                     <li class="bottom">
                       <div class="col-md-12">
-                        <div class="checkbox">
+                        <div ng-if="!modulo.required" class="checkbox">
                           <label>
                             <input type="checkbox" name="selectedModules[]" value="{{modulo}}" ng-model="modulo.selected"/><strong>{{modulo.title}}</strong>
                           </label>
-                        </div>
+                        </div><a ng-if="modulo.required"><i class="fa fa-fw fa-check-square-o"></i><strong>{{modulo.title}}</strong></a>
                       </div>
                     </li>
                   </ul>

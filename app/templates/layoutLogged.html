@@ -34,7 +34,8 @@
               <li><a href="" ng-href="{{modulo.path}}"> {{modulo.text}}</a></li>
             </ul>
             <ul ng-if="navCtrl.logged" class="nav navbar-nav navbar-right">
-              <li><a href="#/miPerfil" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>{{miperfil.email}}</a></li>
+              <li><a href="#/miPerfil" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user fa-fw"></i>{{miperfil.email}} </a></li>
+              <li ng-if="miperfil.entidad"><a><i class="fa fa-h-square fa-fw">Entidad : {{miperfil.entidad.nombre}} </i></a></li>
               <li><a href="" ng-click="navCtrl.logout()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesion</a></li>
             </ul>
           </div>

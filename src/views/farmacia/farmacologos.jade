@@ -1,0 +1,24 @@
+// my-template.jade
+extends ../funcions
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12
+          .div-trans.text-center
+            h3 Farmacologos
+            .col-md-12.col-sm-12
+                table(class="table table-striped table-bordered table-hover ")
+                  thead
+                    tr
+                      th  Nombre
+                      th  Especialidad
+                      th  Subespecialidad
+                      th  Cedula
+                  tbody
+                    tr(ng-repeat="farmacologo in vm.farmacologos" style="color:black;")
+                      td {{farmacologo.nombre}}
+                      td {{farmacologo.especialidad}}
+                      td {{farmacologo.sub_especialidad}}
+                      td {{farmacologo.cedula_profesional}}

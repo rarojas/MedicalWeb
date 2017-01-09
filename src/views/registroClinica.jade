@@ -46,10 +46,13 @@ block content
                           strong {{modulo.description}}
                         li.bottom
                           .col-md-12
-                            .checkbox
+                            .checkbox(ng-if="!modulo.required")
                               label
                                 input(type="checkbox",name="selectedModules[]", value="{{modulo}}", ng-model="modulo.selected")
                                 strong {{modulo.title}}
+                            a(ng-if="modulo.required")
+                              i.fa.fa-fw.fa-check-square-o
+                              strong {{modulo.title}}
               md-content(layout-padding)
                 div(layout="row" layout-xs="column")
                   div(flex)

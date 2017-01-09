@@ -9,8 +9,11 @@ function RegistroClinicaController($scope,constants,$filter,RegistroServices,$ro
     }
     vm.tipoEntidadEnum = constants.tipoEntidadEnum;
     vm.modulos = angular.copy(constants.modulos);
+    vm.modulos[0].required = true;
+    vm.modulos[0].selected = true;
     vm.toogle = function select(modulo){
-        modulo.selecteds = !modulo.selected;
+        if(!modulo.required)
+          modulo.selected = !modulo.selected;
     };
     vm.selectedModules = function selectedModules() {
       return $filter('filter')(vm.modulos, { selected: true });

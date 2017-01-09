@@ -59,9 +59,17 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/shared/doctor.html', title :"Doctores"
     , controller : "DoctorController", controllerAs:"vm"
   })
-  .when("/doctores/:idEntidad", {
-      templateUrl: '/templates/doctores.html', title :"Doctores"
+  .when("/doctores", {
+      templateUrl: '/templates/pacientes/doctores.html', title :"Doctores"
     , controller : "DoctoresController", controllerAs:"vm"
+  })
+  .when("/farmacologos",, {
+      templateUrl: '/templates/farmacia/farmacologos.html', title :"Farmacologos"
+    , controller : "FarmacologosController", controllerAs:"vm"
+  })
+  .when("/enfermero",, {
+      templateUrl: '/templates/pacientes/enfermeros.html', title :"Enfermeros"
+    , controller : "EnfermerosController", controllerAs:"vm"
   })
   .when("/registroEnfermero", {
       templateUrl: '/templates/shared/enfermero.html', title :"Enfermero"

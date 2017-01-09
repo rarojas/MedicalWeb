@@ -38,6 +38,12 @@ function InventarioServices ($http,constants) {
       });
   }
 
+  this.getFarmacologos = function() {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/farmacia/farmacologos'
+      });
+  }
 }
 
 InventarioServices.$inject =  ["$http","constants"]

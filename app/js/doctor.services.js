@@ -2,7 +2,7 @@ function DoctorServices ($http,constants){
   this.getDoctoresByEntidad = function(idEntidad){
     return $http({
         method: 'GET',
-        url: constants.url + '/doctores/'+ idEntidad,
+        url: constants.url + '/doctores' ,
       });
   }
   this.obtenerConsultas = function(idEntidad){
@@ -37,6 +37,13 @@ function DoctorServices ($http,constants){
     return $http({
         method: 'GET',
         url: constants.url + '/farmacia/medicamentos/disponibles'
+      });
+  }
+
+  this.getEnfermeros = function() {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/doctores/enfermeros'
       });
   }
 }
