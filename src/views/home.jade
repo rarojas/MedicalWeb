@@ -12,9 +12,9 @@
           </div>
       // *************************************LOG IN**************************************
       .col-md-3.col-sm-12
-        .div-trans.text-center(style="min-height: initial")
+        .div-trans.text-center(style="min-height: initial", ng-if="!logged")
           h3 LOG IN 
-          form(name="form" novalidate, ng-submit="vm.login()", ng-if="!logged")
+          form(name="form" novalidate, ng-submit="vm.login()")
             .col-md-12.col-sm-12
               .form-group
                 input.form-control(type='text', required='required', placeholder='User',ng-model="vm.usuario.username",name="user")

@@ -4,6 +4,7 @@ function MiPerfilController($rootScope,$mdDialog,AuthServices,$routeParams) {
     AuthServices.obtenerMiPerfil()
       .then(function(response) {
         vm.miperfil =  response.data
+        vm.miperfil.fechaNacimiento = new Date(vm.miperfil.fechaNacimiento)
     });
 }
 

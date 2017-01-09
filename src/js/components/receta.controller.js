@@ -9,11 +9,17 @@ function RecetaController($rootScope,constants,$routeParams,DoctorServices,Solic
     DoctorServices.obtenerMedicamentosDisponibles().then(function(response){
       vm.medicamentos =  response.data
     });
+    vm.minDate = new Date();
+    vm.hasta = new Date();
+    vm.hasta.setDate(vm.hasta.getDate() + 1);
+
+
+
     vm.addMedicamento = function() {
       vm.receta.medicamentos.push({
         idMedicamento: 11,
-        inicio : new Date(),
-        fin : new Date(),
+        desde : vm.minDate,
+        hasta : new Date(),
       });
     };
     vm.removeMedicamento = function(medicamento) {
@@ -42,7 +48,6 @@ function RecetaController($rootScope,constants,$routeParams,DoctorServices,Solic
             .ok('Entendido'));
      }
 
-    vm.minDate = new Date();
     vm.tipoAdministracionMedicamentoEnum = constants.tipoAdministracionMedicamentoEnum;
 
     DoctorServices.obtenerDiagnostico($routeParams.idDiagnostico)
