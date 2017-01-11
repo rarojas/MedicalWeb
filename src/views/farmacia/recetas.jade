@@ -13,7 +13,7 @@
                     th  Acciones
                 tbody
                   tr(ng-repeat="receta in vm.recetas" style="color:black;")
-                    td {{receta.paciente.nombre}}
-                    td {{receta.doctor.nombre}}
+                    td {{receta.paciente.nombre}} {{receta.paciente.apellido_paterno}}
+                    td {{receta.doctor.nombre}} {{receta.doctor.apPaterno}}
                     td 
                       a.btn.btn-primary(href="#/entregaReceta/{{receta.idReceta}}") Entrega...

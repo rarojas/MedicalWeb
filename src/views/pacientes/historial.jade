@@ -11,9 +11,13 @@ block content
                 table(class="table table-striped table-bordered table-hover ")
                   thead
                     tr
-                      th  Tipo
-                      th 
+                      th Tipo
+                      th Impresion
+                      th Estatus
+                      th Descripcion
                   tbody
                     tr(ng-repeat="registro in vm.historial" style="color:black;")
-                      td {{registro.tipo}}
-                      td              
+                      td {{registro.tipo_solicitud}}
+                      td {{registro.impresion}}
+                      td {{registro.estatus}}
+                      td {{registro.descripcion}}

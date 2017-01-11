@@ -5,7 +5,7 @@ angular.module("app.directives",[]);
 
 angular.module("medicalWeb",[
 ,"app.controllers",'app.constants',"app.routes","app.services","app.directives","ngMaterial"
-,"angular-loading-bar"
+,"angular-loading-bar",'ui.bootstrap'
 ]).config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;

@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.telefono.$touched &amp;&amp; form.telefono.$invalid, 'has-success':form.telefono.$touched &amp;&amp; form.telefono.$valid }" class="form-group">
-                <input type="number" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" phone="phone" class="form-control"/>
+                <input type="number" ng-model="vm.registro.telefono" name="telefono" required="required" placeholder="Teléfono" phone="phone" uib-tooltip="El telefono debe ser de 10 digitos" tooltip-trigger="'focus'" tooltip-placement="bottom" class="form-control"/>
                 <div ng-messages="form.telefono.$error" ng-show="form.telefono.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid, 'has-success':form.rfc.$touched &amp;&amp; form.rfc.$valid }" class="form-group">
-                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" rfc="rfc" class="form-control"/>
+                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" rfc="rfc" uib-tooltip="El rfc debe incluir homoclave" tooltip-trigger="'focus'" tooltip-placement="bottom" class="form-control"/>
                 <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>

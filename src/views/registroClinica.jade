@@ -26,11 +26,11 @@ block content
                   +message_("cp")
               .col-md-12.col-sm-12
                 +formvalid_("telefono")
-                  input.form-control(type='number',ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono', phone)
+                  input.form-control(type='number',ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono', phone, uib-tooltip="El telefono debe ser de 10 digitos",tooltip-trigger="'focus'",tooltip-placement="bottom")
                   +message_("telefono")
               .col-md-12.col-sm-12
                 +formvalid_("rfc")
-                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc)
+                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc,uib-tooltip="El rfc debe incluir homoclave",tooltip-trigger="'focus'",tooltip-placement="bottom")
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group

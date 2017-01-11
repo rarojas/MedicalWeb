@@ -9,16 +9,15 @@ block content
           .div-trans.text-center
             h3 Enfermeros
             .col-md-12.col-sm-12
+              .row
+                .col-md-12.col-sm-12
+                  a.btn.btn-primary(href="#/registroEnfermero") Agregar Enfermero
                 table(class="table table-striped table-bordered table-hover ")
                   thead
                     tr
                       th  Nombre
-                      th  Especialidad
-                      th  Subespecialidad
                       th  Cedula
                   tbody
                     tr(ng-repeat="enfermero in vm.enfermeros" style="color:black;")
                       td {{enfermero.nombre}}
-                      td {{enfermero.especialidad}}
-                      td {{enfermero.sub_especialidad}}
                       td {{enfermero.cedula_profesional}}

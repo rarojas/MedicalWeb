@@ -3,10 +3,11 @@ function HistorialController($routeParams, PacienteServices) {
     vm.idPaciente =  $routeParams.idPaciente
     PacienteServices.getHistorialPaciente(vm.idPaciente)
       .then(function(response) {
-        vm.historial = reponse.data;
+        vm.historial = response.data;
       });
 }
 
 
 HistorialController.$inject = ["$routeParams","PacienteServices"];
+
 angular.module("app.controllers").controller("HistorialController", HistorialController);

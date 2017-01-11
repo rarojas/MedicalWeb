@@ -14,7 +14,7 @@ function AuthServices ($http, constants){
         method: 'GET',
         url: baseUrl + '/miperfil',
         ignoreLoadingBar: true
-      });
+      }); 
   }
 
 }

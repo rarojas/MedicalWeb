@@ -3,6 +3,13 @@ block content
     .container
       .row
         .col-md-12.col-sm-12
-          .div-trans.text-center
-            h3 Pagina Principal
+          .div-trans.text-center(style="min-height: 400px;")
+            h3 Bienvenido a MedicalWeb
             .col-md-12.col-sm-12
+              h3.head-sub-main Bienvenido {{ miperfil.nombre }}
+              .row
+                .col-md-offset-4.col-sm-offset-4.col-md-4.col-sm-4
+                  label Modulos Disponibles
+                  ul.list-group(ng-repeat="modulo in userData.modulos track by $index")
+                    li.list-group-item(style="color: black;")
+                      {{modulo}}

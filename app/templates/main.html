@@ -3,9 +3,19 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
-        <div class="div-trans text-center">
-          <h3>Pagina Principal</h3>
-          <div class="col-md-12 col-sm-12"></div>
+        <div style="min-height: 400px;" class="div-trans text-center">
+          <h3>Bienvenido a MedicalWeb</h3>
+          <div class="col-md-12 col-sm-12">
+            <h3 class="head-sub-main">Bienvenido {{ miperfil.nombre }}</h3>
+            <div class="row">
+              <div class="col-md-offset-4 col-sm-offset-4 col-md-4 col-sm-4">
+                <label>Modulos Disponibles</label>
+                <ul ng-repeat="modulo in userData.modulos track by $index" class="list-group">
+                  <li style="color: black;" class="list-group-item">{{modulo}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -16,8 +16,8 @@
             </thead>
             <tbody>
               <tr ng-repeat="receta in vm.recetas" style="color:black;">
-                <td>{{receta.paciente.nombre}}</td>
-                <td>{{receta.doctor.nombre}}</td>
+                <td>{{receta.paciente.nombre}} {{receta.paciente.apellido_paterno}}</td>
+                <td>{{receta.doctor.nombre}} {{receta.doctor.apPaterno}}</td>
                 <td> <a href="#/entregaReceta/{{receta.idReceta}}" class="btn btn-primary">Entrega...</a></td>
               </tr>
             </tbody>

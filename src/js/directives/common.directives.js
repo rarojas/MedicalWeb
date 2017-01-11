@@ -140,9 +140,23 @@ var passwordValidation = function() {
   }
 }
 
+var CURP_REGEX = /^[a-zA-Z]{4}\d{6}[a-zA-Z]{6}\d{2}$/;
+var curpRegex = function() {
+    return {
+        restrice: 'A',
+        require: 'ngModel',
+        link: function(scope, element, attrs, ctrl) {
+            angular.element(element).bind('blur', function() {
+                var value = this.value;
+                ctrl.$setValidity('curp', CURP_REGEX.test(value));
+            });
+        }
+    }
+};
 
 angular.module("app.directives")
 .directive("fileModel", fileModel)
+.directive("curp",curpRegex)
 .directive("uniqueEmail", uniqueEmail)
 .directive("phone", phoneValid)
 .directive("rfc", rfcValid)

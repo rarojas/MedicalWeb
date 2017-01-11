@@ -9,14 +9,18 @@
             <table class="table table-striped table-bordered table-hover ">
               <thead>
                 <tr>
-                  <th> Tipo</th>
-                  <th> </th>
+                  <th>Tipo</th>
+                  <th>Impresion</th>
+                  <th>Estatus</th>
+                  <th>Descripcion</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="registro in vm.historial" style="color:black;">
-                  <td>{{registro.tipo}}</td>
-                  <td>             </td>
+                  <td>{{registro.tipo_solicitud}}</td>
+                  <td>{{registro.impresion}}</td>
+                  <td>{{registro.estatus}}</td>
+                  <td>{{registro.descripcion}}</td>
                 </tr>
               </tbody>
             </table>

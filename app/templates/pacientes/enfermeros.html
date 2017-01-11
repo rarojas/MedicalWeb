@@ -6,24 +6,23 @@
         <div class="div-trans text-center">
           <h3>Enfermeros</h3>
           <div class="col-md-12 col-sm-12">
-            <table class="table table-striped table-bordered table-hover ">
-              <thead>
-                <tr>
-                  <th> Nombre</th>
-                  <th> Especialidad</th>
-                  <th> Subespecialidad</th>
-                  <th> Cedula</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="enfermero in vm.enfermeros" style="color:black;">
-                  <td>{{enfermero.nombre}}</td>
-                  <td>{{enfermero.especialidad}}</td>
-                  <td>{{enfermero.sub_especialidad}}</td>
-                  <td>{{enfermero.cedula_profesional}}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="row">
+              <div class="col-md-12 col-sm-12"><a href="#/registroEnfermero" class="btn btn-primary">Agregar Enfermero</a></div>
+              <table class="table table-striped table-bordered table-hover ">
+                <thead>
+                  <tr>
+                    <th> Nombre</th>
+                    <th> Cedula</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="enfermero in vm.enfermeros" style="color:black;">
+                    <td>{{enfermero.nombre}}</td>
+                    <td>{{enfermero.cedula_profesional}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

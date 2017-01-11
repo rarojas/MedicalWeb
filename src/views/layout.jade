@@ -68,7 +68,7 @@ html(ng-app="medicalWeb")
               li(ng-if="miperfil.entidad")
                 a
                   i.fa.fa-h-square.fa-fw
-                    | Entidad : {{miperfil.entidad.nombre}} 
+                  | {{miperfil.entidad.nombre}} 
               li
                 a(href='' ng-click="navCtrl.logout()",class="dropdown-toggle", data-toggle="dropdown" ,role="button", aria-haspopup="true" ,aria-expanded="false")
                   i.fa.fa-sign-out.fa-fw
@@ -94,6 +94,10 @@ html(ng-app="medicalWeb")
     script(src='/js/angular-aria.min.js')
     script(src='/js/angular-material.min.js')
     script(src='/js/loading-bar.min.js')
+    script(src='/js/ui-bootstrap.min.js')
+    script(src='/js/ui-bootstrap-tpls.min.js')
+
+  
     
     script(src='/assets/js/custom.js')
     script(src='/js/app.js')    

@@ -63,11 +63,11 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/pacientes/doctores.html', title :"Doctores"
     , controller : "DoctoresController", controllerAs:"vm"
   })
-  .when("/farmacologos",, {
+  .when("/farmacologos", {
       templateUrl: '/templates/farmacia/farmacologos.html', title :"Farmacologos"
     , controller : "FarmacologosController", controllerAs:"vm"
   })
-  .when("/enfermero",, {
+  .when("/enfermeros", {
       templateUrl: '/templates/pacientes/enfermeros.html', title :"Enfermeros"
     , controller : "EnfermerosController", controllerAs:"vm"
   })

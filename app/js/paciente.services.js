@@ -19,6 +19,13 @@ function PacienteServices ($http,constants){
         url: constants.url + '/pacientes/' + idPaciente,
       });
   }
+
+  this.getHistorialPaciente = function(idPaciente) {
+    return $http({
+        method: 'GET',
+        url: constants.url + '/pacientes/historial/' + idPaciente
+    });
+  }
 }
 
 PacienteServices.$inject =  ["$http","constants"]

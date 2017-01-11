@@ -3,7 +3,6 @@ angular
     .module('app.constants', [])
     .constant("constants", {
         "url": "/api",
-        //"url": "http://localhost:8080/api",
         "ROLE_ADMINISTRADOR":[
           {path:"#home",text:"Inicio"},
           {path:"#registroClinica",text:"Registro Clinica"},
@@ -21,9 +20,9 @@ angular
         ],
         "ROLE_ADMINISTRADOR_CE":[
           {path:"#home",text:"Inicio"},
-          {path:"#registroDoctor",text:"Doctores",modulo:"CONSULTA"},
+          {path:"#doctores",text:"Doctores",modulo:"CONSULTA"},
           {path:"#registroFarmacologo",text:"Farmacologo",modulo:"FARMACIA"},
-          {path:"#registroEnfermero",text:"Enfermero",modulo:"CONSULTA"},
+          {path:"#enfermeros",text:"Enfermero",modulo:"CONSULTA"},
           {path:"#registroLaboratorista",text:"Laboratorista",modulo:"LABORATORIO"}
         ],
         "ROLE_FARMACIA":[
