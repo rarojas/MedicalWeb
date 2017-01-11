@@ -69,6 +69,9 @@ angular
          {"id":1, "text":"Femenino"},
          {"id":2, "text":"Masculino"},
        ],
+       religionesEnum,: [
+         "Catolica", "Protestantes y evangelicas", "Biblicas diferentes a evangelicas","Otras"
+       ],
        tipoEntidadEnum : [
         { value : 0, text :"Sanatorio" },
         { value : 1, text :"Clinica" },

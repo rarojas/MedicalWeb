@@ -44,7 +44,7 @@ block content
                   +message_("grupo_etnico")
               .col-md-12.col-sm-12
                 +formvalid_("religion")
-                  input.form-control(type='text',required='required',placeholder='Religion',ng-model="vm.paciente.religion",name="religion")
+                  select.form-control(ng-model="vm.paciente.religion",name="religion",required="required",ng-options="religion as religion for religion in vm.religionesEnum track by $index")
                   +message_("religion")
               .col-md-12.col-sm-12
                 +formvalid_("discapacidades")

@@ -5,6 +5,7 @@ function PacienteController($rootScope,constants, PacienteServices,$mdDialog,$ro
     };
     vm.tipoSanguinioEnum = constants.tipoSanguinioEnum
     vm.sexoEnum =  constants.sexoEnum
+    vm.religionesEnum = constants.religionesEnum
 
     vm.crearPaciente = function(){
       PacienteServices.crearPaciente(vm.paciente).then(function(response){

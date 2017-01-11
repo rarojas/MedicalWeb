@@ -14,9 +14,15 @@ function AuthServices ($http, constants){
         method: 'GET',
         url: baseUrl + '/miperfil',
         ignoreLoadingBar: true
-      }); 
+      });
   }
 
+  this.cambiarPassword = function() {
+    return $http({
+        method: 'POST',
+        url: baseUrl + '/miperfil/cambiarPassword'
+      });
+  }
 }
 
 AuthServices.$inject =  ["$http","constants"]

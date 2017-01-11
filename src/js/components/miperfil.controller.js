@@ -1,4 +1,4 @@
-function MiPerfilController($rootScope,$mdDialog,AuthServices,$routeParams) {
+function MiPerfilController(AuthServices) {
     var vm = this;
 
     AuthServices.obtenerMiPerfil()
@@ -8,5 +8,22 @@ function MiPerfilController($rootScope,$mdDialog,AuthServices,$routeParams) {
     });
 }
 
-MiPerfilController.$inject = ["$rootScope","$mdDialog","AuthServices","$routeParams"];
+MiPerfilController.$inject = ["AuthServices"];
+angular.module("app.controllers").controller("MiPerfilController", MiPerfilController);
+
+
+function CambiarPasswordController(AuthServices){
+  var vm = this;
+
+  this.submit = function() {
+    AuthServices.cambiarPassword(vm.changePassword)
+      .then(function(response){
+
+      }).catch(function (response) {
+
+      });
+  }
+}
+
+MiPerfilController.$inject = ["AuthServices"];
 angular.module("app.controllers").controller("MiPerfilController", MiPerfilController);
