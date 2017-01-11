@@ -21,8 +21,8 @@ angular
         "ROLE_ADMINISTRADOR_CE":[
           {path:"#home",text:"Inicio"},
           {path:"#doctores",text:"Doctores",modulo:"CONSULTA"},
-          {path:"#registroFarmacologo",text:"Farmacologo",modulo:"FARMACIA"},
-          {path:"#enfermeros",text:"Enfermero",modulo:"CONSULTA"},
+          {path:"#farmacologos",text:"Farmacologos",modulo:"FARMACIA"},
+          {path:"#enfermeros",text:"Enfermeros",modulo:"CONSULTA"},
           {path:"#registroLaboratorista",text:"Laboratorista",modulo:"LABORATORIO"}
         ],
         "ROLE_FARMACIA":[
