@@ -22,7 +22,9 @@ function SolicitudController(constants,$routeParams,SolicitudServices,$mdDialog,
         vm.showAlert({
            title :"Registro Exitoso",
            text  :"Solicitud creada"
-        })
+        }).then(function() {
+          window.history.back();
+        });
       }).catch((error) =>{
         vm.showAlert({
            title :"Ocurrio un error :(",

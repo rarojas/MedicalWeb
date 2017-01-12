@@ -115,5 +115,9 @@ angular.module("app.routes",["ngRoute"])
         templateUrl: '/templates/pacientes/historial.html',
         title :"Historial paciente", controller : "HistorialController", controllerAs:"vm"
   })
+  .when("/cambiarPassword", {
+        templateUrl: '/templates/shared/cambiarPassword.html',
+        title :"Cambiar Password", controller : "CambiarPasswordController", controllerAs:"vm"
+  })
   .otherwise("/");
 });

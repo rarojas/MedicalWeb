@@ -10,27 +10,27 @@ block content
             form.form(name="form",novalidate,ng-submit="vm.sendRegistro()")
               .col-md-12.col-sm-12
                 +formvalid_("institucion")
-                  input.form-control(type='text',ng-model="vm.registro.nombre",name="institucion",required='required', placeholder='Institución Médica')
+                  input.form-control(type='text',ng-model="vm.registro.nombre",name="institucion",required='required', placeholder='Institución Médica',only-letters)
                   +message_("institucion")
               .col-md-12.col-sm-12
                 +formvalid_("calle")
-                  input.form-control(type='text',ng-model="vm.registro.calle",name="calle", required='required', placeholder='Calle')
+                  input.form-control(type='text',ng-model="vm.registro.calle",name="calle", required='required', placeholder='Calle',only-alpha)
                   +message_("calle")
               .col-md-12.col-sm-12
                 +formvalid_("numero")
-                  input.form-control(type='text',ng-model="vm.registro.numero",name="numero", required='required', placeholder='Número')
+                  input.form-control(type='text',ng-model="vm.registro.numero",name="numero", required='required', placeholder='Número',only-alpha)
                   +message_("numero")
               .col-md-12.col-sm-12
                 +formvalid_("cp")
-                  input.form-control(type='text',ng-model="vm.registro.codigoPostal",name="cp", required='required', placeholder='CP',codigo-postal)
+                  input.form-control(type='text',ng-model="vm.registro.codigoPostal",name="cp", required='required', placeholder='CP',codigo-postal, only-numbers)
                   +message_("cp")
               .col-md-12.col-sm-12
                 +formvalid_("telefono")
-                  input.form-control(type='number',ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono', phone, uib-tooltip="El telefono debe ser de 10 digitos",tooltip-trigger="'focus'",tooltip-placement="bottom")
+                  input.form-control(type='text',only-numbers,ng-model="vm.registro.telefono",name="telefono", required='required', placeholder='Teléfono', phone, uib-tooltip="El telefono debe ser de 10 digitos",tooltip-trigger="'focus'",tooltip-placement="bottom")
                   +message_("telefono")
               .col-md-12.col-sm-12
                 +formvalid_("rfc")
-                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc,uib-tooltip="El rfc debe incluir homoclave",tooltip-trigger="'focus'",tooltip-placement="bottom")
+                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc,uib-tooltip="El rfc debe incluir homoclave",tooltip-trigger="'focus'",tooltip-placement="bottom",only-alpha)
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group

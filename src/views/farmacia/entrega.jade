@@ -16,10 +16,10 @@ block content
                 .col-md-4(ng-repeat="(key, medicamento) in vm.receta.medicamentos")
                   .col-md-12.col-sm-12
                       label  Medicamento {{key + 1 }}
-                  .col-md-12.col-sm-12(ng-if="vm.farmacia")
+                  .col-md-12.col-sm-12(ng-if="vm.farmacia && medicamento.idMedicamento != null")
                     label(for="medicamento{{key}}") Medicamento:
                     label {{ vm.getMedicamento(medicamento.idMedicamento) }}
-                  .col-md-12.col-sm-12(ng-if="!vm.farmacia")
+                  .col-md-12.col-sm-12(ng-if="!vm.farmacia || medicamento.idMedicamento == null")
                     label(for="medicamento{{key}}") Medicamento:
                     label {{medicamento.medicamento }}
                   .col-md-12.col-sm-12

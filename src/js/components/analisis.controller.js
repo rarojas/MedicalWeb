@@ -36,9 +36,11 @@ function RealizarAnalisisController(LaboratorioServices,DoctorServices,$routePar
 
     vm.submit = function() {
       LaboratorioServices.crearAnalisis(vm.analisis)
-      .then(function(){
+      .then(function(response){
           ModalServices.showAlert({
               title : "Analisis Creado", text : "Acción exitosa"
+          }).then(function() {
+            window.history.back();
           })
       }).catch(function(error){
           ModalServices.showAlert({

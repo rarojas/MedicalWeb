@@ -17,7 +17,7 @@ function RecetaController($rootScope,constants,$routeParams,DoctorServices,Solic
 
     vm.addMedicamento = function() {
       vm.receta.medicamentos.push({
-        idMedicamento: 11,
+        idMedicamento: null,
         desde : vm.minDate,
         hasta : new Date(),
       });
@@ -32,6 +32,8 @@ function RecetaController($rootScope,constants,$routeParams,DoctorServices,Solic
         vm.showAlert({
            title :"Registro Exitoso",
            text  :"Receta creada :)"
+        }).then(function() {
+          window.history.back();
         })
       }).catch((error) =>{
         vm.showAlert({
@@ -54,6 +56,7 @@ function RecetaController($rootScope,constants,$routeParams,DoctorServices,Solic
       .then(function(response){
         vm.diagnostico = response.data
         vm.receta.idReceta = vm.diagnostico.idDiagnostico
+        vm.receta.idPaciente = vm.diagnostico.idPaciente
     });
 }
 

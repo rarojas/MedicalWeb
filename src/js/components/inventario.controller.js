@@ -15,7 +15,7 @@ function InventarioController($rootScope,$mdDialog,InventarioServices,ModalServi
     vm.medicamentos = []
 
     vm.agregarMedicamento = function() {
-      vm.medicamentos.push({nombre : "Paracetamol", cantidad : 20 , idEntidad : entidad});
+      vm.medicamentos.push({nombre : null, cantidad : 0 , idEntidad : entidad});
     }
 
     vm.guardarMedicamento = function(medicamento) {

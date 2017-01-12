@@ -2,38 +2,30 @@
 <!--block content-->
 <div id="inicio">
   <div class="container">
-    <div class="row">
+    <div class="row"> 
       <div class="col-md-9 col-sm-12">
-        <h1 class="head-main">Administración de la Salud</h1><span class="head-sub-main">En un Click</span>
+        <h1 class="head-main">Administración de la Salud  </h1><span class="head-sub-main">En un Click</span>
         <!--
         <div class="head-last">
         Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor
         </div>
         -->
       </div>
-      <!-- *************************************LOG IN**************************************-->
+      <!-- *************************************LOG IN************************************** -->
       <div class="col-md-3 col-sm-12">
         <div style="min-height: initial" ng-if="!logged" class="div-trans text-center">
           <h3>LOG IN </h3>
           <form name="form" novalidate="novalidate" ng-submit="vm.login()">
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group">
-                <input type="text" required="required" placeholder="User" ng-model="vm.usuario.username" name="user" class="form-control"/>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group">
-                <input type="password" required="required" placeholder="Password" ng-model="vm.usuario.password" name="password" class="form-control"/>
-              </div>
+            <div class="form-group">
+              <input type="text" required="required" placeholder="User" ng-model="vm.usuario.username" name="user" class="form-control"/>
             </div>
             <div class="form-group">
-              <div class="col-md-12">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="remember" ng-model="vm.usuario.remember"/>Remember me
-                  </label>
-                </div>
-              </div>
+              <input type="password" required="required" placeholder="Password" ng-model="vm.usuario.password" name="password" class="form-control"/>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="remember" ng-model="vm.usuario.remember"/>Remember me
+              </label>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-success"> <i class="fa fa-sign-in fa-fw"></i>Login</button>

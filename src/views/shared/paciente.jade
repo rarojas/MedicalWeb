@@ -11,19 +11,19 @@ block content
             form(name="form", novalidate, class="form", ng-submit="vm.crearPaciente()")
               .col-md-12.col-sm-12
                 +formvalid_("nombre")
-                  input.form-control(type='text', required='required', placeholder='Nombre',ng-model="vm.paciente.nombre",name="nombre")
+                  input.form-control(type='text', required='required', placeholder='Nombre',ng-model="vm.paciente.nombre",name="nombre",only-letters)
                   +message_("nombre")
               .col-md-12.col-sm-12
                 +formvalid_("apellido_paterno")
-                  input.form-control(type='text', required='required', placeholder='Apellido Paterno',ng-model="vm.paciente.apellido_paterno",name="apellido_paterno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Paterno',ng-model="vm.paciente.apellido_paterno",name="apellido_paterno",only-letters)
                   +message_("apellido_paterno")
               .col-md-12.col-sm-12
                 +formvalid_("apellido_materno")
-                  input.form-control(type='text', required='required', placeholder='Apellido Materno',ng-model="vm.paciente.apellido_materno",name="apellido_materno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Materno',ng-model="vm.paciente.apellido_materno",name="apellido_materno",only-letters)
                   +message_("apellido_materno")
               .col-md-12.col-sm-12
                 +formvalid_("curp")
-                  input.form-control(type='text', required='required', placeholder='CURP',ng-model="vm.paciente.curp",name="curp")
+                  input.form-control(type='text', required='required', placeholder='CURP',ng-model="vm.paciente.curp",name="curp",only-alpha)
                   +message_("curp")
               .col-md-12.col-sm-12
                 +formvalid_("tipo_sanguinio")
@@ -32,15 +32,15 @@ block content
                   +message_("tipo_sanguinio")
               .col-md-12.col-sm-12
                 +formvalid_("nivel_socioeconomico")
-                  input.form-control(type='text',required='required',placeholder='Alergias',ng-model="vm.paciente.nivel_socioeconomico",name="nivel_socioeconomico")
+                  input.form-control(type='text',required='required',placeholder='Alergias',ng-model="vm.paciente.nivel_socioeconomico",name="nivel_socioeconomico",only-letters)
                   +message_("nivel_socioeconomico")
               .col-md-12.col-sm-12
                 +formvalid_("vivienda")
-                  input.form-control(type='text',required='required',placeholder='Vivienda',ng-model="vm.paciente.vivienda",name="vivienda")
+                  input.form-control(type='text',required='required',placeholder='Vivienda',ng-model="vm.paciente.vivienda",name="vivienda",only-letters)
                   +message_("vivienda")
               .col-md-12.col-sm-12
                 +formvalid_("grupo_etnico")
-                  input.form-control(type='text',required='required',placeholder='Grupo etnico',ng-model="vm.paciente.grupo_etnico",name="grupo_etnico")
+                  input.form-control(type='text',required='required',placeholder='Grupo etnico',ng-model="vm.paciente.grupo_etnico",name="grupo_etnico",only-letters)
                   +message_("grupo_etnico")
               .col-md-12.col-sm-12
                 +formvalid_("religion")
@@ -48,7 +48,7 @@ block content
                   +message_("religion")
               .col-md-12.col-sm-12
                 +formvalid_("discapacidades")
-                  input.form-control(type='text',required='required',placeholder='Discapacidades',ng-model="vm.paciente.discapacidad",name="discapacidad")
+                  input.form-control(type='text',required='required',placeholder='Discapacidades',ng-model="vm.paciente.discapacidad",name="discapacidad",only-letters)
                   +message_("discapacidades")
               .form-group
                 button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Crear paciente

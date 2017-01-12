@@ -14,16 +14,15 @@ function HomeController($scope,$location,$rootScope,constants, HomeServices,$mdD
               }
               else{
                 if(data.estatus == "INEXISTENTE"){
-                  $scope.showAlert("Los datos proporcionados nu son validos");
+                  $scope.showAlert("Los datos proporcionados no son validos");
                 }else{
                   if(data.estatus == "BAD_CREDENTIAL") {
-                    $scope.showAlert("Los datos proporcionados nu son validos");
+                    $scope.showAlert("Los datos proporcionados no son validos");
                   }
                 }
               }
         }).catch((error) => {
-            $scope.showAlert("Ocurrio un error consulte a su medico ");
-            console.log(error);
+            $scope.showAlert("Ocurrio un error consulte ");
         });
     }
     vm.modulos = angular.copy(constants.modulos);

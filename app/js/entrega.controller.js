@@ -1,4 +1,4 @@
-function EntregaController(SolicitudServices,$routeParams,InventarioServices,$mdDialog,constants,DoctorServices,$rootScope) {
+function EntregaController(SolicitudServices,$routeParams,InventarioServices,$mdDialog,constants,DoctorServices,$rootScope,$window) {
     var vm = this;
     vm.receta = {}
     vm.minDate = new Date();
@@ -32,6 +32,8 @@ function EntregaController(SolicitudServices,$routeParams,InventarioServices,$md
         vm.showAlert({
            title :"Entrega Recetta",
            text  : "Accion Exitosa :9"
+        }).then(function(){
+          $window.history.back();
         });
       }).catch((error) =>{
         vm.showAlert({
@@ -51,5 +53,5 @@ function EntregaController(SolicitudServices,$routeParams,InventarioServices,$md
      }
 }
 
-EntregaController.$inject = ["SolicitudServices","$routeParams","InventarioServices","$mdDialog","constants","DoctorServices","$rootScope"];
+EntregaController.$inject = ["SolicitudServices","$routeParams","InventarioServices","$mdDialog","constants","DoctorServices","$rootScope","$window"];
 angular.module("app.controllers").controller("EntregaController", EntregaController);

@@ -6,24 +6,26 @@
         <div class="div-trans text-center">
           <h3>Consultas</h3>
           <div class="col-md-12 col-sm-12">
-            <table class="table table-striped table-bordered table-hover ">
-              <thead>
-                <tr>
-                  <th> Paciente</th>
-                  <th> impresion</th>
-                  <th> descripcion</th>
-                  <th> Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="consulta in vm.consultas" style="color:black;">
-                  <td>{{consulta.paciente.nombre}}</td>
-                  <td>{{consulta.impresion}}</td>
-                  <td>{{consulta.descripcion}}</td>
-                  <td><a href="#/diagnostico/{{consulta.idSolicitud}}" class="btn btn-primary">Diagnostico</a></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover ">
+                <thead>
+                  <tr>
+                    <th> Paciente</th>
+                    <th> impresion</th>
+                    <th> descripcion</th>
+                    <th> Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="consulta in vm.consultas" style="color:black;">
+                    <td>{{consulta.paciente.nombre}}</td>
+                    <td>{{consulta.impresion}}</td>
+                    <td>{{consulta.descripcion}}</td>
+                    <td><a href="#/diagnostico/{{consulta.idSolicitud}}" class="btn btn-primary">Diagnostico</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

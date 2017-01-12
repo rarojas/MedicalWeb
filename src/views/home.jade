@@ -2,31 +2,27 @@
 //block content
 #inicio
   .container
-    .row
+    .row 
       .col-md-9.col-sm-12
-        h1.head-main Administración de la Salud
+        h1.head-main Administración de la Salud  
         span.head-sub-main En un Click
         //
           <div class="head-last">
           Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor
           </div>
-      // *************************************LOG IN**************************************
+      // *************************************LOG IN************************************** 
       .col-md-3.col-sm-12
         .div-trans.text-center(style="min-height: initial", ng-if="!logged")
           h3 LOG IN 
           form(name="form" novalidate, ng-submit="vm.login()")
-            .col-md-12.col-sm-12
-              .form-group
-                input.form-control(type='text', required='required', placeholder='User',ng-model="vm.usuario.username",name="user")
-            .col-md-12.col-sm-12
-              .form-group
-                input.form-control(type='password', required='required', placeholder='Password',ng-model="vm.usuario.password",name="password")
             .form-group
-              .col-md-12
-                .checkbox
-                  label
-                    input(type='checkbox',name="remember",ng-model="vm.usuario.remember")
-                    | Remember me
+                input.form-control(type='text', required='required', placeholder='User',ng-model="vm.usuario.username",name="user")
+            .form-group
+                input.form-control(type='password', required='required', placeholder='Password',ng-model="vm.usuario.password",name="password")
+            .checkbox
+                label
+                  input(type='checkbox',name="remember",ng-model="vm.usuario.remember")
+                  | Remember me
             .form-group
               button.btn.btn-success(type='submit') 
                 i.fa.fa-sign-in.fa-fw

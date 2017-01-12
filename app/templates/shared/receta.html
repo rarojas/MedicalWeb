@@ -22,14 +22,14 @@
                 </div>
                 <div ng-if="vm.farmacia" class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error': form['idMedicamento' + $index].$touched &amp;&amp; form['idMedicamento' + $index].$invalid }" class="form-group">
-                    <select required="required" ng-model="medicamento.idMedicamento" name="idMedicamento" ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.value" class="form-control">
-                      <option value="">Medicamento</option>
+                    <select ng-model="medicamento.idMedicamento" name="idMedicamento" ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.idMedicamento" class="form-control">
+                      <option value="">Otro o elige uno</option>
                     </select>
                   </div>
                 </div>
-                <div ng-if="!vm.farmacia" class="col-md-12 col-sm-12">
+                <div ng-if="!vm.farmacia || medicamento.idMedicamento == null" class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error': form['mMedicamento_' + $index].$touched &amp;&amp; form['mMedicamento_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" class="form-control"/>
+                    <input type="text" ng-model="medicamento.medicamento" name="mMedicamento_{{key}}" required="required" placeholder="Medicamento" only-letters="only-letters" class="form-control"/>
                     <div ng-messages="form['mMedicamento_' + $index].$error" ng-show="form['mMedicamento_' + $index].$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error': form['mDosis_' + $index].$touched &amp;&amp; form['mDosis_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.dosis" name="mDosis_{{key}}" required="required" placeholder="Dosis" class="form-control"/>
+                    <input type="text" ng-model="medicamento.dosis" name="mDosis_{{key}}" required="required" placeholder="Dosis" only-alpha="only-alpha" class="form-control"/>
                     <div ng-messages="form['mDosis_' + $index].$error" ng-show="form['mDosis_' + $index].$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                   <div ng-class="{ 'has-error': form['mToma_' + $index].$touched &amp;&amp; form['mToma_' + $index].$invalid }" class="form-group">
-                    <input type="text" ng-model="medicamento.toma" name="mToma_{{key}}" required="required" placeholder="Toma" class="form-control"/>
+                    <input type="text" ng-model="medicamento.toma" name="mToma_{{key}}" required="required" placeholder="Toma" only-alpha="only-alpha" class="form-control"/>
                     <div ng-messages="form['mToma_' + $index].$error" ng-show="form['mToma_' + $index].$touched" class="help-block">
                       <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                     </div>
@@ -81,7 +81,7 @@
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error': form.mComment.$touched &amp;&amp; form.mComment.$invalid }" class="form-group">
                 <label for="comment">Información Adicional</label>
-                <textarea required="required" name="mComment" ng-model="vm.receta.comentarios" rows="5" class="form-control"></textarea>
+                <textarea required="required" name="mComment" ng-model="vm.receta.comentarios" rows="5" only-alpha="only-alpha" class="form-control"></textarea>
                 <div ng-messages="form.mComment.$error" ng-show="form.mComment.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>

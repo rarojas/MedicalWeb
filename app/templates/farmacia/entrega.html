@@ -16,11 +16,11 @@
                 <div class="col-md-12 col-sm-12">
                   <label> Medicamento {{key + 1 }}</label>
                 </div>
-                <div ng-if="vm.farmacia" class="col-md-12 col-sm-12">
+                <div ng-if="vm.farmacia &amp;&amp; medicamento.idMedicamento != null" class="col-md-12 col-sm-12">
                   <label for="medicamento{{key}}">Medicamento:</label>
                   <label>{{ vm.getMedicamento(medicamento.idMedicamento) }}</label>
                 </div>
-                <div ng-if="!vm.farmacia" class="col-md-12 col-sm-12">
+                <div ng-if="!vm.farmacia || medicamento.idMedicamento == null" class="col-md-12 col-sm-12">
                   <label for="medicamento{{key}}">Medicamento:</label>
                   <label>{{medicamento.medicamento }}</label>
                 </div>

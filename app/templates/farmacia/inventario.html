@@ -8,39 +8,48 @@
           <button type="button" ng-click="vm.agregarMedicamento()" class="btn btn-success">Agregar Medicamento</button>
         </div>
         <div class="col-md-12 col-sm-12">
-          <table class="table table-striped table-bordered table-hover ">
-            <thead>
-              <tr>
-                <th> </th>
-                <th> Nombre</th>
-                <th> Activo</th>
-                <th> Descripcion</th>
-                <th> Cantidad</th>
-                <th> Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="medicamento in vm.medicamentos" style="color:black;">
-                <td></td>
-                <td>
-                  <input type="text" required="required" placeholder="Medicamento" ng-model="medicamento.nombre" name="nombre" class="form-control"/>
-                </td>
-                <td> 
-                  <input type="text" required="required" placeholder="Activo" ng-model="medicamento.activo" name="activo" class="form-control"/>
-                </td>
-                <td> 
-                  <input type="text" required="required" placeholder="Descripcion" ng-model="medicamento.descripcion" name="descripcion" class="form-control"/>
-                </td>
-                <td>
-                  <input type="number" required="required" placeholder="Cantidad" ng-model="medicamento.cantidad" name="cantidad" min="0" max="500" class="form-control"/>
-                </td>
-                <td> 
-                  <!--button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)", ng-show="!!medicamento.idMedicamento") Eliminar -->
-                  <button type="button" ng-click="vm.guardarMedicamento(medicamento)" class="btn btn-success">Guardar Cambios</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <form name="form" novalidate="novalidate" ng-submit="" class="css-form">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover ">
+                <thead>
+                  <tr>
+                    <th> Nombre    </th>
+                    <th> Activo    </th>
+                    <th> Descripcion</th>
+                    <th> Cantidad   </th>
+                    <th> Acciones   </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="(key,medicamento) in vm.medicamentos" style="color:black;">
+                    <td>
+                      <div ng-class="{ 'has-error': form['nombre_' + $index].$touched &amp;&amp; form['nombre_' + $index].$invalid }" class="form-group">
+                        <input type="text" required="required" placeholder="Medicamento" ng-model="medicamento.nombre" name="nombre_{{key}}" class="form-control"/>
+                      </div>
+                    </td>
+                    <td>
+                      <div ng-class="{ 'has-error': form['activo_' + $index].$touched &amp;&amp; form['activo_' + $index].$invalid }" class="form-group">
+                        <input type="text" required="required" placeholder="Activo" ng-model="medicamento.activo" name="activo_{{key}}" class="form-control"/>
+                      </div>
+                    </td>
+                    <td> 
+                      <div ng-class="{ 'has-error': form['descripcion_' + $index].$touched &amp;&amp; form['descripcion_' + $index].$invalid }" class="form-group">
+                        <input type="text" required="required" placeholder="Descripcion" ng-model="medicamento.descripcion" name="descripcion_{{key}}" class="form-control"/>
+                      </div>
+                    </td>
+                    <td>
+                      <div ng-class="{ 'has-error': form['cantidad_' + $index].$touched &amp;&amp; form['cantidad_' + $index].$invalid }" class="form-group">
+                        <input type="number" required="required" placeholder="Cantidad" ng-model="medicamento.cantidad" name="cantidad_{{key}}" min="0" max="500" class="form-control"/>
+                      </div>
+                    </td>
+                    <td> 
+                      <button type="button" ng-click="vm.guardarMedicamento(medicamento)" class="btn btn-success">Guardar Cambios</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
       </div>
     </div>

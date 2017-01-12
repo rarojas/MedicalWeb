@@ -8,11 +8,13 @@ function DoctorController(RegistroServices,$rootScope,$mdDialog,$location,$route
         .then((response) => {
           vm.showAlert({
              title :"Registro Exitoso",
-             text  :"Accion Exitosa :)"
-          })
+             text  :"Accion Exitosa"
+          }).then(function() {
+            window.history.back();
+          });
         }).catch((error) =>{
           vm.showAlert({
-             title :"Ocurrio un error :(",
+             title :"Ocurrio un error",
              text  : error.data.mensaje
           })
         });

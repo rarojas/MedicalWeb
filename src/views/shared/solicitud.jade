@@ -27,11 +27,11 @@ block content
                 .form-group
                   .form-group
                     label(for="comment") Descripción
-                    textarea(class="form-control",rows="5",name="descripcion",required="required",ng-model="vm.solicitud.descripcion")
+                    textarea(class="form-control",rows="5",name="descripcion",required="required",ng-model="vm.solicitud.descripcion",only-alpha)
               .col-md-12.col-sm-12
                 .form-group
                   label(for="comment") Impresión Diagnostica
-                  textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="vm.solicitud.impresion")
+                  textarea(class="form-control",rows="5",name="impresion",required="required",ng-model="vm.solicitud.impresion",only-alpha)
               .form-group
-                button.btn.btn-success(type='submit', ng-disabled="form.$invalid") Registrarse
+                button.btn.btn-success(type='submit', ng-disabled="form.$invalid") Crear Solicitud
         

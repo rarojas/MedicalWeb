@@ -29,9 +29,8 @@ h1, h2, h3, h4, h5, h6, h10 {
 
 h1 {
     margin-top:320px;
-
-
 }
+
 h2 {
     color:#27C00A;
 }
@@ -115,10 +114,39 @@ border-color: #05A250;
 ==================================================*/
 
 .head-main {
-   font-size: 70px !important;
-font-weight: 900!important;
-color:  #27C00A;
+   font-size: 70px  !important;
+   font-weight: 900 !important;
+   color:  #27C00A;
 }
+
+@media only screen and (max-width: 600px) {
+  
+   .head-main {
+      font-size:  30px  !important;
+      font-weight: 600 !important;
+    }
+
+    h1 {
+        margin-top:120px !important;
+    }
+
+    .div-trans {
+        min-height: 350px !important;
+        margin-top: 80px !important;
+    }
+
+    .head-last {
+      padding: 5px 20px 20px 20px !important;
+    }
+
+    .head-sub-main{
+      font-size: 20px !important;
+      font-weight: 600 !important;
+      padding: 5px 10px 10px 10px;
+    }
+
+}
+
 .head-sub-main {
     font-size:40px !important;
     font-weight:600!important;

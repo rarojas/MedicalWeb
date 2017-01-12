@@ -5,13 +5,17 @@ function PacienteController($rootScope,constants, PacienteServices,$mdDialog,$ro
     };
     vm.tipoSanguinioEnum = constants.tipoSanguinioEnum
     vm.sexoEnum =  constants.sexoEnum
+    vm.religionesEnum = constants.religionesEnum
 
     vm.crearPaciente = function(){
       PacienteServices.crearPaciente(vm.paciente).then(function(response){
         $mdDialog.show($mdDialog.alert()
           .title('Crear Paciente')
           .textContent('Accion Exitosa :)')
-          .ok('Entendido'));
+          .ok('Entendido'))
+          .then(function() {
+            window.history.back();
+          });
         }).catch(function(){
           $mdDialog.show($mdDialog.alert()
             .title('Error :(')

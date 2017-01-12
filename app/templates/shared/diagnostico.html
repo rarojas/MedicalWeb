@@ -15,18 +15,18 @@
               <div class="form-group">
                 <div class="form-group">
                   <label for="comment">Diagnostico</label>
-                  <textarea rows="5" name="diagnotico" required="required" ng-model="vm.diagnostico.diagnostico" class="form-control"></textarea>
+                  <textarea rows="5" name="diagnotico" required="required" ng-model="vm.diagnostico.diagnostico" only-alpha="only-alpha" class="form-control"></textarea>
                 </div>
               </div>
             </div>
             <div class="col-md-12 col-sm-12">
               <div class="form-group">
                 <label for="comment">Tratamiento</label>
-                <textarea rows="5" name="tratamiento" required="required" ng-model="vm.diagnostico.tratamiento" class="form-control"></textarea>
+                <textarea rows="5" name="tratamiento" required="required" ng-model="vm.diagnostico.tratamiento" only-alpha="only-alpha" class="form-control"></textarea>
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Receta Médica</button>
+              <button type="submit" class="btn btn-success">Crear  Diagnostico</button>
             </div>
           </form>
         </div>

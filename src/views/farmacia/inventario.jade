@@ -1,31 +1,37 @@
-#inicio
-  .container
-    .row
-      .col-md-12.col-sm-12.div-trans.text-center
-          h3 Medicamentos
-          .col-md-12.col-sm-12
-            button.btn.btn-success(type='button',ng-click="vm.agregarMedicamento()") Agregar Medicamento
-          .col-md-12.col-sm-12
-              table(class="table table-striped table-bordered table-hover ")
-                thead
-                  tr
-                    th 
-                    th  Nombre
-                    th  Activo
-                    th  Descripcion
-                    th  Cantidad
-                    th  Acciones
-                tbody
-                  tr(ng-repeat="medicamento in vm.medicamentos" style="color:black;")
-                    td
-                    td
-                      input.form-control(type='text', required='required', placeholder='Medicamento',ng-model="medicamento.nombre",name="nombre")
-                    td 
-                      input.form-control(type='text', required='required', placeholder='Activo',ng-model="medicamento.activo",name="activo")
-                    td 
-                      input.form-control(type='text', required='required', placeholder='Descripcion',ng-model="medicamento.descripcion",name="descripcion")
-                    td
-                      input.form-control(type='number', required='required', placeholder='Cantidad',ng-model="medicamento.cantidad",name="cantidad",min="0" max="500")
-                    td 
-                      //button.btn.btn-danger(type='button',ng-click="vm.borrarMedicamento(medicamento)", ng-show="!!medicamento.idMedicamento") Eliminar 
-                      button.btn.btn-success(type='button',ng-click="vm.guardarMedicamento(medicamento)") Guardar Cambios
+extends ../funcions.jade
+
+block content
+  #inicio
+    .container
+      .row
+        .col-md-12.col-sm-12.div-trans.text-center
+            h3 Medicamentos
+            .col-md-12.col-sm-12
+              button.btn.btn-success(type='button',ng-click="vm.agregarMedicamento()") Agregar Medicamento
+            .col-md-12.col-sm-12
+              form(name="form",class="css-form",novalidate, ng-submit="")
+                .table-responsive
+                  table(class="table table-striped table-bordered table-hover ")
+                    thead
+                      tr
+                        th  Nombre    
+                        th  Activo    
+                        th  Descripcion
+                        th  Cantidad   
+                        th  Acciones   
+                    tbody
+                      tr(ng-repeat="(key,medicamento) in vm.medicamentos" style="color:black;")
+                        td
+                          +formvalid("nombre_")
+                            input.form-control(type='text', required='required', placeholder='Medicamento',ng-model="medicamento.nombre",name="nombre_{{key}}")
+                        td
+                          +formvalid("activo_")
+                            input.form-control(type='text', required='required', placeholder='Activo',ng-model="medicamento.activo",name="activo_{{key}}")
+                        td 
+                          +formvalid("descripcion_")
+                            input.form-control(type='text',required='required', placeholder='Descripcion',ng-model="medicamento.descripcion",name="descripcion_{{key}}")
+                        td
+                          +formvalid("cantidad_")
+                            input.form-control(type='number', required='required', placeholder='Cantidad',ng-model="medicamento.cantidad",name="cantidad_{{key}}",min="0" max="500")
+                        td 
+                          button.btn.btn-success(type='button',ng-click="vm.guardarMedicamento(medicamento)") Guardar Cambios

@@ -1,4 +1,3 @@
-doctype html
 
 mixin message(name)
   .help-block(ng-messages="form['#{name}' + $index].$error",ng-show="form['#{name}' + $index].$touched")
@@ -15,10 +14,12 @@ mixin message_(name)
 mixin formvalid_(name)
   .form-group(ng-class="{ 'has-error':form.#{name}.$touched && form.#{name}.$invalid }")
     block
-
+    
+doctype html
 html(ng-app="medicalWeb")
   head
     meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible",content="IE=edge")
     meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
     meta(name="description" content="PT_2")
     meta(name="author" content="#{autor}")

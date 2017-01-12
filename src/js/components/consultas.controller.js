@@ -30,11 +30,13 @@ function DiagnosticoController($rootScope,constants, DoctorServices,$mdDialog,$r
       .then((response) => {
         vm.showAlert({
            title :"Registro Exitoso",
-           text  :"Diagnotico creado :)"
+           text  :"Diagnotico creado"
+        }).then(function() {
+          window.history.back();
         })
       }).catch((error) =>{
         vm.showAlert({
-           title :"Ocurrio un error :(",
+           title :"Ocurrio un error",
            text  : error.data.mensaje
         })
       });

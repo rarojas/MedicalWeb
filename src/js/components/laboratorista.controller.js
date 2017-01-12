@@ -9,6 +9,8 @@ function LaboratoristaController(RegistroServices,$rootScope,$mdDialog,$location
           vm.showAlert({
              title :"Registro Exitoso",
              text  :"Accion Exitosa :)"
+          }).then(function() {
+            window.history.back();
           })
         }).catch((error) =>{
           vm.showAlert({

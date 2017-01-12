@@ -25,7 +25,6 @@ var uniqueEmail = function($http,constants) {
         if(value) {
           if(toId) clearTimeout(toId);
           toId = setTimeout(function() {
-
             $http.get(constants.url + '/registro/valid/email?email=' + value , {  ignoreLoadingBar: true})
               .success(function(data) {
                 ctrl.$setValidity('uniqueEmail', data);
@@ -154,7 +153,63 @@ var curpRegex = function() {
     }
 };
 
+
+var onlyLetters  = function() {
+  return {
+    require: 'ngModel',
+    link: function (scope, element, attr, ngModelCtrl) {
+      function fromUser(text) {
+        var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+        if(transformedInput !== text) {
+            ngModelCtrl.$setViewValue(transformedInput);
+            ngModelCtrl.$render();
+        }
+        return transformedInput;
+      }
+      ngModelCtrl.$parsers.push(fromUser);
+    }
+  }
+};
+
+var onlyAlpha  = function() {
+  return {
+    require: 'ngModel',
+    link: function (scope, element, attr, ngModelCtrl) {
+      function fromUser(text) {
+        var transformedInput = text.replace(/[^A-Za-z0-9 ]/g, '');
+        if(transformedInput !== text) {
+            ngModelCtrl.$setViewValue(transformedInput);
+            ngModelCtrl.$render();
+        }
+        return transformedInput;
+      }
+      ngModelCtrl.$parsers.push(fromUser);
+    }
+  }
+};
+
+var onlyNumbers  = function() {
+  return {
+    require: 'ngModel',
+    link: function (scope, element, attr, ngModelCtrl) {
+      function fromUser(text) {
+        var transformedInput = text.replace(/[^0-9 ]/g, '');
+        if(transformedInput !== text) {
+            ngModelCtrl.$setViewValue(transformedInput);
+            ngModelCtrl.$render();
+        }
+        return transformedInput;
+      }
+      ngModelCtrl.$parsers.push(fromUser);
+    }
+  }
+};
+
+
 angular.module("app.directives")
+.directive("onlyLetters",onlyLetters)
+.directive("onlyAlpha",onlyAlpha)
+.directive("onlyNumbers",onlyNumbers)
 .directive("fileModel", fileModel)
 .directive("curp",curpRegex)
 .directive("uniqueEmail", uniqueEmail)

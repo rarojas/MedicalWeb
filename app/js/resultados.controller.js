@@ -34,7 +34,9 @@ function ResultadoPendienteController(DoctorServices,constants, LaboratorioServi
       LaboratorioServices.crearResultado(vm.resultado)
         .then(function(response) {
             ModalServices.showAlert({
-                title : "Analisis Creado", text : "Acción exitosa"
+                title : "Resultado Creado", text : "Acción exitosa"
+            }).then(function() {
+              window.history.back();
             });
         })
         .catch(function(error){

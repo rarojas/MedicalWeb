@@ -16,10 +16,10 @@ block content
                 .form-group
                   .form-group
                     label(for="comment") Diagnostico
-                    textarea(class="form-control",rows="5",name="diagnotico",required,ng-model="vm.diagnostico.diagnostico")
+                    textarea(class="form-control",rows="5",name="diagnotico",required,ng-model="vm.diagnostico.diagnostico",only-alpha)
               .col-md-12.col-sm-12
                 .form-group
                   label(for="comment") Tratamiento
-                  textarea(class="form-control",rows="5",name="tratamiento",required,ng-model="vm.diagnostico.tratamiento")
+                  textarea(class="form-control",rows="5",name="tratamiento",required,ng-model="vm.diagnostico.tratamiento",only-alpha)
               .form-group
-                button.btn.btn-success(type='submit') Receta Médica
+                button.btn.btn-success(type='submit') Crear  Diagnostico

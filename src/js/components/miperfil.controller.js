@@ -26,4 +26,4 @@ function CambiarPasswordController(AuthServices){
 }
 
 MiPerfilController.$inject = ["AuthServices"];
-angular.module("app.controllers").controller("MiPerfilController", MiPerfilController);
+angular.module("app.controllers").controller("CambiarPasswordController", CambiarPasswordController);

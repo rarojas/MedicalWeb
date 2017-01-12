@@ -21,19 +21,19 @@ block content
                       button.btn.btn-danger.pull-right(type='button',ng-click="vm.removeMedicamento(medicamento)") x                      
                   .col-md-12.col-sm-12(ng-if="vm.farmacia")
                     +formvalid("idMedicamento")
-                      select.form-control(required='required',ng-model="medicamento.idMedicamento",name="idMedicamento",ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.value")
-                        option(value="") Medicamento
-                  .col-md-12.col-sm-12(ng-if="!vm.farmacia")
+                      select.form-control(ng-model="medicamento.idMedicamento",name="idMedicamento",ng-options="tipo.idMedicamento as (tipo.nombre + '  ('+ tipo.cantidad +')') for tipo in vm.medicamentos track by tipo.idMedicamento")
+                        option(value="") Otro o elige uno
+                  .col-md-12.col-sm-12(ng-if="!vm.farmacia || medicamento.idMedicamento == null")
                     +formvalid("mMedicamento_")
-                      input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento')
+                      input.form-control(type='text',ng-model="medicamento.medicamento",name="mMedicamento_{{key}}",required='required',placeholder='Medicamento',only-letters)
                       +message("mMedicamento_")
                   .col-md-12.col-sm-12
                     +formvalid("mDosis_")
-                      input.form-control(type='text',ng-model="medicamento.dosis",name="mDosis_{{key}}",required='required',placeholder='Dosis')
+                      input.form-control(type='text',ng-model="medicamento.dosis",name="mDosis_{{key}}",required='required',placeholder='Dosis',only-alpha)
                       +message("mDosis_")
                   .col-md-12.col-sm-12
                     +formvalid("mToma_")
-                      input.form-control(type='text',ng-model="medicamento.toma",name="mToma_{{key}}",required='required',placeholder='Toma')
+                      input.form-control(type='text',ng-model="medicamento.toma",name="mToma_{{key}}",required='required',placeholder='Toma',only-alpha)
                       +message("mToma_")
                   .col-md-12.col-sm-12
                     +formvalid("mAdministracion_")
@@ -52,7 +52,7 @@ block content
               .col-md-12.col-sm-12
                 .form-group(ng-class="{ 'has-error': form.mComment.$touched && form.mComment.$invalid }")
                     label(for="comment") Información Adicional
-                    textarea(class="form-control",required='required',name="mComment",ng-model="vm.receta.comentarios",rows="5")
+                    textarea(class="form-control",required='required',name="mComment",ng-model="vm.receta.comentarios",rows="5",only-alpha)
                     .help-block(ng-messages="form.mComment.$error",ng-show="form.mComment.$touched")
                       .div(ng-messages-include="/templates/shared/messages.html")
               .form-group
