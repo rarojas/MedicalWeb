@@ -10,15 +10,15 @@ block content
             form(name="form",novalidate, class="form",ng-submit="vm.submit()")
               .col-md-12.col-sm-12
                 +formvalid_("name")
-                  input.form-control(type='text', required='required', placeholder='Nombre', ng-model="vm.registro.nombre",name="name")
+                  input.form-control(type='text', required='required', placeholder='Nombre', ng-model="vm.registro.nombre",name="name",only-letters)
                   +message_("name")
               .col-md-12.col-sm-12
                 +formvalid_("apPaterno")
-                  input.form-control(type='text', required='required', placeholder='Apellido Paterno', ng-model="vm.registro.apPaterno",name="apPaterno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Paterno', ng-model="vm.registro.apPaterno",name="apPaterno",only-letters)
                   +message_("apPaterno")
               .col-md-12.col-sm-12
                 +formvalid_("apMaterno")
-                  input.form-control(type='text', required='required', placeholder='Apellido Materno', ng-model="vm.registro.apMaterno",name="apMaterno")
+                  input.form-control(type='text', required='required', placeholder='Apellido Materno', ng-model="vm.registro.apMaterno",name="apMaterno",only-letters)
                   +message_("apMaterno")
               .col-md-12.col-sm-12
                 +formvalid_("email")
@@ -26,11 +26,11 @@ block content
                   +message_("email")
               .col-md-12.col-sm-12
                 +formvalid_("cargo")
-                  input.form-control(type='text', required='required', placeholder='Cargo', ng-model="vm.registro.cargo",name="cargo")
+                  input.form-control(type='text', required='required', placeholder='Cargo', ng-model="vm.registro.cargo",name="cargo",only-letters)
                   +message_("cargo")
               .col-md-12.col-sm-12
                 +formvalid_("cedula_profesional")
-                  input.form-control(type='text', required='required', placeholder='Cedula profesional',ng-model="vm.registro.cedula_profesional",name="cedula_profesional") 
+                  input.form-control(type='text', required='required', placeholder='Cedula profesional',ng-model="vm.registro.cedula_profesional",name="cedula_profesional",only-alpha)
                   +message_("cedula_profesional")
               .col-md-12.col-sm-12
                 +formvalid_("fechaNacimiento")

@@ -5,20 +5,21 @@ block content
     .container
       .row
         .col-md-12.col-sm-12
-          .div-trans.text-center
+          .div-trans.text-center.row
             h3 Historial Clinico
             paciente-label(paciente="vm.paciente")
             .col-md-12.col-sm-12
+              .table-responsive
                 table(class="table table-striped table-bordered table-hover ")
                   thead
                     tr
                       th Tipo
                       th Impresion
                       th Estatus
-                      th Descripcion
+                      th Atendio
                   tbody
                     tr(ng-repeat="registro in vm.historial" style="color:black;")
                       td {{registro.tipo_solicitud}}
                       td {{registro.impresion}}
                       td {{registro.estatus}}
-                      td {{registro.descripcion}}
+                      td {{vm.getNombreAtendio(registro.atendio)}}

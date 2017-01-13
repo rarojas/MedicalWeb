@@ -1,10 +1,12 @@
-function DoctorServices ($http,constants){
-  this.getDoctoresByEntidad = function(idEntidad){
+function DoctorServices ($http,constants) {
+
+  this.getDoctoresByEntidad = function() {
     return $http({
         method: 'GET',
-        url: constants.url + '/doctores' ,
+        url: constants.url + '/doctores'
       });
   }
+
   this.obtenerConsultas = function(idEntidad){
     return $http({
         method: 'GET',
@@ -47,6 +49,5 @@ function DoctorServices ($http,constants){
       });
   }
 }
-
 DoctorServices.$inject =  ["$http","constants"]
 angular.module("app.services").service('DoctorServices', DoctorServices);

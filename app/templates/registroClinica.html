@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-12 col-sm-12">
               <div ng-class="{ 'has-error':form.rfc.$touched &amp;&amp; form.rfc.$invalid, 'has-success':form.rfc.$touched &amp;&amp; form.rfc.$valid }" class="form-group">
-                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" rfc="rfc" uib-tooltip="El rfc debe incluir homoclave" tooltip-trigger="'focus'" tooltip-placement="bottom" only-alpha="only-alpha" class="form-control"/>
+                <input type="text" ng-model="vm.registro.rfc" name="rfc" required="required" placeholder="RFC" rfc="rfc" only-alpha="only-alpha" class="form-control"/>
                 <div ng-messages="form.rfc.$error" ng-show="form.rfc.$touched" class="help-block">
                   <div ng-messages-include="/templates/shared/messages.html" class="div"></div>
                 </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div flex="flex">
                   <h4>Fecha fin</h4>
-                  <md-datepicker ng-model="vm.registro.fechaFin" md-min-date="vm.minDate" md-max-date="vm.maxDate">                   </md-datepicker>
+                  <md-datepicker ng-model="vm.registro.fechaFin" md-min-date="vm.registro.fechaInicio" md-max-date="vm.maxDate"> </md-datepicker>
                 </div>
               </div>
             </md-content>

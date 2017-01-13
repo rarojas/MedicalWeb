@@ -4,25 +4,27 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 div-trans text-center">
         <h3>Pacientes</h3>
-        <div class="col-md-12 col-sm-12">
-          <table class="table table-striped table-bordered table-hover ">
-            <thead>
-              <tr>
-                <th> Nombre</th>
-                <th> Curp </th>
-                <th> Sangre</th>
-                <th> Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="paciente in vm.pacientes" style="color:black;">
-                <td>{{paciente.nombre}}</td>
-                <td>{{paciente.curp}}</td>
-                <td>{{paciente.tipo_sanguinio}}</td>
-                <td> <a href="#/solicitud/{{paciente.idPaciente}}" class="btn btn-primary">Servicio</a><a href="#/historial/{{paciente.idPaciente}}" class="btn btn-primary">Historial</a></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-md-12 col-sm-12 row">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover ">
+              <thead>
+                <tr>
+                  <th> Nombre</th>
+                  <th> Curp</th>
+                  <th> Sangre</th>
+                  <th> Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="paciente in vm.pacientes" style="color:black;">
+                  <td>{{paciente.nombre}}</td>
+                  <td>{{paciente.curp}}</td>
+                  <td>{{paciente.tipo_sanguinio}}</td>
+                  <td><a href="#/solicitud/{{paciente.idPaciente}}" class="btn btn-primary">Servicio</a><a href="#/historial/{{paciente.idPaciente}}" class="btn btn-primary">Historial</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

@@ -10,17 +10,17 @@ block content
             h3 Diagnoticos
             .col-md-12.col-sm-12
                 .table-responsive
-                table(class="table table-striped table-bordered table-hover ")
-                  thead
-                    tr
-                      th  Paciente
-                      th  tratamiento
-                      th  diagnotico
-                      th  Acciones
-                  tbody
-                    tr(ng-repeat="diagnostico in vm.diagnosticos" style="color:black;")
-                      td {{diagnostico.paciente.nombre}}
-                      td {{diagnostico.tratamiento}}
-                      td {{diagnostico.diagnostico}}
-                      td
-                        a.btn.btn-primary(href="#/receta/{{diagnostico.idDiagnostico}}") Receta
+                  table(class="table table-striped table-bordered table-hover ")
+                    thead
+                      tr
+                        th  Paciente
+                        th  tratamiento
+                        th  diagnotico
+                        th  Acciones
+                    tbody
+                      tr(ng-repeat="diagnostico in vm.diagnosticos" style="color:black;")
+                        td {{diagnostico.paciente.nombre}}
+                        td {{diagnostico.tratamiento}}
+                        td {{diagnostico.diagnostico}}
+                        td
+                          a.btn.btn-primary(href="#/receta/{{diagnostico.idDiagnostico}}") Receta

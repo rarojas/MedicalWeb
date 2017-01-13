@@ -1,3 +1,4 @@
+// my-template.jade
 extends ../funcions
 
 block content
@@ -6,13 +7,13 @@ block content
       .row
         .col-md-12.col-sm-12
           .div-trans.text-center
-            h3 Doctores
+            h3 Laboratoristas
             .col-md-12.col-sm-12
               .row
                 .col-md-offset-3.col-md-6.col-sm-12
-                    a.btn.btn-primary(href="#/registroDoctor") 
+                    a.btn.btn-primary(href="#/registroLaboratorista") 
                       i.fa.fa-user-md 
-                      |  Agregar Doctores
+                      |  Agregar Laboratorista
               .row
                 .col-md-12.col-sm-12
                   .table-responsive
@@ -20,12 +21,8 @@ block content
                       thead
                         tr
                           th  Nombre
-                          th  Especialidad
-                          th  Subespecialidad
                           th  Cedula
                       tbody
-                        tr(ng-repeat="doctor in vm.doctores" style="color:black;")
-                          td {{doctor.nombre}}
-                          td {{doctor.especialidad}}
-                          td {{doctor.sub_especialidad}}
-                          td {{doctor.cedula_profesional}}
+                        tr(ng-repeat="lab in vm.laboratoristas" style="color:black;")
+                          td {{lab.nombre}}
+                          td {{lab.cedula_profesional}}

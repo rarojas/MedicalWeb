@@ -28,8 +28,15 @@ function RegistroClinicaController($scope,constants,$filter,RegistroServices,$ro
     }
 
     vm.minDate = new Date()
+    vm.minDateFin = function() {
+      var minDate = new Date(vm.registro.fechaInicio);
+      minDate.setMonth(minDate.getMonth() + 1);
+      return minDate;
+    }
+
     vm.maxDate = new Date()
     vm.maxDate.setFullYear(vm.minDate.getFullYear() + 1)
+    vm.registro.fechaFin = new Date(vm.minDateFin());
 
     vm.sendRegistro =  function() {
       vm.registro.modulos = vm.selectedModules();

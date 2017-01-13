@@ -1,14 +1,14 @@
-function DoctoresController(DoctorServices,$routeParams) {
+function DoctoresController(DoctorServices) {
     var vm = this;
     vm.doctores = []
-
-    DoctorServices.getDoctoresByEntidad($routeParams.idEntidad)
-    .then(function(response){
-      vm.doctores = response.data
-    })
+    console.log(DoctorServices);
+    DoctorServices.getDoctoresByEntidad()
+      .then(function(response) {
+        vm.doctores = response.data
+      });
 }
 
-DoctoresController.$inject = ["DoctorServices","$routeParams"];
+DoctoresController.$inject = ["DoctorServices"];
 angular.module("app.controllers").controller("DoctoresController", DoctoresController);
 
 function EnfermerosController(DoctorServices) {

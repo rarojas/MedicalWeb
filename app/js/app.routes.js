@@ -71,6 +71,10 @@ angular.module("app.routes",["ngRoute"])
       templateUrl: '/templates/pacientes/enfermeros.html', title :"Enfermeros"
     , controller : "EnfermerosController", controllerAs:"vm"
   })
+  .when("/laboratoristas", {
+      templateUrl: '/templates/laboratorio/laboratoristas.html', title :"Laboratoristas"
+    , controller : "LaboratoristasController", controllerAs:"vm"
+  })
   .when("/registroEnfermero", {
       templateUrl: '/templates/shared/enfermero.html', title :"Enfermero"
     , controller : "EnfermeroController", controllerAs:"vm"

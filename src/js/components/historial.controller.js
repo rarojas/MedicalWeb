@@ -11,9 +11,15 @@ function HistorialController($routeParams, PacienteServices) {
       .then(function(response) {
         vm.historial = response.data;
       });
+
+    vm.getNombreAtendio = function(atendio){
+      var nombre = "--";
+      if(atendio) { 
+        nombre = atendio.nombre + " " + atendio.apPaterno;
+      }
+      return nombre;
+    };
 }
 
-
 HistorialController.$inject = ["$routeParams","PacienteServices"];
-
 angular.module("app.controllers").controller("HistorialController", HistorialController);

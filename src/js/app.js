@@ -3,6 +3,15 @@ angular.module("app.controllers",["ngMessages"]);
 angular.module("app.services",[]);
 angular.module("app.directives",[]);
 
+
+config.$inject = ["$locationProvider"]
+function config($locationProvider){
+  $locationProvider.html5Mode({ enabled: false,requireBase: false});
+  $locationProvider.hashPrefix("");
+}
+
+
+
 angular.module("medicalWeb",[
 ,"app.controllers",'app.constants',"app.routes","app.services","app.directives","ngMaterial"
 ,"angular-loading-bar",'ui.bootstrap'
@@ -14,13 +23,9 @@ angular.module("medicalWeb",[
     $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
   }
 ])
+.config(config)
 .run(run);
 
-
-config.$inject = ["$locationProvider"]
-function config($locationProvider){
-  $locationProvider.html5Mode({ enabled: true,requireBase: false});
-}
 
 
 run.$inject = ['$rootScope', '$location', '$http',"$window"];

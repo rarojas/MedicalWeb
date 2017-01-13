@@ -30,7 +30,7 @@ block content
                   +message_("telefono")
               .col-md-12.col-sm-12
                 +formvalid_("rfc")
-                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc,uib-tooltip="El rfc debe incluir homoclave",tooltip-trigger="'focus'",tooltip-placement="bottom",only-alpha)
+                  input.form-control(type='text',ng-model="vm.registro.rfc",name="rfc", required='required', placeholder='RFC',rfc,only-alpha)
                   +message_("rfc")
               .col-md-12.col-sm-12
                 .form-group
@@ -60,7 +60,6 @@ block content
                     md-datepicker(ng-model="vm.registro.fechaInicio" name="dateField" md-min-date="vm.minDate" md-max-date="vm.registro.fechaFin")
                   div(flex)
                     h4 Fecha fin
-                    md-datepicker(ng-model="vm.registro.fechaFin" md-min-date="vm.minDate" md-max-date="vm.maxDate")                    
-              
+                    md-datepicker(ng-model="vm.registro.fechaFin" md-min-date="vm.registro.fechaInicio" md-max-date="vm.maxDate") 
               .form-group
                 button.btn.btn-success(type='submit',ng-disabled="form.$invalid") Registrar Entidad

@@ -7,6 +7,13 @@ function LaboratorioServices ($http,constants){
     });
   }
 
+  this.getLaboratoristasByEntidad =  function() {
+    return $http({
+        method: 'GET',
+        url: constants.url +  '/laboratorio/laboratoristas'
+    });
+  }
+
   this.resultadosPendiente = function(){
       return $http({
           method: 'GET',
